@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>类目指引 · 男装商家运营服务站</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.category-page{
+  max-width:1180px;
+  margin:50px auto;
+  padding:0 20px;
+}
+
+.back{
+  display:inline-block;
+  margin-bottom:30px;
+  color:#777;
+  text-decoration:none;
+  font-size:13px;
+}
+
+.category-hero{
+  background:#111;
+  color:#fff;
+  border-radius:26px;
+  padding:45px;
+  margin-bottom:30px;
+}
+
+.category-hero span{
+  color:#f26a21;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.category-hero h1{
+  font-size:38px;
+  margin:12px 0;
+}
+
+.category-hero p{
+  color:#aaa;
+}
+
+.category-filter{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:20px;
+  padding:25px;
+  margin-bottom:25px;
+}
+
+.category-filter h3{
+  margin-top:0;
+}
+
+.category-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.category-buttons button{
+  border:1px solid #ddd;
+  background:#fff;
+  padding:10px 18px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.category-buttons button:hover,
+.category-buttons button.active{
+  background:#f26a21;
+  color:#fff;
+  border-color:#f26a21;
+}
+
+.category-result{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.category-result .result-card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:18px;
+  padding:22px;
+}
+
+.result-card span{
+  font-size:25px;
+}
+
+.result-card h3{
+  margin:12px 0 8px;
+}
+
+.result-card p{
+  color:#888;
+  font-size:13px;
+  line-height:1.7;
+}
+
+@media(max-width:800px){
+
+  .category-page{
+    margin:30px auto;
+  }
+
+  .category-hero{
+    padding:30px;
+  }
+
+  .category-hero h1{
+    font-size:30px;
+  }
+
+  .category-result{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header class="top">
+
+  <a href="index.html" class="brand">
+
+    <span class="logo">M</span>
+
+    <div>
+      <b>男装商家运营服务站</b>
+      <small>Men's Fashion · Merchant Service Station</small>
+    </div>
+
+  </a>
+
+</header>
+
+
+<main class="category-page">
+
+<a href="index.html" class="back">
+← 返回首页
+</a>
+
+
+<section class="category-hero">
+
+<span>01 · CATEGORY GUIDE</span>
+
+<h1>男装类目指引</h1>
+
+<p>
+选择你正在开发的商品类型，快速查看对应的开发方向。
+</p>
+
+</section>
+
+
+<section class="category-filter">
+
+<h3>选择商品大类</h3>
+
+<div class="category-buttons">
+
+<button class="active" onclick="showCategory('all',this)">
+全部
+</button>
+
+<button onclick="showCategory('top',this)">
+上装
+</button>
+
+<button onclick="showCategory('bottom',this)">
+下装
+</button>
+
+<button onclick="showCategory('set',this)">
+套装
+</button>
+
+</div>
+
+</section>
+
+
+<section class="category-result" id="categoryResult">
+
+<div class="result-card" data-type="top">
+
+<span>👕</span>
+
+<h3>T恤</h3>
+
+<p>
+适合春夏及过渡季开发。
+<br>
+方向：宽松、Oversized、大码友好。
+<br>
+重点关注面料成分、克重与印花。
+</p>
+
+</div>
+
+
+<div class="result-card" data-type="top">
+
+<span>👔</span>
+
+<h3>POLO</h3>
+
+<p>
+偏休闲、轻商务与日常场景。
+<br>
+方向：宽松、撞色、基础色。
+<br>
+关注领型、面料质感与版型。
+</p>
+
+</div>
+
+
+<div class="result-card" data-type="top">
+
+<span>👔</span>
+
+<h3>衬衫</h3>
+
+<p>
+适合休闲、度假及轻商务场景。
+<br>
+方向：宽松、短袖、纹理面料。
+<br>
+关注面料垂感与颜色组合。
+</p>
+
+</div>
+
+
+<div class="result-card" data-type="top">
+
+<span>🧥</span>
+
+<h3>夹克 / 外套</h3>
+
+<p>
+适合秋冬及换季开发。
+<br>
+方向：宽松、机能、街头。
+<br>
+关注面料厚度、结构与细节。
+</p>
+
+</div>
+
+
+<div class="result-card" data-type="bottom">
+
+<span>👖</span>
+
+<h3>休闲裤</h3>
+
+<p>
+男装基础核心品类。
+<br>
+方向：宽松、直筒、阔腿。
+<br>
+关注垂感、舒适度与克重。
+</p>
+
+</div>
+
+
+<div class="result-card" data-type="bottom">
+
+<span>🩳</span>
+
+<h3>短裤</h3>
+
+<p>
+春夏重点品类。
+<br>
+方向：宽松、运动、休闲。
+<br>
+关注轻量面料与活动舒适度。
+</p>
+
+</div>
+
+
+<div class="result-card" data-type="set">
+
+<span>👕</span>
+
+<h3>休闲套装</h3>
+
+<p>
+适合强调整体搭配感的商品。
+<br>
+方向：上衣+裤装组合。
+<br>
+关注上下装面料一致性与颜色搭配。
+</p>
+
+</div>
+
+
+<div class="result-card" data-type="set">
+
+<span>🏃</span>
+
+<h3>运动套装</h3>
+
+<p>
+强调运动、休闲与舒适场景。
+<br>
+方向：撞色、运动线条、宽松版型。
+<br>
+关注面料弹性、透气性与克重。
+</p>
+
+</div>
+
+
+</section>
+
+</main>
+
+
+<footer>
+
+<strong>男装商家运营服务站</strong>
+<br>
+选款 · 企划 · 视觉 · 上新
+
+</footer>
+
+
+<script>
+
+function showCategory(type,button){
+
+  document
+    .querySelectorAll(".category-buttons button")
+    .forEach(btn=>{
+      btn.classList.remove("active");
+    });
+
+  button.classList.add("active");
+
+  document
+    .querySelectorAll(".result-card")
+    .forEach(card=>{
+
+      if(type==="all"){
+        card.style.display="block";
+      }
+
+      else if(card.dataset.type===type){
+        card.style.display="block";
+      }
+
+      else{
+        card.style.display="none";
+      }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
