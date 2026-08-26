@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>男装商家运营服务站</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">M</span><div><b>男装商家运营服务站</b><small>Men's Fashion · Merchant Service Station</small></div></div>
+  <button id="menu">☰</button>
+</header>
+
+<main>
+<section class="hero">
+  <div><p class="eyebrow">MERCHANT SERVICE STATION</p><h1>让选款、视觉、标题、企划<br>更快找到方向</h1><p>面向男装商家的运营资料与工具中心</p></div>
+  <div class="hero-badge">2026<br><strong>运营资料库</strong></div>
+</section>
+
+<nav class="quick" id="quick"></nav>
+
+<section class="section" id="category">
+  <div class="section-title"><div><span>01</span><h2>📋 类目指引</h2><p>快速查看男装类目、开发方向与建议</p></div></div>
+  <div class="grid" id="categoryGrid"></div>
+</section>
+
+<section class="section" id="visual">
+  <div class="section-title"><div><span>02</span><h2>🖼️ 视觉优化</h2><p>市场视觉需求 · AI图片提示词</p></div></div>
+  <div class="feature-grid">
+    <article class="feature"><div class="icon">🎨</div><h3>市场视觉需求</h3><p>查看主图、构图、配色、场景等视觉方向。</p><button class="btn" onclick="openTip('把你的PDF放到 assets/pdf/visual-demand.pdf，然后把这里的按钮改成链接即可。')">查看资料</button></article>
+    <article class="feature"><div class="icon">✨</div><h3>AI指令快速生成</h3><p>根据品类、背景、模特、构图和风格组合提示词。</p><button class="btn primary" onclick="aiPrompt()">生成提示词</button></article>
+  </div>
+</section>
+
+<section class="section" id="title">
+  <div class="section-title"><div><span>03</span><h2>📝 标题优化</h2><p>选择维度 → 自动组合中英文标题</p></div></div>
+  <div class="tool">
+    <select id="cat"><option>Casual Shirt / 休闲衬衫</option><option>Jacket / 外套夹克</option><option>T-shirt / T恤</option><option>Polo / POLO</option><option>Pants / 裤装</option><option>Set / 套装</option></select>
+    <select id="pattern"><option>Solid / 纯色</option><option>Color Block / 撞色</option><option>Graphic / 印花</option><option>Striped / 条纹</option></select>
+    <select id="fit"><option>Regular Fit / 常规版型</option><option>Relaxed Fit / 宽松版型</option><option>Oversized / Oversized</option></select>
+    <select id="scene"><option>Casual / 日常休闲</option><option>Streetwear / 街头</option><option>Outdoor / 户外</option><option>Holiday / 度假</option></select>
+    <button class="btn primary" onclick="makeTitle()">生成标题</button>
+    <div class="result" id="titleResult">选择条件后点击生成</div>
+  </div>
+</section>
+
+<section class="section" id="market">
+  <div class="section-title"><div><span>04</span><h2>🔥 市场需求</h2><p>相似品 / 相同品 / 高需求款式参考</p></div></div>
+  <div class="notice">📌 有类似款时，建议同步：<b>款式编号 + 商品SPU</b><br>⚠️ 图片仅作款式研究参考，不建议直接复制或侵权使用。</div>
+</section>
+
+<section class="section" id="planning">
+  <div class="section-title"><div><span>05</span><h2>📚 企划需求</h2><p>男装款式、面料、图案与开发方向</p></div></div>
+  <div class="cards"><div>👕<b>版型开发</b><small>宽松 / 常规 / 大码友好</small></div><div>🧵<b>面料方向</b><small>成分 / 克重 / 季节适配</small></div><div>🎨<b>图案展示</b><small>高辨识度配色 / 撞色 / 印花</small></div></div>
+</section>
+
+<section class="section" id="hot">
+  <div class="section-title"><div><span>06</span><h2>🔥 热销参考</h2><p>Top100新品、热销结构与趋势观察</p></div></div>
+  <div class="data-grid"><div><strong>TOP 100</strong><span>新品参考</span></div><div><strong>面料</strong><span>成分趋势</span></div><div><strong>克重</strong><span>开发建议</span></div><div><strong>套装</strong><span>结构观察</span></div></div>
+</section>
+
+<section class="section" id="news">
+  <div class="section-title"><div><span>07</span><h2>📢 近期资讯</h2><p>国家站点热搜词 · 运营通知</p></div></div>
+  <div class="news"><div><b>📣 近期通知</b><p>把最新通知写进 assets/news.txt，即可替换这里的内容。</p></div><div><b>🔍 热搜词</b><p>把各站点热搜词整理成表格后，可继续升级为搜索与筛选工具。</p></div></div>
+</section>
+</main>
+
+<footer>男装商家运营服务站 · 资料仅供运营参考</footer>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body></html>
