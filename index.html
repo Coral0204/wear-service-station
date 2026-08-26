@@ -3,70 +3,519 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>选款 · 视觉 · 标题 · 面料 · 市场趋势</title>
+<title>男装商家运营服务站</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <header class="top">
-  <div class="brand"><span class="logo">M</span><div><b>选款 · 视觉 · 标题 · 面料 · 市场趋势</b><small>Men's Fashion · Merchant Service Station</small></div></div>
+  <a href="#" class="brand">
+    <span class="logo">M</span>
+    <div>
+      <b>男装商家运营服务站</b>
+      <small>Men's Fashion · Merchant Service Station</small>
+    </div>
+  </a>
+
+  <nav class="nav">
+    <a href="#choose">选什么</a>
+    <a href="#planning">怎么开发</a>
+    <a href="#title">怎么上新</a>
+    <a href="#library">资料库</a>
+  </nav>
+
   <button id="menu">☰</button>
 </header>
 
+
 <main>
+
+<!-- HERO -->
 <section class="hero">
-  <div><p class="eyebrow">MERCHANT SERVICE STATION</p><h1>让选款、视觉、标题、企划<br>更快找到方向</h1><p>面向男装商家的运营资料与工具中心</p></div>
-  <div class="hero-badge">2026<br><strong>运营资料库</strong></div>
-</section>
 
-<nav class="quick" id="quick"></nav>
+  <div class="hero-content">
 
-<section class="section" id="category">
-  <div class="section-title"><div><span>01</span><h2>📋 类目指引</h2><p>快速查看男装类目、开发方向与建议</p></div></div>
-  <div class="grid" id="categoryGrid"></div>
-</section>
+    <div class="eyebrow">
+      MERCHANT SERVICE STATION · 2026
+    </div>
 
-<section class="section" id="visual">
-  <div class="section-title"><div><span>02</span><h2>🖼️ 视觉优化</h2><p>市场视觉需求 · AI图片提示词</p></div></div>
-  <div class="feature-grid">
-    <article class="feature"><div class="icon">🎨</div><h3>市场视觉需求</h3><p>查看主图、构图、配色、场景等视觉方向。</p><button class="btn" onclick="openTip('把你的PDF放到 assets/pdf/visual-demand.pdf，然后把这里的按钮改成链接即可。')">查看资料</button></article>
-    <article class="feature"><div class="icon">✨</div><h3>AI指令快速生成</h3><p>根据品类、背景、模特、构图和风格组合提示词。</p><button class="btn primary" onclick="aiPrompt()">生成提示词</button></article>
+    <h1>
+      男装商家运营服务站
+    </h1>
+
+    <p class="hero-subtitle">
+      从市场趋势到商品上新<br>
+      <strong>帮你更快找到开发方向</strong>
+    </p>
+
+    <div class="search-box">
+      <span>⌕</span>
+      <input
+        type="text"
+        id="siteSearch"
+        placeholder="搜索面料、版型、克重、图案、标题……"
+      >
+      <button onclick="siteSearch()">搜索</button>
+    </div>
+
+    <div class="hot-tags">
+      <span>热门：</span>
+      <a href="#market">市场需求</a>
+      <a href="#planning">面料趋势</a>
+      <a href="#hot">Top100</a>
+      <a href="#visual">视觉优化</a>
+    </div>
+
   </div>
-</section>
 
-<section class="section" id="title">
-  <div class="section-title"><div><span>03</span><h2>📝 标题优化</h2><p>选择维度 → 自动组合中英文标题</p></div></div>
-  <div class="tool">
-    <select id="cat"><option>Casual Shirt / 休闲衬衫</option><option>Jacket / 外套夹克</option><option>T-shirt / T恤</option><option>Polo / POLO</option><option>Pants / 裤装</option><option>Set / 套装</option></select>
-    <select id="pattern"><option>Solid / 纯色</option><option>Color Block / 撞色</option><option>Graphic / 印花</option><option>Striped / 条纹</option></select>
-    <select id="fit"><option>Regular Fit / 常规版型</option><option>Relaxed Fit / 宽松版型</option><option>Oversized / Oversized</option></select>
-    <select id="scene"><option>Casual / 日常休闲</option><option>Streetwear / 街头</option><option>Outdoor / 户外</option><option>Holiday / 度假</option></select>
-    <button class="btn primary" onclick="makeTitle()">生成标题</button>
-    <div class="result" id="titleResult">选择条件后点击生成</div>
+  <div class="hero-side">
+    <div class="hero-number">01</div>
+    <span>MERCHANT</span>
+    <strong>运营资料库</strong>
+    <small>选款 · 企划 · 视觉 · 上新</small>
   </div>
+
 </section>
 
-<section class="section" id="market">
-  <div class="section-title"><div><span>04</span><h2>🔥 市场需求</h2><p>相似品 / 相同品 / 高需求款式参考</p></div></div>
-  <div class="notice">📌 有类似款时，建议同步：<b>款式编号 + 商品SPU</b><br>⚠️ 图片仅作款式研究参考，不建议直接复制或侵权使用。</div>
+
+<!-- QUICK NAV -->
+<section class="quick">
+
+  <a href="#choose">
+    <span>01</span>
+    选什么
+  </a>
+
+  <a href="#planning">
+    <span>02</span>
+    怎么开发
+  </a>
+
+  <a href="#launch">
+    <span>03</span>
+    怎么上新
+  </a>
+
+  <a href="#library">
+    <span>04</span>
+    资料库
+  </a>
+
 </section>
 
+
+<!-- 01 选什么 -->
+<section class="section" id="choose">
+
+  <div class="section-title">
+    <div>
+      <span>01 · WHAT TO SELL</span>
+      <h2>选什么</h2>
+      <p>了解市场，找到值得开发的方向</p>
+    </div>
+  </div>
+
+  <div class="big-grid">
+
+    <a class="big-card" href="#category">
+      <div class="card-icon">📋</div>
+      <div>
+        <span>01</span>
+        <h3>类目指引</h3>
+        <p>快速查看男装类目、细分类目与开发方向。</p>
+      </div>
+      <b class="arrow">→</b>
+    </a>
+
+    <a class="big-card" href="#market">
+      <div class="card-icon">🔥</div>
+      <div>
+        <span>02</span>
+        <h3>市场需求</h3>
+        <p>查看当前市场需求、趋势变化与重点方向。</p>
+      </div>
+      <b class="arrow">→</b>
+    </a>
+
+    <a class="big-card" href="#hot">
+      <div class="card-icon">📈</div>
+      <div>
+        <span>03</span>
+        <h3>热销参考</h3>
+        <p>Top100新品、热销结构与市场趋势观察。</p>
+      </div>
+      <b class="arrow">→</b>
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- 02 怎么开发 -->
 <section class="section" id="planning">
-  <div class="section-title"><div><span>05</span><h2>📚 企划需求</h2><p>男装款式、面料、图案与开发方向</p></div></div>
-  <div class="cards"><div>👕<b>版型开发</b><small>宽松 / 常规 / 大码友好</small></div><div>🧵<b>面料方向</b><small>成分 / 克重 / 季节适配</small></div><div>🎨<b>图案展示</b><small>高辨识度配色 / 撞色 / 印花</small></div></div>
+
+  <div class="section-title">
+    <div>
+      <span>02 · HOW TO DEVELOP</span>
+      <h2>怎么开发</h2>
+      <p>从市场趋势到商品企划，明确开发方向</p>
+    </div>
+  </div>
+
+  <div class="development-grid">
+
+    <a class="dev-card featured" href="#planning-detail">
+      <span class="dev-icon">📚</span>
+      <div>
+        <small>PRODUCT PLANNING</small>
+        <h3>企划需求</h3>
+        <p>款式、面料、颜色、图案与开发方向。</p>
+      </div>
+      <b>→</b>
+    </a>
+
+    <a class="dev-card" href="#fabric">
+      <span class="dev-icon">🧵</span>
+      <small>FABRIC</small>
+      <h3>面料趋势</h3>
+      <p>成分趋势 · 季节适配</p>
+    </a>
+
+    <a class="dev-card" href="#weight">
+      <span class="dev-icon">⚖️</span>
+      <small>WEIGHT</small>
+      <h3>克重建议</h3>
+      <p>季节 · 面料 · 克重</p>
+    </a>
+
+    <a class="dev-card" href="#fit">
+      <span class="dev-icon">👕</span>
+      <small>FIT</small>
+      <h3>版型方向</h3>
+      <p>宽松 · 常规 · 大码友好</p>
+    </a>
+
+    <a class="dev-card" href="#pattern">
+      <span class="dev-icon">🎨</span>
+      <small>PATTERN</small>
+      <h3>图案方向</h3>
+      <p>撞色 · 印花 · 高辨识度</p>
+    </a>
+
+    <a class="dev-card" href="#set">
+      <span class="dev-icon">🩳</span>
+      <small>SET</small>
+      <h3>套装趋势</h3>
+      <p>套装结构 · 单件对比</p>
+    </a>
+
+  </div>
+
 </section>
 
+
+<!-- 03 怎么上新 -->
+<section class="section" id="launch">
+
+  <div class="section-title">
+    <div>
+      <span>03 · HOW TO LAUNCH</span>
+      <h2>怎么上新</h2>
+      <p>把商品真正做好、做好看、卖出去</p>
+    </div>
+  </div>
+
+  <div class="launch-grid">
+
+    <article class="launch-card" id="visual">
+
+      <div class="launch-top">
+        <span>01</span>
+        <div class="icon">🖼️</div>
+      </div>
+
+      <h3>视觉优化</h3>
+
+      <p>
+        主图、模特、场景、构图与AI生图方向。
+      </p>
+
+      <button class="btn" onclick="openTip('把你的PDF放到 assets/pdf/visual-demand.pdf，然后把这里的按钮改成链接即可。')">
+        查看视觉方向
+      </button>
+
+    </article>
+
+
+    <article class="launch-card" id="title">
+
+      <div class="launch-top">
+        <span>02</span>
+        <div class="icon">📝</div>
+      </div>
+
+      <h3>标题优化</h3>
+
+      <p>
+        根据品类、版型、风格与卖点快速组合标题。
+      </p>
+
+      <div class="tool">
+
+        <select id="cat">
+          <option>Casual Shirt / 休闲衬衫</option>
+          <option>Jacket / 外套夹克</option>
+          <option>T-shirt / T恤</option>
+          <option>Polo / POLO</option>
+          <option>Pants / 裤装</option>
+          <option>Set / 套装</option>
+        </select>
+
+        <select id="pattern">
+          <option>Solid / 纯色</option>
+          <option>Color Block / 撞色</option>
+          <option>Graphic / 印花</option>
+          <option>Striped / 条纹</option>
+        </select>
+
+        <select id="fit">
+          <option>Regular Fit / 常规版型</option>
+          <option>Relaxed Fit / 宽松版型</option>
+          <option>Oversized / Oversized</option>
+        </select>
+
+        <select id="scene">
+          <option>Casual / 日常休闲</option>
+          <option>Streetwear / 街头</option>
+          <option>Outdoor / 户外</option>
+          <option>Holiday / 度假</option>
+        </select>
+
+        <button class="btn primary" onclick="makeTitle()">
+          生成标题
+        </button>
+
+        <div class="result" id="titleResult">
+          选择条件后点击生成
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <article class="launch-card ai-card">
+
+      <div class="launch-top">
+        <span>03</span>
+        <div class="icon">✨</div>
+      </div>
+
+      <h3>AI工具</h3>
+
+      <p>
+        根据商品信息快速生成运营提示词与内容。
+      </p>
+
+      <button class="btn primary" onclick="aiPrompt()">
+        生成AI指令
+      </button>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- 04 资料库 -->
+<section class="section" id="library">
+
+  <div class="section-title">
+    <div>
+      <span>04 · KNOWLEDGE BASE</span>
+      <h2>资料库</h2>
+      <p>沉淀男装开发与运营资料</p>
+    </div>
+  </div>
+
+  <div class="library-grid">
+
+    <div class="library-card">
+      <span>🧵</span>
+      <h3>面料资料</h3>
+      <p>成分 · 特性 · 使用场景</p>
+    </div>
+
+    <div class="library-card">
+      <span>⚖️</span>
+      <h3>克重资料</h3>
+      <p>季节 · 克重 · 开发建议</p>
+    </div>
+
+    <div class="library-card">
+      <span>👕</span>
+      <h3>版型资料</h3>
+      <p>宽松 · 常规 · 大码</p>
+    </div>
+
+    <div class="library-card">
+      <span>🎨</span>
+      <h3>图案资料</h3>
+      <p>印花 · 撞色 · 图案趋势</p>
+    </div>
+
+    <div class="library-card">
+      <span>✂️</span>
+      <h3>工艺资料</h3>
+      <p>车缝 · 印花 · 细节工艺</p>
+    </div>
+
+    <div class="library-card">
+      <span>🔤</span>
+      <h3>标题关键词</h3>
+      <p>英文关键词 · 卖点表达</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- 市场需求 -->
+<section class="section" id="market">
+
+  <div class="section-title">
+    <div>
+      <span>MARKET INSIGHT</span>
+      <h2>市场需求</h2>
+      <p>相似品 / 相同品 / 高需求款式参考</p>
+    </div>
+  </div>
+
+  <div class="notice">
+    📌 有类似款时，建议同步：
+    <b>款式编号 + 商品SPU</b>
+    <br>
+    ⚠️ 图片仅作款式研究参考，不建议直接复制或侵权使用。
+  </div>
+
+</section>
+
+
+<!-- 热销 -->
 <section class="section" id="hot">
-  <div class="section-title"><div><span>06</span><h2>🔥 热销参考</h2><p>Top100新品、热销结构与趋势观察</p></div></div>
-  <div class="data-grid"><div><strong>TOP 100</strong><span>新品参考</span></div><div><strong>面料</strong><span>成分趋势</span></div><div><strong>克重</strong><span>开发建议</span></div><div><strong>套装</strong><span>结构观察</span></div></div>
+
+  <div class="section-title">
+    <div>
+      <span>TOP SELLING</span>
+      <h2>热销参考</h2>
+      <p>Top100新品、热销结构与趋势观察</p>
+    </div>
+  </div>
+
+  <div class="data-grid">
+
+    <div>
+      <strong>TOP 100</strong>
+      <span>新品参考</span>
+    </div>
+
+    <div>
+      <strong>面料</strong>
+      <span>成分趋势</span>
+    </div>
+
+    <div>
+      <strong>克重</strong>
+      <span>开发建议</span>
+    </div>
+
+    <div>
+      <strong>套装</strong>
+      <span>结构观察</span>
+    </div>
+
+  </div>
+
 </section>
 
+
+<!-- 近期资讯 -->
 <section class="section" id="news">
-  <div class="section-title"><div><span>07</span><h2>📢 近期资讯</h2><p>国家站点热搜词 · 运营通知</p></div></div>
-  <div class="news"><div><b>📣 近期通知</b><p>把最新通知写进 assets/news.txt，即可替换这里的内容。</p></div><div><b>🔍 热搜词</b><p>把各站点热搜词整理成表格后，可继续升级为搜索与筛选工具。</p></div></div>
+
+  <div class="section-title">
+    <div>
+      <span>07 · NEWS</span>
+      <h2>近期资讯</h2>
+      <p>国家站点热搜词 · 运营通知</p>
+    </div>
+  </div>
+
+  <div class="news">
+
+    <div>
+      <b>📣 近期通知</b>
+      <p>
+        把最新通知写进 assets/news.txt，即可替换这里的内容。
+      </p>
+    </div>
+
+    <div>
+      <b>🔍 热搜词</b>
+      <p>
+        把各站点热搜词整理成表格后，可继续升级为搜索与筛选工具。
+      </p>
+    </div>
+
+  </div>
+
 </section>
+
 </main>
 
-<footer>选款 · 视觉 · 标题 · 面料 · 市场趋势 · 资料仅供运营参考</footer>
+
+<footer>
+  <strong>男装商家运营服务站</strong>
+  <br>
+  选款 · 企划 · 视觉 · 上新
+  <br><br>
+  资料仅供运营参考
+</footer>
+
 <div class="toast" id="toast"></div>
+
 <script src="script.js"></script>
-</body></html>
+
+<script>
+function siteSearch(){
+  const input = document.getElementById("siteSearch");
+  const keyword = input.value.trim().toLowerCase();
+
+  if(!keyword){
+    input.focus();
+    return;
+  }
+
+  const sections = document.querySelectorAll(".section");
+
+  for(const section of sections){
+    if(section.innerText.toLowerCase().includes(keyword)){
+      section.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+      return;
+    }
+  }
+
+  if(typeof openTip === "function"){
+    openTip("暂时没有找到「" + input.value + "」相关内容，可以尝试搜索：面料、克重、版型、图案、标题等。");
+  }
+}
+</script>
+
+</body>
+</html>
