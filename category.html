@@ -5,22 +5,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>类目指引 · 男装商家运营服务站</title>
+<title>版型参考 · 男装商家运营服务站</title>
 
 <link rel="stylesheet" href="style.css">
 
 <style>
-
-/* 页面 */
 
 .category-page{
   max-width:1180px;
   margin:50px auto;
   padding:0 20px;
 }
-
-
-/* 返回 */
 
 .back{
   display:inline-block;
@@ -34,15 +29,12 @@
   color:#f26a21;
 }
 
-
-/* 顶部 */
-
 .category-hero{
   background:#111;
   color:#fff;
   border-radius:28px;
   padding:50px;
-  margin-bottom:28px;
+  margin-bottom:30px;
 }
 
 .category-hero span{
@@ -59,180 +51,55 @@
 .category-hero p{
   color:#aaa;
   margin:0;
-  line-height:1.7;
 }
 
+/* 图片网格 */
 
-/* 品类 */
-
-.category-filter{
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:20px;
-  padding:25px;
-  margin-bottom:25px;
+.reference-grid{
+  columns:3 280px;
+  column-gap:18px;
 }
 
-.category-filter h3{
-  margin:0 0 18px;
-}
-
-.category-buttons{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:12px;
-}
-
-.category-buttons button{
-  border:1px solid #ddd;
-  background:#fff;
-  padding:20px 10px;
-  border-radius:14px;
-  cursor:pointer;
-  transition:.2s;
-  font-size:14px;
-}
-
-.category-buttons button:hover{
-  transform:translateY(-2px);
-  border-color:#f26a21;
-}
-
-.category-buttons button.active{
-  background:#f26a21;
-  color:#fff;
-  border-color:#f26a21;
-}
-
-.category-buttons strong{
-  display:block;
-  font-size:17px;
-  margin-bottom:5px;
-}
-
-.category-buttons small{
-  font-size:10px;
-  opacity:.7;
-}
-
-
-/* 结果 */
-
-.category-result{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:16px;
-}
-
-.result-card{
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:20px;
-  padding:26px;
-  transition:.2s;
-}
-
-.result-card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 30px rgba(0,0,0,.06);
-}
-
-.result-top{
-  display:flex;
-  align-items:center;
-  gap:15px;
+.reference-card{
+  break-inside:avoid;
   margin-bottom:18px;
-}
-
-.result-icon{
-  width:48px;
-  height:48px;
-  border-radius:13px;
-  background:#f5f5f3;
-  display:grid;
-  place-items:center;
-  font-size:25px;
-}
-
-.result-top h2{
-  margin:0;
-  font-size:21px;
-}
-
-.result-top small{
-  color:#aaa;
-  font-size:10px;
-  letter-spacing:1px;
-}
-
-.info-list{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-.info{
-  background:#f7f7f5;
-  border-radius:11px;
-  padding:13px;
-}
-
-.info label{
-  display:block;
-  color:#999;
-  font-size:10px;
-  margin-bottom:5px;
-}
-
-.info strong{
-  font-size:12px;
-  line-height:1.5;
-}
-
-.development{
-  margin-top:15px;
-  padding:15px;
-  border-left:3px solid #f26a21;
-  background:#fff8f3;
-  border-radius:8px;
-}
-
-.development label{
-  display:block;
-  color:#f26a21;
-  font-size:10px;
-  margin-bottom:6px;
-}
-
-.development p{
-  margin:0;
-  font-size:12px;
-  line-height:1.7;
-  color:#666;
-}
-
-
-/* 底部提示 */
-
-.guide-note{
-  margin-top:25px;
-  background:#111;
-  color:#fff;
+  background:#fff;
   border-radius:18px;
-  padding:23px;
+  overflow:hidden;
+  border:1px solid #eee;
+  cursor:pointer;
+  transition:.25s;
 }
 
-.guide-note strong{
-  font-size:14px;
+.reference-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 35px rgba(0,0,0,.08);
 }
 
-.guide-note p{
+.reference-card img{
+  width:100%;
+  display:block;
+  transition:.3s;
+}
+
+.reference-card:hover img{
+  transform:scale(1.02);
+}
+
+.reference-info{
+  padding:15px 18px;
+}
+
+.reference-info h3{
+  margin:0 0 5px;
+  font-size:15px;
+}
+
+.reference-info p{
+  margin:0;
   color:#999;
   font-size:12px;
-  line-height:1.7;
-  margin-bottom:0;
 }
-
 
 /* 手机 */
 
@@ -247,32 +114,25 @@
   }
 
   .category-hero h1{
-    font-size:31px;
+    font-size:30px;
   }
 
-  .category-buttons{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .category-result{
-    grid-template-columns:1fr;
+  .reference-grid{
+    columns:2 160px;
   }
 
 }
 
 @media(max-width:500px){
 
-  .category-buttons{
-    grid-template-columns:1fr;
-  }
-
-  .info-list{
-    grid-template-columns:1fr;
+  .reference-grid{
+    columns:1;
   }
 
 }
 
 </style>
+
 </head>
 
 
@@ -303,176 +163,138 @@
 </a>
 
 
-<!-- 顶部 -->
-
 <section class="category-hero">
 
 <span>01 · CATEGORY GUIDE</span>
 
-<h1>类目指引</h1>
+<h1>版型参考</h1>
 
 <p>
-围绕核心经营品类，快速查看商品开发方向与运营重点。
+男装核心品类版型参考图库
 </p>
 
 </section>
 
 
-<!-- 品类选择 -->
+<!-- 图片区域 -->
 
-<section class="category-filter">
-
-<h3>选择你的经营品类</h3>
-
-<div class="category-buttons">
+<section class="reference-grid">
 
 
-<button class="active" onclick="showCategory('vest',this)">
+<!-- 示例 1 -->
 
-<strong>背心</strong>
-<small>VEST</small>
+<div class="reference-card">
 
-</button>
+<img
+src="https://images.unsplash.com/photo-1610652492500-ded49ceeb378?auto=format&fit=crop&w=800&q=80"
+alt="背心版型参考"
+>
 
+<div class="reference-info">
 
-<button onclick="showCategory('shirt',this)">
+<h3>背心 · 版型参考</h3>
 
-<strong>衬衫</strong>
-<small>SHIRT</small>
-
-</button>
-
-
-<button onclick="showCategory('set',this)">
-
-<strong>套装</strong>
-<small>SET</small>
-
-</button>
-
-
-<button onclick="showCategory('maternity',this)">
-
-<strong>孕妇装</strong>
-<small>MATERNITY</small>
-
-</button>
-
-
-<button onclick="showCategory('denim',this)">
-
-<strong>牛仔</strong>
-<small>DENIM</small>
-
-</button>
-
-
-</div>
-
-</section>
-
-
-<!-- 背心 -->
-
-<section class="category-result" id="vest">
-
-
-<div class="result-card">
-
-<div class="result-top">
-
-<div class="result-icon">🦺</div>
-
-<div>
-<small>VEST</small>
-<h2>背心</h2>
-</div>
-
-</div>
-
-
-<div class="info-list">
-
-<div class="info">
-<label>适用场景</label>
-<strong>日常 / 休闲 / 运动 / 度假</strong>
-</div>
-
-<div class="info">
-<label>版型方向</label>
-<strong>宽松 / Relaxed / Oversized</strong>
-</div>
-
-<div class="info">
-<label>面料方向</label>
-<strong>棉 / 棉涤 / 针织 / 弹力</strong>
-</div>
-
-<div class="info">
-<label>图案方向</label>
-<strong>纯色 / 字母 / 图形 / 印花</strong>
-</div>
-
-</div>
-
-
-<div class="development">
-
-<label>开发重点</label>
-
-<p>
-重点关注穿着舒适度、肩部与袖窿版型、面料质感，以及高辨识度配色和撞色设计。
-</p>
+<p>VEST · 示例图片</p>
 
 </div>
 
 </div>
 
 
-<div class="result-card">
+<!-- 示例 2 -->
 
-<div class="result-top">
+<div class="reference-card">
 
-<div class="result-icon">📊</div>
+<img
+src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80"
+alt="衬衫版型参考"
+>
 
-<div>
-<small>DEVELOPMENT</small>
-<h2>背心开发方向</h2>
-</div>
+<div class="reference-info">
 
-</div>
+<h3>衬衫 · 版型参考</h3>
 
-<div class="info-list">
+<p>SHIRT · 示例图片</p>
 
-<div class="info">
-<label>重点人群</label>
-<strong>男装 / 大码男装</strong>
-</div>
-
-<div class="info">
-<label>颜色方向</label>
-<strong>黑 / 白 / 灰 / 藏青 / 撞色</strong>
-</div>
-
-<div class="info">
-<label>重点细节</label>
-<strong>领口 / 袖窿 / 下摆</strong>
-</div>
-
-<div class="info">
-<label>开发逻辑</label>
-<strong>舒适度 + 版型 + 视觉</strong>
 </div>
 
 </div>
 
-<div class="development">
 
-<label>后续可接入数据</label>
+<!-- 示例 3 -->
 
-<p>
-面料成分趋势、克重结构、热销款式、图案趋势。
-</p>
+<div class="reference-card">
+
+<img
+src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=800&q=80"
+alt="套装版型参考"
+>
+
+<div class="reference-info">
+
+<h3>套装 · 版型参考</h3>
+
+<p>SET · 示例图片</p>
+
+</div>
+
+</div>
+
+
+<!-- 示例 4 -->
+
+<div class="reference-card">
+
+<img
+src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80"
+alt="孕妇装版型参考"
+>
+
+<div class="reference-info">
+
+<h3>孕妇装 · 版型参考</h3>
+
+<p>MATERNITY · 示例图片</p>
+
+</div>
+
+</div>
+
+
+<!-- 示例 5 -->
+
+<div class="reference-card">
+
+<img
+src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=80"
+alt="牛仔版型参考"
+>
+
+<div class="reference-info">
+
+<h3>牛仔 · 版型参考</h3>
+
+<p>DENIM · 示例图片</p>
+
+</div>
+
+</div>
+
+
+<!-- 示例 6 -->
+
+<div class="reference-card">
+
+<img
+src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=800&q=80"
+alt="男装版型参考"
+>
+
+<div class="reference-info">
+
+<h3>休闲版型 · 参考</h3>
+
+<p>CASUAL · 示例图片</p>
 
 </div>
 
@@ -480,419 +302,6 @@
 
 
 </section>
-
-
-<!-- 衬衫 -->
-
-<section class="category-result" id="shirt" style="display:none;">
-
-
-<div class="result-card">
-
-<div class="result-top">
-
-<div class="result-icon">👔</div>
-
-<div>
-<small>SHIRT</small>
-<h2>衬衫</h2>
-</div>
-
-</div>
-
-
-<div class="info-list">
-
-<div class="info">
-<label>适用场景</label>
-<strong>休闲 / 通勤 / 度假 / 日常</strong>
-</div>
-
-<div class="info">
-<label>版型方向</label>
-<strong>宽松 / Relaxed / Oversized</strong>
-</div>
-
-<div class="info">
-<label>面料方向</label>
-<strong>棉 / 涤纶 / 粘胶 / 混纺</strong>
-</div>
-
-<div class="info">
-<label>图案方向</label>
-<strong>纯色 / 条纹 / 格纹 / 印花</strong>
-</div>
-
-</div>
-
-
-<div class="development">
-
-<label>开发重点</label>
-
-<p>
-重点关注版型轮廓、面料垂感、透气性与颜色组合，适当增加纹理和视觉识别度。
-</p>
-
-</div>
-
-</div>
-
-
-<div class="result-card">
-
-<div class="result-top">
-
-<div class="result-icon">📌</div>
-
-<div>
-<small>KEY POINTS</small>
-<h2>衬衫开发重点</h2>
-</div>
-
-</div>
-
-<div class="info-list">
-
-<div class="info">
-<label>重点细节</label>
-<strong>领型 / 门襟 / 袖口</strong>
-</div>
-
-<div class="info">
-<label>视觉方向</label>
-<strong>纹理 / 撞色 / 图案</strong>
-</div>
-
-<div class="info">
-<label>重点季节</label>
-<strong>春夏 / 换季</strong>
-</div>
-
-<div class="info">
-<label>开发逻辑</label>
-<strong>版型 + 面料 + 场景</strong>
-</div>
-
-</div>
-
-</div>
-
-
-</section>
-
-
-<!-- 套装 -->
-
-<section class="category-result" id="set" style="display:none;">
-
-
-<div class="result-card">
-
-<div class="result-top">
-
-<div class="result-icon">👕</div>
-
-<div>
-<small>SET</small>
-<h2>套装</h2>
-</div>
-
-</div>
-
-
-<div class="info-list">
-
-<div class="info">
-<label>主要结构</label>
-<strong>上衣 + 裤装</strong>
-</div>
-
-<div class="info">
-<label>风格方向</label>
-<strong>休闲 / 运动 / 度假</strong>
-</div>
-
-<div class="info">
-<label>面料方向</label>
-<strong>针织 / 棉 / 混纺</strong>
-</div>
-
-<div class="info">
-<label>视觉方向</label>
-<strong>纯色 / 撞色 / 运动线条</strong>
-</div>
-
-</div>
-
-
-<div class="development">
-
-<label>开发重点</label>
-
-<p>
-重点关注上下装整体搭配、面料一致性、颜色组合与穿着场景，同时关注套装与单件商品的开发差异。
-</p>
-
-</div>
-
-</div>
-
-
-<div class="result-card">
-
-<div class="result-top">
-
-<div class="result-icon">📈</div>
-
-<div>
-<small>SET TREND</small>
-<h2>套装趋势</h2>
-</div>
-
-</div>
-
-<div class="info-list">
-
-<div class="info">
-<label>核心优势</label>
-<strong>整体搭配感</strong>
-</div>
-
-<div class="info">
-<label>重点细节</label>
-<strong>配色 / 版型 / 组合</strong>
-</div>
-
-<div class="info">
-<label>适合人群</label>
-<strong>休闲男装 / 大码男装</strong>
-</div>
-
-<div class="info">
-<label>数据方向</label>
-<strong>单件 vs 套装</strong>
-</div>
-
-</div>
-
-</div>
-
-
-</section>
-
-
-<!-- 孕妇装 -->
-
-<section class="category-result" id="maternity" style="display:none;">
-
-
-<div class="result-card">
-
-<div class="result-top">
-
-<div class="result-icon">🤰</div>
-
-<div>
-<small>MATERNITY</small>
-<h2>孕妇装</h2>
-</div>
-
-</div>
-
-
-<div class="info-list">
-
-<div class="info">
-<label>核心需求</label>
-<strong>舒适 / 弹性 / 包容度</strong>
-</div>
-
-<div class="info">
-<label>版型方向</label>
-<strong>宽松 / 弹性 / 腹部友好</strong>
-</div>
-
-<div class="info">
-<label>面料方向</label>
-<strong>棉 / 弹力 / 柔软混纺</strong>
-</div>
-
-<div class="info">
-<label>重点细节</label>
-<strong>腰部 / 腹部 / 活动空间</strong>
-</div>
-
-</div>
-
-
-<div class="development">
-
-<label>开发重点</label>
-
-<p>
-核心关注孕期不同阶段的穿着舒适度、活动空间、面料柔软度及版型包容性。
-</p>
-
-</div>
-
-</div>
-
-
-<div class="result-card">
-
-<div class="result-top">
-
-<div class="result-icon">🧵</div>
-
-<div>
-<small>MATERNITY WEAR</small>
-<h2>孕妇装开发方向</h2>
-</div>
-
-</div>
-
-<div class="info-list">
-
-<div class="info">
-<label>重点人群</label>
-<strong>孕期 / 产前阶段</strong>
-</div>
-
-<div class="info">
-<label>颜色方向</label>
-<strong>基础色 / 柔和色</strong>
-</div>
-
-<div class="info">
-<label>重点面料</label>
-<strong>柔软 / 透气 / 弹性</strong>
-</div>
-
-<div class="info">
-<label>开发逻辑</label>
-<strong>舒适度 + 包容度</strong>
-</div>
-
-</div>
-
-</div>
-
-
-</section>
-
-
-<!-- 牛仔 -->
-
-<section class="category-result" id="denim" style="display:none;">
-
-
-<div class="result-card">
-
-<div class="result-top">
-
-<div class="result-icon">👖</div>
-
-<div>
-<small>DENIM</small>
-<h2>牛仔</h2>
-</div>
-
-</div>
-
-
-<div class="info-list">
-
-<div class="info">
-<label>主要品类</label>
-<strong>牛仔裤 / 短裤 / 外套</strong>
-</div>
-
-<div class="info">
-<label>版型方向</label>
-<strong>直筒 / 宽松 / 阔腿</strong>
-</div>
-
-<div class="info">
-<label>工艺方向</label>
-<strong>水洗 / 做旧 / 猫须</strong>
-</div>
-
-<div class="info">
-<label>视觉方向</label>
-<strong>复古 / 休闲 / 街头</strong>
-</div>
-
-</div>
-
-
-<div class="development">
-
-<label>开发重点</label>
-
-<p>
-重点关注版型轮廓、水洗效果、颜色深浅以及面料舒适度，强化牛仔本身的视觉质感。
-</p>
-
-</div>
-
-</div>
-
-
-<div class="result-card">
-
-<div class="result-top">
-
-<div class="result-icon">✂️</div>
-
-<div>
-<small>DENIM DEVELOPMENT</small>
-<h2>牛仔开发方向</h2>
-</div>
-
-</div>
-
-<div class="info-list">
-
-<div class="info">
-<label>重点细节</label>
-<strong>水洗 / 猫须 / 做旧</strong>
-</div>
-
-<div class="info">
-<label>颜色方向</label>
-<strong>深蓝 / 浅蓝 / 黑色</strong>
-</div>
-
-<div class="info">
-<label>重点版型</label>
-<strong>直筒 / 宽松 / 阔腿</strong>
-</div>
-
-<div class="info">
-<label>开发逻辑</label>
-<strong>版型 + 水洗 + 细节</strong>
-</div>
-
-</div>
-
-</div>
-
-
-</section>
-
-
-<!-- 提示 -->
-
-<div class="guide-note">
-
-<strong>💡 后续数据会逐步接入这里</strong>
-
-<p>
-下一阶段可以把你的 Top100 新品、面料成分、克重、套装结构、图案趋势等数据分别接入对应品类，最终形成「品类 → 数据 → 开发建议」的完整工具。
-</p>
-
-</div>
 
 
 </main>
@@ -909,41 +318,6 @@
 </footer>
 
 
-<script>
-
-function showCategory(type,button){
-
-  /* 按钮状态 */
-
-  document
-    .querySelectorAll(".category-buttons button")
-    .forEach(btn=>{
-      btn.classList.remove("active");
-    });
-
-  button.classList.add("active");
-
-
-  /* 隐藏所有 */
-
-  document
-    .querySelectorAll(".category-result")
-    .forEach(section=>{
-      section.style.display="none";
-    });
-
-
-  /* 显示对应 */
-
-  const target=document.getElementById(type);
-
-  if(target){
-    target.style.display="grid";
-  }
-
-}
-
-</script>
-
 </body>
+
 </html>
