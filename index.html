@@ -870,10 +870,11 @@ footer{
 
             <div class="focus-grid">
 
-                <!-- 标码男装 -->
+                <!-- 修改：点击标码男装后显示全部标码男装类目 -->
+
                 <div
                     class="focus-card"
-                    onclick="filterCategory('标码男装')">
+                    onclick="showCategoryGroup('标码男装')">
 
                     <small>
                         重点方向
@@ -890,10 +891,11 @@ footer{
                 </div>
 
 
-                <!-- 大码男装 -->
+                <!-- 修改：点击大码男装后显示全部大码男装类目 -->
+
                 <div
                     class="focus-card"
-                    onclick="filterCategory('大码男装')">
+                    onclick="showCategoryGroup('大码男装')">
 
                     <small>
                         重点方向
@@ -910,10 +912,11 @@ footer{
                 </div>
 
 
-                <!-- 孕妇装 -->
+                <!-- 修改：点击孕妇装后显示全部孕妇装类目 -->
+
                 <div
                     class="focus-card"
-                    onclick="filterCategory('孕妇装')">
+                    onclick="showCategoryGroup('孕妇装')">
 
                     <small>
                         重点方向
@@ -994,9 +997,7 @@ footer{
 
                 </div>
 
-                <div class="selected-right">
-                    类目ID不会展示给商家
-                </div>
+                <!-- 已删除前端显示的“类目ID不会展示给商家” -->
 
             </div>
 
@@ -1753,7 +1754,7 @@ const adviceData = {
         ["版型","优先宽松、Oversize、落肩方向","减少过于修身的开发"],
         ["面料","轻薄、舒适、易打理","春夏优先关注轻量化"],
         ["颜色","基础色 + 低饱和趋势色","可增加少量撞色"],
-        ["图案","字母、条纹、几何、小面积印花","避免过度复杂"]
+        ["图案","字母、条纹、几何、小面积印花","避免过度复杂"],
     ],
 
     "背心":[
@@ -1842,12 +1843,12 @@ function renderCategories(list){
                 background:#fff;
                 border:1px solid #eee;
                 border-radius:7px;
-                padding:35px;
+                padding:40px;
                 text-align:center;
                 color:#aaa;
                 font-size:12px;
             ">
-                暂无匹配类目
+                暂未找到对应类目
             </div>
         `;
 
@@ -1893,6 +1894,28 @@ function renderCategories(list){
         box.appendChild(card);
 
     });
+
+}
+
+
+/* =====================================================
+   新增：重点方向类目筛选
+===================================================== */
+
+function showCategoryGroup(keyword){
+
+    const result =
+        categories.filter(item =>
+            item.user.includes(keyword)
+        );
+
+    renderCategories(result);
+
+    document
+        .getElementById("category")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 
 }
 
@@ -1948,30 +1971,6 @@ document
 
 
 /* =====================================================
-   重点方向筛选
-===================================================== */
-
-function filterCategory(keyword){
-
-    const result =
-        categories.filter(item=>{
-
-            return item.user.includes(keyword);
-
-        });
-
-    renderCategories(result);
-
-    document
-    .getElementById("category")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
-
-
-/* =====================================================
    打开完整开发页面
 ===================================================== */
 
@@ -2018,10 +2017,6 @@ function backHome(){
     .style.display = "block";
 
     window.scrollTo(0,0);
-
-    document
-    .querySelector(".nav button")
-    .classList.add("active");
 
 }
 
