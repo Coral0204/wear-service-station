@@ -870,9 +870,10 @@ footer{
 
             <div class="focus-grid">
 
+                <!-- 标码男装 -->
                 <div
                     class="focus-card"
-                    onclick="openReference('标码背心上衣','背心')">
+                    onclick="filterCategory('标码男装')">
 
                     <small>
                         重点方向
@@ -889,9 +890,10 @@ footer{
                 </div>
 
 
+                <!-- 大码男装 -->
                 <div
                     class="focus-card"
-                    onclick="openReference('大码男装休闲衬衫','衬衫')">
+                    onclick="filterCategory('大码男装')">
 
                     <small>
                         重点方向
@@ -908,9 +910,10 @@ footer{
                 </div>
 
 
+                <!-- 孕妇装 -->
                 <div
                     class="focus-card"
-                    onclick="openReference('孕妇T恤','孕妇装')">
+                    onclick="filterCategory('孕妇装')">
 
                     <small>
                         重点方向
@@ -1203,7 +1206,7 @@ footer{
             <div class="advice-box">
 
                 <div class="advice-title">
-                    ${product} 开发方向
+                    开发方向
                 </div>
 
                 <div
@@ -1750,7 +1753,7 @@ const adviceData = {
         ["版型","优先宽松、Oversize、落肩方向","减少过于修身的开发"],
         ["面料","轻薄、舒适、易打理","春夏优先关注轻量化"],
         ["颜色","基础色 + 低饱和趋势色","可增加少量撞色"],
-        ["图案","字母、条纹、几何、小面积印花","避免过度复杂"],
+        ["图案","字母、条纹、几何、小面积印花","避免过度复杂"]
     ],
 
     "背心":[
@@ -1830,6 +1833,26 @@ function renderCategories(list){
         document.getElementById("categoryList");
 
     box.innerHTML = "";
+
+    if(list.length === 0){
+
+        box.innerHTML = `
+            <div style="
+                grid-column:1/-1;
+                background:#fff;
+                border:1px solid #eee;
+                border-radius:7px;
+                padding:35px;
+                text-align:center;
+                color:#aaa;
+                font-size:12px;
+            ">
+                暂无匹配类目
+            </div>
+        `;
+
+        return;
+    }
 
     list.forEach(item=>{
 
@@ -1925,6 +1948,30 @@ document
 
 
 /* =====================================================
+   重点方向筛选
+===================================================== */
+
+function filterCategory(keyword){
+
+    const result =
+        categories.filter(item=>{
+
+            return item.user.includes(keyword);
+
+        });
+
+    renderCategories(result);
+
+    document
+    .getElementById("category")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
    打开完整开发页面
 ===================================================== */
 
@@ -1971,6 +2018,11 @@ function backHome(){
     .style.display = "block";
 
     window.scrollTo(0,0);
+
+    document
+    .querySelector(".nav button")
+    .classList.add("active");
+
 }
 
 
