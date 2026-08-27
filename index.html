@@ -8,10 +8,6 @@
 
 <style>
 
-/* =========================
-   基础设置
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -89,7 +85,7 @@ input{
 
 
 /* =========================
-   页面容器
+   页面
 ========================= */
 
 .container{
@@ -97,11 +93,6 @@ input{
     max-width:1200px;
     margin:0 auto;
 }
-
-
-/* =========================
-   页面标题
-========================= */
 
 .hero{
     padding:65px 0 38px;
@@ -141,7 +132,7 @@ input{
 
 
 /* =========================
-   搜索框
+   搜索
 ========================= */
 
 .search-box{
@@ -213,7 +204,50 @@ input{
 
 
 /* =========================
-   方向筛选
+   快速选择
+========================= */
+
+.quick-title{
+    font-size:13px;
+
+    color:#999;
+
+    margin-bottom:10px;
+}
+
+.quick-list{
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+}
+
+.quick-btn{
+    border:1px solid #ddd;
+
+    background:#fff;
+
+    border-radius:5px;
+
+    padding:8px 13px;
+
+    cursor:pointer;
+
+    font-size:12px;
+
+    color:#555;
+}
+
+.quick-btn:hover{
+    border-color:#111;
+
+    color:#111;
+}
+
+
+/* =========================
+   筛选
 ========================= */
 
 .filter-box{
@@ -256,8 +290,6 @@ input{
     cursor:pointer;
 
     font-size:13px;
-
-    transition:.2s;
 }
 
 .filter-btn:hover{
@@ -272,7 +304,7 @@ input{
 
 
 /* =========================
-   结果标题
+   结果
 ========================= */
 
 .result-header{
@@ -295,11 +327,6 @@ input{
     font-size:13px;
 }
 
-
-/* =========================
-   类目卡片
-========================= */
-
 .category-list{
     display:flex;
 
@@ -309,6 +336,11 @@ input{
 
     margin-bottom:70px;
 }
+
+
+/* =========================
+   类目卡片
+========================= */
 
 .category-card{
     background:#fff;
@@ -369,11 +401,6 @@ input{
     white-space:nowrap;
 }
 
-
-/* =========================
-   信息
-========================= */
-
 .info-row{
     display:grid;
 
@@ -404,7 +431,7 @@ input{
 
 
 /* =========================
-   操作按钮
+   按钮
 ========================= */
 
 .actions{
@@ -413,6 +440,8 @@ input{
     display:flex;
 
     gap:8px;
+
+    flex-wrap:wrap;
 }
 
 .copy-btn{
@@ -435,6 +464,18 @@ input{
     border-color:#999;
 
     background:#f7f7f7;
+}
+
+.primary-btn{
+    background:#111;
+
+    color:#fff;
+
+    border-color:#111;
+}
+
+.primary-btn:hover{
+    background:#333;
 }
 
 
@@ -466,7 +507,7 @@ input{
 
 
 /* =========================
-   后续模块
+   开发参考
 ========================= */
 
 .future{
@@ -537,7 +578,7 @@ footer{
 
 
 /* =========================
-   手机适配
+   手机
 ========================= */
 
 @media(max-width:900px){
@@ -600,10 +641,6 @@ footer{
 <body>
 
 
-<!-- =========================
-     顶部导航
-========================= -->
-
 <header class="header">
 
     <div class="logo">
@@ -611,16 +648,15 @@ footer{
         <span>Product Development</span>
     </div>
 
-
     <nav class="nav">
 
         <a
-            href="#"
+            href="index.html"
             class="active">
             类目对接
         </a>
 
-        <a href="#">
+        <a href="style.html">
             版型参考
         </a>
 
@@ -645,13 +681,8 @@ footer{
 </header>
 
 
-
 <main class="container">
 
-
-<!-- =========================
-     页面标题
-========================= -->
 
 <section class="hero">
 
@@ -673,10 +704,6 @@ footer{
 </section>
 
 
-
-<!-- =========================
-     搜索
-========================= -->
 
 <section class="search-box">
 
@@ -701,20 +728,58 @@ footer{
 
     </div>
 
+
+    <div style="margin-top:18px">
+
+        <div class="quick-title">
+            快速选择
+        </div>
+
+        <div class="quick-list">
+
+            <button
+                class="quick-btn"
+                onclick="quickSearch('衬衫')">
+                衬衫
+            </button>
+
+            <button
+                class="quick-btn"
+                onclick="quickSearch('背心')">
+                背心
+            </button>
+
+            <button
+                class="quick-btn"
+                onclick="quickSearch('套装')">
+                套装
+            </button>
+
+            <button
+                class="quick-btn"
+                onclick="quickSearch('牛仔')">
+                牛仔
+            </button>
+
+            <button
+                class="quick-btn"
+                onclick="quickSearch('孕妇')">
+                孕妇装
+            </button>
+
+        </div>
+
+    </div>
+
 </section>
 
 
-
-<!-- =========================
-     方向筛选
-========================= -->
 
 <section class="filter-box">
 
     <div class="filter-title">
         选择商品方向
     </div>
-
 
     <div class="filter-group">
 
@@ -724,13 +789,11 @@ footer{
             标码男装
         </button>
 
-
         <button
             class="filter-btn"
             onclick="filterGroup('球类运动',this)">
             球类运动
         </button>
-
 
         <button
             class="filter-btn"
@@ -738,13 +801,11 @@ footer{
             专业运动
         </button>
 
-
         <button
             class="filter-btn"
             onclick="filterGroup('大码男装',this)">
             大码男装
         </button>
-
 
         <button
             class="filter-btn"
@@ -752,13 +813,11 @@ footer{
             牛仔类
         </button>
 
-
         <button
             class="filter-btn"
             onclick="filterGroup('孕妇装',this)">
             孕妇装
         </button>
-
 
         <button
             class="filter-btn"
@@ -771,10 +830,6 @@ footer{
 </section>
 
 
-
-<!-- =========================
-     结果
-========================= -->
 
 <div class="result-header">
 
@@ -813,19 +868,13 @@ footer{
 
 
 
-<!-- =========================
-     后续内容预览
-========================= -->
-
 <section class="future">
 
     <h2 class="future-title">
         开发参考
     </h2>
 
-
     <div class="future-grid">
-
 
         <div class="future-card">
 
@@ -838,12 +887,10 @@ footer{
             </h3>
 
             <p>
-                提供不同商品类型的版型、
-                廓形及细节设计参考。
+                根据商品类型提供对应版型参考。
             </p>
 
         </div>
-
 
 
         <div class="future-card">
@@ -857,12 +904,10 @@ footer{
             </h3>
 
             <p>
-                结合市场趋势提供面料成分、
-                克重及使用方向。
+                面料成分、克重及使用方向。
             </p>
 
         </div>
-
 
 
         <div class="future-card">
@@ -876,12 +921,10 @@ footer{
             </h3>
 
             <p>
-                基础色、流行色、
-                撞色及高辨识度配色。
+                流行色、基础色及撞色设计。
             </p>
 
         </div>
-
 
 
         <div class="future-card">
@@ -895,19 +938,16 @@ footer{
             </h3>
 
             <p>
-                字母、印花、图形及
-                局部视觉元素参考。
+                印花、字母、图形等趋势参考。
             </p>
 
         </div>
-
 
     </div>
 
 </section>
 
 </main>
-
 
 
 <footer>
@@ -920,20 +960,14 @@ footer{
 
 <script>
 
+
 /* =====================================================
    类目数据
-
-   注意：
-
-   ID 保留在代码内部
-   前台不会显示 ID
+   ID 仅用于后台匹配
+   前台不会显示
 ===================================================== */
 
 const categoryData = [
-
-    /* =========================
-       标码男装
-    ========================= */
 
     {
         group:"标码男装",
@@ -941,7 +975,6 @@ const categoryData = [
         id:"30479",
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士 T 恤和背心 > 背心上衣"
     },
-
 
     {
         group:"标码男装",
@@ -951,10 +984,6 @@ const categoryData = [
     },
 
 
-    /* =========================
-       球类运动
-    ========================= */
-
     {
         group:"球类运动",
         product:"男士标码球类上衣",
@@ -962,14 +991,12 @@ const categoryData = [
         path:"服装、鞋靴和珠宝饰品 > 体育专用服装 > 英式橄榄球服 > 男士英式橄榄球服 > 男士英式橄榄球上衣"
     },
 
-
     {
         group:"球类运动",
         product:"篮球运动类标码套装",
         id:"27209",
         path:"服装、鞋靴和珠宝饰品 > 体育专用服装 > 篮球服 > 男士篮球服 > 套装"
     },
-
 
     {
         group:"球类运动",
@@ -979,17 +1006,12 @@ const categoryData = [
     },
 
 
-    /* =========================
-       专业运动
-    ========================= */
-
     {
         group:"专业运动",
         product:"专业运动类短裤-氨纶含8%以上",
         id:"30447",
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士休闲运动服 > 男士打底和压缩单品 > 男士运动短裤"
     },
-
 
     {
         group:"专业运动",
@@ -998,34 +1020,27 @@ const categoryData = [
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士休闲运动服 > 男士打底和压缩单品 > 男士运动上衣"
     },
 
-
     {
         group:"专业运动",
         product:"专业运动类套装-氨纶含8%以上",
         id:"30438",
-        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士贴身运动衣 > 男士贴身套装"
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士休闲运动服 > 男士贴身运动衣 > 男士贴身套装"
     },
-
 
     {
         group:"专业运动",
         product:"专业运动类长裤-氨纶含8%以上",
         id:"30446",
-        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士打底和压缩单品 > 男士运动长裤"
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士休闲运动服 > 男士打底和压缩单品 > 男士运动长裤"
     },
 
-
-    /* =========================
-       大码男装
-    ========================= */
 
     {
         group:"大码男装",
-        product:"大码秋冬背心",
+        product:"大码背心-秋冬",
         id:"40172",
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士毛衣 > 大码男装针织背心"
     },
-
 
     {
         group:"大码男装",
@@ -1034,14 +1049,12 @@ const categoryData = [
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士T恤和背心 > 大码背心上衣"
     },
 
-
     {
         group:"大码男装",
         product:"大码男士沙滩裤",
         id:"40224",
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士时尚泳衣 > 大码男士沙滩裤"
     },
-
 
     {
         group:"大码男装",
@@ -1050,14 +1063,12 @@ const categoryData = [
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士时尚泳衣 > 大码男士泳裤"
     },
 
-
     {
         group:"大码男装",
         product:"大码男装单马甲",
         id:"40220",
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士外套 > 大码男装单马甲"
     },
-
 
     {
         group:"大码男装",
@@ -1066,14 +1077,12 @@ const categoryData = [
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男装上衣、T恤、衬衫 > 大码男装休闲衬衫"
     },
 
-
     {
         group:"大码男装",
         product:"大码男士亨利衫",
         id:"40265",
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男装上衣、T恤、衬衫 > 大码男士亨利衫"
     },
-
 
     {
         group:"大码男装",
@@ -1082,7 +1091,6 @@ const categoryData = [
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士休闲运动服 > 大码男士休闲运动衫、T恤 > 大码男士运动服系扣衬衫"
     },
 
-
     {
         group:"大码男装",
         product:"大码男士运动上装和下装套装",
@@ -1090,14 +1098,12 @@ const categoryData = [
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士休闲运动服 > 大码男士休闲运动套装 > 大码男士运动上装和下装套装"
     },
 
-
     {
         group:"大码男装",
         product:"大码男士休闲套装",
         id:"40251",
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士休闲运动服 > 大码男士休闲运动套装 > 大码男士休闲套装"
     },
-
 
     {
         group:"大码男装",
@@ -1107,10 +1113,6 @@ const categoryData = [
     },
 
 
-    /* =========================
-       牛仔
-    ========================= */
-
     {
         group:"牛仔类",
         product:"牛仔衬衫",
@@ -1118,14 +1120,12 @@ const categoryData = [
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男装上衣、T恤、衬衫 > 男士牛仔衬衣"
     },
 
-
     {
         group:"牛仔类",
         product:"牛仔裤",
         id:"30343",
         path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男装牛仔裤"
     },
-
 
     {
         group:"牛仔类",
@@ -1135,17 +1135,12 @@ const categoryData = [
     },
 
 
-    /* =========================
-       孕妇装
-    ========================= */
-
     {
         group:"孕妇装",
         product:"孕妇T恤",
         id:"29426",
         path:"服装、鞋靴和珠宝饰品 > 女士时尚 > 女士商店 > 孕妇装 > 孕妇T恤、背心 > 孕妇T恤"
     },
-
 
     {
         group:"孕妇装",
@@ -1157,98 +1152,46 @@ const categoryData = [
 ];
 
 
-/* =====================================================
-   当前方向
-===================================================== */
-
 let currentGroup = "标码男装";
 
 
-/* =====================================================
-   页面初始化
-===================================================== */
+/* =========================
+   初始化
+========================= */
 
 document.addEventListener(
     "DOMContentLoaded",
     function(){
 
-        const data =
+        renderData(
             categoryData.filter(
                 item =>
                     item.group === currentGroup
-            );
-
-        renderData(data);
+            )
+        );
 
     }
 );
 
 
-/* =====================================================
-   筛选方向
-===================================================== */
+/* =========================
+   快速搜索
+========================= */
 
-function filterGroup(group,button){
-
-    currentGroup = group;
-
-    document
-        .querySelectorAll(".filter-btn")
-        .forEach(btn=>{
-            btn.classList.remove("active");
-        });
-
-    button.classList.add("active");
+function quickSearch(keyword){
 
     document
         .getElementById("searchInput")
-        .value = "";
+        .value = keyword;
 
-    document
-        .getElementById("resultTitle")
-        .innerText = group;
-
-    const data =
-        categoryData.filter(
-            item =>
-                item.group === group
-        );
-
-    renderData(data);
+    searchProduct();
 
 }
 
 
-/* =====================================================
-   全部
-===================================================== */
-
-function showAll(button){
-
-    document
-        .querySelectorAll(".filter-btn")
-        .forEach(btn=>{
-            btn.classList.remove("active");
-        });
-
-    button.classList.add("active");
-
-    document
-        .getElementById("searchInput")
-        .value = "";
-
-    document
-        .getElementById("resultTitle")
-        .innerText = "全部类目";
-
-    renderData(categoryData);
-
-}
-
-
-/* =====================================================
+/* =========================
    搜索
-===================================================== */
+========================= */
 
 function searchProduct(){
 
@@ -1262,13 +1205,12 @@ function searchProduct(){
 
     if(!keyword){
 
-        const data =
+        renderData(
             categoryData.filter(
                 item =>
                     item.group === currentGroup
-            );
-
-        renderData(data);
+            )
+        );
 
         return;
 
@@ -1311,9 +1253,9 @@ function searchProduct(){
 }
 
 
-/* =====================================================
-   回车搜索
-===================================================== */
+/* =========================
+   回车
+========================= */
 
 document
     .getElementById("searchInput")
@@ -1322,32 +1264,95 @@ document
         function(event){
 
             if(event.key === "Enter"){
-
                 searchProduct();
-
             }
 
         }
     );
 
 
-/* =====================================================
-   渲染数据
-===================================================== */
+/* =========================
+   筛选
+========================= */
+
+function filterGroup(group,button){
+
+    currentGroup = group;
+
+    document
+        .querySelectorAll(".filter-btn")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+    document
+        .getElementById("searchInput")
+        .value = "";
+
+    document
+        .getElementById("resultTitle")
+        .innerText = group;
+
+
+    renderData(
+        categoryData.filter(
+            item =>
+                item.group === group
+        )
+    );
+
+}
+
+
+/* =========================
+   全部
+========================= */
+
+function showAll(button){
+
+    document
+        .querySelectorAll(".filter-btn")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+    document
+        .getElementById("searchInput")
+        .value = "";
+
+    document
+        .getElementById("resultTitle")
+        .innerText = "全部类目";
+
+    renderData(categoryData);
+
+}
+
+
+/* =========================
+   渲染
+========================= */
 
 function renderData(data){
 
     const list =
-        document
-        .getElementById("categoryList");
+        document.getElementById(
+            "categoryList"
+        );
 
     const noResult =
-        document
-        .getElementById("noResult");
+        document.getElementById(
+            "noResult"
+        );
 
     const count =
-        document
-        .getElementById("resultCount");
+        document.getElementById(
+            "resultCount"
+        );
 
 
     list.innerHTML = "";
@@ -1436,7 +1441,18 @@ function renderData(data){
                 <button
                     class="copy-btn"
                     onclick="copyPath('${escapeText(item.path)}')">
+
                     复制类目路径
+
+                </button>
+
+
+                <button
+                    class="copy-btn primary-btn"
+                    onclick="viewStyle('${escapeText(item.product)}')">
+
+                    查看版型参考 →
+
                 </button>
 
             </div>
@@ -1451,9 +1467,93 @@ function renderData(data){
 }
 
 
-/* =====================================================
-   复制类目路径
-===================================================== */
+/* =========================
+   查看版型
+========================= */
+
+function viewStyle(product){
+
+    let type = "其他";
+
+
+    if(
+        product.includes("衬衫") ||
+        product.includes("亨利衫")
+    ){
+
+        type = "衬衫";
+
+    }
+
+    else if(
+        product.includes("背心") ||
+        product.includes("马甲")
+    ){
+
+        type = "背心";
+
+    }
+
+    else if(
+        product.includes("套装")
+    ){
+
+        type = "套装";
+
+    }
+
+    else if(
+        product.includes("牛仔")
+    ){
+
+        type = "牛仔";
+
+    }
+
+    else if(
+        product.includes("孕妇")
+    ){
+
+        type = "孕妇装";
+
+    }
+
+    else if(
+        product.includes("短裤")
+    ){
+
+        type = "短裤";
+
+    }
+
+    else if(
+        product.includes("长裤") ||
+        product.includes("牛仔裤")
+    ){
+
+        type = "长裤";
+
+    }
+
+    else if(
+        product.includes("上衣")
+    ){
+
+        type = "上衣";
+
+    }
+
+
+    window.location.href =
+        "style.html?type=" +
+        encodeURIComponent(type);
+
+}
+
+
+/* =========================
+   复制
+========================= */
 
 function copyPath(path){
 
@@ -1477,9 +1577,9 @@ function copyPath(path){
 }
 
 
-/* =====================================================
-   防止特殊字符影响复制
-===================================================== */
+/* =========================
+   特殊字符
+========================= */
 
 function escapeText(text){
 
