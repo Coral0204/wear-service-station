@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>服装开发参考站</title>
 
 <style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
 *{
     margin:0;
     padding:0;
@@ -39,9 +48,16 @@ button{
     cursor:pointer;
 }
 
+
+/* =====================================================
+   HEADER
+===================================================== */
+
 .header{
     height:68px;
+
     background:#fff;
+
     border-bottom:1px solid #e9e9e9;
 
     display:flex;
@@ -52,6 +68,7 @@ button{
 
     position:sticky;
     top:0;
+
     z-index:1000;
 }
 
@@ -85,6 +102,11 @@ button{
     font-weight:600;
 }
 
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
 .container{
     width:90%;
     max-width:1200px;
@@ -92,44 +114,56 @@ button{
 }
 
 
-/* =========================
-   Hero
-========================= */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
     background:#fff;
+
     padding:75px 0 65px;
+
     border-bottom:1px solid #eee;
 }
 
 .hero-tag{
     display:inline-block;
+
     background:#111;
     color:#fff;
+
     padding:6px 12px;
+
     border-radius:3px;
+
     font-size:10px;
+
     letter-spacing:1px;
+
     margin-bottom:20px;
 }
 
 .hero h1{
     font-size:42px;
     line-height:1.25;
+
     margin-bottom:18px;
 }
 
 .hero p{
     color:#888;
+
     font-size:14px;
+
     line-height:2;
+
     max-width:680px;
 }
 
 
-/* =========================
-   Section
-========================= */
+/* =====================================================
+   SECTION
+===================================================== */
 
 .section{
     padding:60px 0 80px;
@@ -141,32 +175,40 @@ button{
 
 .section-title small{
     color:#aaa;
+
     font-size:10px;
+
     letter-spacing:1px;
 }
 
 .section-title h2{
     font-size:28px;
+
     margin:7px 0;
 }
 
 .section-title p{
     color:#999;
+
     font-size:13px;
 }
 
 
-/* =========================
-   Search
-========================= */
+/* =====================================================
+   SEARCH
+===================================================== */
 
 .search{
     background:#fff;
+
     border:1px solid #eee;
+
     border-radius:7px;
+
     padding:14px 18px;
 
     display:flex;
+
     align-items:center;
 
     margin-bottom:28px;
@@ -174,88 +216,191 @@ button{
 
 .search-icon{
     margin-right:10px;
+
     color:#999;
 }
 
 .search input{
     border:0;
+
     outline:0;
+
     width:100%;
+
     font-size:13px;
 }
 
 
-/* =========================
-   Focus
-========================= */
+/* =====================================================
+   FOCUS
+===================================================== */
 
 .focus-title{
     font-size:14px;
+
     font-weight:600;
+
     margin-bottom:14px;
 }
 
 .focus-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:15px;
+
     margin-bottom:35px;
 }
 
 .focus-card{
     background:#111;
+
     color:#fff;
+
     padding:23px;
+
     border-radius:7px;
+
     transition:.2s;
+
+    position:relative;
 }
 
 .focus-card:hover{
     transform:translateY(-3px);
+
+    background:#1a1a1a;
 }
 
 .focus-card small{
     color:#999;
+
     font-size:10px;
 }
 
 .focus-card h3{
     margin:7px 0;
+
     font-size:17px;
 }
 
 .focus-card p{
     color:#aaa;
+
     font-size:11px;
+
+    line-height:1.7;
+}
+
+.focus-arrow{
+    position:absolute;
+
+    right:20px;
+    bottom:20px;
+
+    color:#777;
+
+    font-size:12px;
 }
 
 
-/* =========================
-   Category
-========================= */
+/* =====================================================
+   CATEGORY SELECT TIP
+===================================================== */
+
+.category-tip{
+    display:none;
+
+    background:#111;
+
+    color:#fff;
+
+    border-radius:7px;
+
+    padding:20px 22px;
+
+    margin-bottom:20px;
+}
+
+.category-tip.show{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.category-tip-title{
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:5px;
+}
+
+.category-tip-text{
+    color:#aaa;
+
+    font-size:11px;
+}
+
+.clear-focus{
+    background:#fff;
+
+    color:#111;
+
+    border:0;
+
+    border-radius:4px;
+
+    padding:8px 13px;
+
+    font-size:10px;
+
+    flex-shrink:0;
+}
+
+
+/* =====================================================
+   CATEGORY
+===================================================== */
 
 .category-title{
     font-size:14px;
+
     font-weight:600;
+
     margin-bottom:14px;
 }
 
 .category-list{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:12px;
 }
 
 .category-card{
     background:#fff;
+
     border:1px solid #eee;
+
     border-radius:7px;
 
     padding:20px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap:20px;
 
     transition:.2s;
@@ -263,7 +408,9 @@ button{
 
 .category-card:hover{
     border-color:#bbb;
-    box-shadow:0 8px 25px rgba(0,0,0,.05);
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.05);
 }
 
 .category-info{
@@ -272,29 +419,41 @@ button{
 
 .category-user{
     color:#999;
+
     font-size:10px;
+
     margin-bottom:5px;
 }
 
 .category-name{
     font-size:15px;
+
     font-weight:600;
+
     margin-bottom:5px;
 }
 
 .category-path{
     color:#aaa;
+
     font-size:10px;
+
     line-height:1.7;
 }
 
 .view-btn{
     flex-shrink:0;
+
     background:#111;
+
     color:#fff;
+
     border:0;
+
     padding:9px 14px;
+
     border-radius:4px;
+
     font-size:11px;
 }
 
@@ -303,9 +462,30 @@ button{
 }
 
 
-/* =========================
-   Main development page
-========================= */
+/* =====================================================
+   NO RESULT
+===================================================== */
+
+.no-result{
+    background:#fff;
+
+    border:1px solid #eee;
+
+    border-radius:7px;
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    color:#aaa;
+
+    font-size:12px;
+}
+
+
+/* =====================================================
+   DEVELOPMENT PAGE
+===================================================== */
 
 #developmentPage{
     display:none;
@@ -313,15 +493,21 @@ button{
 
 .product-header{
     background:#fff;
+
     padding:42px 0 30px;
+
     border-bottom:1px solid #eee;
 }
 
 .back{
     background:none;
+
     border:0;
+
     color:#888;
+
     font-size:12px;
+
     margin-bottom:20px;
 }
 
@@ -331,90 +517,111 @@ button{
 
 .product-header h1{
     font-size:32px;
+
     margin-bottom:8px;
 }
 
 .product-header p{
     color:#999;
+
     font-size:12px;
 }
 
 .selected{
     margin-top:22px;
+
     border:1px solid #eee;
+
     background:#fff;
+
     border-radius:7px;
+
     padding:17px 20px;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 }
 
 .selected-left{
     display:flex;
+
     gap:12px;
+
     align-items:center;
 }
 
 .selected-label{
     color:#aaa;
+
     font-size:10px;
 }
 
 .selected-name{
     font-weight:600;
+
     font-size:15px;
 }
 
 .selected-right{
     color:#aaa;
+
     font-size:10px;
 }
 
 
-/* =========================
-   Development navigation
-========================= */
+/* =====================================================
+   DEVELOPMENT NAV
+===================================================== */
 
 .dev-nav{
     background:#fff;
+
     border-bottom:1px solid #eee;
 }
 
 .dev-nav-inner{
     width:90%;
+
     max-width:1200px;
+
     margin:auto;
 
     display:flex;
+
     overflow-x:auto;
 }
 
 .dev-nav button{
     border:0;
+
     background:none;
 
     padding:18px 22px;
 
     color:#888;
+
     font-size:12px;
 
     white-space:nowrap;
 
-    border-bottom:2px solid transparent;
+    border-bottom:
+    2px solid transparent;
 }
 
 .dev-nav button:hover,
 .dev-nav button.active{
     color:#111;
+
     border-bottom-color:#111;
 }
 
 
-/* =========================
-   Development sections
-========================= */
+/* =====================================================
+   DEVELOPMENT SECTIONS
+===================================================== */
 
 .dev-section{
     padding:55px 0 70px;
@@ -426,8 +633,11 @@ button{
 
 .dev-head{
     display:flex;
+
     justify-content:space-between;
+
     align-items:end;
+
     margin-bottom:24px;
 }
 
@@ -437,38 +647,51 @@ button{
 
 .dev-head span{
     color:#aaa;
+
     font-size:10px;
 }
 
 .dev-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+    repeat(4,1fr);
+
     gap:17px;
 }
 
 
-/* =========================
-   Reference cards
-========================= */
+/* =====================================================
+   REFERENCE CARD
+===================================================== */
 
 .ref-card{
     background:#f8f8f8;
+
     border:1px solid #eee;
+
     border-radius:7px;
+
     overflow:hidden;
 }
 
 .ref-img{
     width:100%;
+
     aspect-ratio:3/4;
+
     background:#e9e9e9;
+
     overflow:hidden;
 }
 
 .ref-img img{
     width:100%;
+
     height:100%;
+
     object-fit:cover;
+
     display:block;
 }
 
@@ -478,110 +701,147 @@ button{
 
 .ref-name{
     font-size:13px;
+
     font-weight:600;
+
     margin-bottom:5px;
 }
 
 .ref-desc{
     font-size:10px;
+
     color:#999;
+
     line-height:1.7;
 }
 
 
-/* =========================
-   Fabric
-========================= */
+/* =====================================================
+   FABRIC
+===================================================== */
 
 .fabric-card{
     background:#f8f8f8;
+
     border:1px solid #eee;
+
     border-radius:7px;
+
     padding:24px;
 }
 
 .fabric-card h3{
     font-size:15px;
+
     margin-bottom:9px;
 }
 
 .fabric-card p{
     color:#888;
+
     font-size:11px;
+
     line-height:1.8;
 }
 
 .fabric-tag{
     display:inline-block;
+
     margin-top:14px;
+
     padding:5px 9px;
+
     border:1px solid #ddd;
+
     background:#fff;
+
     font-size:10px;
+
     border-radius:3px;
 }
 
 
-/* =========================
-   Color
-========================= */
+/* =====================================================
+   COLOR
+===================================================== */
 
 .color-grid{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+
+    grid-template-columns:
+    repeat(5,1fr);
+
     gap:15px;
 }
 
 .color-card{
     background:#f8f8f8;
+
     border:1px solid #eee;
+
     border-radius:7px;
+
     overflow:hidden;
 }
 
 .color-box{
     height:125px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     font-size:11px;
+
     color:#777;
 }
 
 .color-info{
     background:#fff;
+
     padding:13px;
 }
 
 .color-name{
     font-size:12px;
+
     font-weight:600;
 }
 
 .color-desc{
     color:#999;
+
     font-size:10px;
+
     margin-top:4px;
 }
 
 
-/* =========================
-   Pattern
-========================= */
+/* =====================================================
+   PATTERN
+===================================================== */
 
 .pattern-card{
     background:#f8f8f8;
+
     border:1px solid #eee;
+
     border-radius:7px;
+
     padding:22px;
 }
 
 .pattern-icon{
     height:130px;
+
     background:#eaeaea;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     font-size:28px;
@@ -591,101 +851,128 @@ button{
 
 .pattern-card h3{
     font-size:14px;
+
     margin-bottom:5px;
 }
 
 .pattern-card p{
     color:#999;
+
     font-size:10px;
+
     line-height:1.7;
 }
 
 
-/* =========================
-   Advice
-========================= */
+/* =====================================================
+   ADVICE
+===================================================== */
 
 .advice-box{
     background:#111;
+
     color:#fff;
+
     border-radius:8px;
+
     padding:30px;
 }
 
 .advice-title{
     font-size:20px;
+
     margin-bottom:20px;
 }
 
 .advice-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:15px;
 }
 
 .advice-item{
     background:#1d1d1d;
+
     border-radius:6px;
+
     padding:18px;
 }
 
 .advice-item small{
     color:#888;
+
     font-size:9px;
 }
 
 .advice-item h3{
     font-size:14px;
+
     margin:5px 0;
 }
 
 .advice-item p{
     color:#aaa;
+
     font-size:11px;
+
     line-height:1.7;
 }
 
 
-/* =========================
-   Placeholder
-========================= */
+/* =====================================================
+   PLACEHOLDER
+===================================================== */
 
 .placeholder{
     width:100%;
+
     height:100%;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     flex-direction:column;
 
     color:#aaa;
+
     font-size:10px;
 }
 
 .placeholder strong{
     color:#777;
+
     font-size:13px;
+
     margin-bottom:4px;
 }
 
 
-/* =========================
-   Footer
-========================= */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
     background:#111;
+
     color:#777;
+
     text-align:center;
+
     padding:25px;
+
     font-size:10px;
 }
 
 
-/* =========================
-   Mobile
-========================= */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:900px){
 
@@ -702,12 +989,15 @@ footer{
     }
 
     .dev-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .color-grid{
-        grid-template-columns:repeat(3,1fr);
+        grid-template-columns:
+        repeat(3,1fr);
     }
+
 }
 
 @media(max-width:550px){
@@ -722,6 +1012,7 @@ footer{
 
     .category-card{
         flex-direction:column;
+
         align-items:flex-start;
     }
 
@@ -734,17 +1025,40 @@ footer{
     }
 
     .color-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .selected{
         flex-direction:column;
+
         align-items:flex-start;
+
         gap:8px;
     }
+
+    .category-tip.show{
+        align-items:flex-start;
+
+        flex-direction:column;
+    }
+
+}
+
+
+/* =====================================================
+   FOCUS CATEGORY HIGHLIGHT
+===================================================== */
+
+.focus-selected{
+    outline:
+    2px solid #111;
+
+    outline-offset:2px;
 }
 
 </style>
+
 </head>
 
 
@@ -758,36 +1072,64 @@ footer{
 <header class="header">
 
     <div class="logo">
+
         服装开发参考站
-        <span>PRODUCT DEVELOPMENT</span>
+
+        <span>
+            PRODUCT DEVELOPMENT
+        </span>
+
     </div>
+
 
     <nav class="nav">
 
         <button
             class="active"
             onclick="backHome()">
+
             类目对接
+
         </button>
 
-        <button onclick="scrollToDev('style')">
+
+        <button
+            onclick="scrollToDev('style')">
+
             版型参考
+
         </button>
 
-        <button onclick="scrollToDev('fabric')">
+
+        <button
+            onclick="scrollToDev('fabric')">
+
             面料方向
+
         </button>
 
-        <button onclick="scrollToDev('color')">
+
+        <button
+            onclick="scrollToDev('color')">
+
             颜色趋势
+
         </button>
 
-        <button onclick="scrollToDev('pattern')">
+
+        <button
+            onclick="scrollToDev('pattern')">
+
             图案趋势
+
         </button>
 
-        <button onclick="scrollToDev('advice')">
+
+        <button
+            onclick="scrollToDev('advice')">
+
             开发建议
+
         </button>
 
     </nav>
@@ -811,14 +1153,20 @@ footer{
                 PRODUCT DEVELOPMENT
             </span>
 
+
             <h1>
                 服装开发参考站
             </h1>
 
+
             <p>
+
                 面向商家的商品开发参考工具。
+
                 <br>
+
                 从类目选择开始，快速找到对应的版型、面料、颜色、图案及开发方向。
+
             </p>
 
         </div>
@@ -833,15 +1181,18 @@ footer{
 
         <div class="container">
 
+
             <div class="section-title">
 
                 <small>
                     CATEGORY MATCHING
                 </small>
 
+
                 <h2>
                     类目对接
                 </h2>
+
 
                 <p>
                     商家要做什么商品？先从这里选择对应的商品类目。
@@ -850,11 +1201,15 @@ footer{
             </div>
 
 
+
+            <!-- 搜索 -->
+
             <div class="search">
 
                 <span class="search-icon">
                     🔍
                 </span>
+
 
                 <input
                     id="searchInput"
@@ -863,6 +1218,9 @@ footer{
             </div>
 
 
+
+            <!-- 重点对接 -->
+
             <div class="focus-title">
                 重点对接
             </div>
@@ -870,70 +1228,135 @@ footer{
 
             <div class="focus-grid">
 
-                <!-- 修改：点击标码男装后显示全部标码男装类目 -->
+
+                <!-- 标码男装 -->
 
                 <div
                     class="focus-card"
-                    onclick="showCategoryGroup('标码男装')">
+                    id="focus-standard"
+                    onclick="showFocusCategories('标码男装')">
 
                     <small>
                         重点方向
                     </small>
+
 
                     <h3>
                         标码男装
                     </h3>
 
+
                     <p>
                         背心 / 衬衫 / 套装 / 运动
                     </p>
 
+
+                    <span class="focus-arrow">
+                        查看类目 →
+                    </span>
+
                 </div>
 
 
-                <!-- 修改：点击大码男装后显示全部大码男装类目 -->
+
+                <!-- 大码男装 -->
 
                 <div
                     class="focus-card"
-                    onclick="showCategoryGroup('大码男装')">
+                    id="focus-plus"
+                    onclick="showFocusCategories('大码男装')">
 
                     <small>
                         重点方向
                     </small>
+
 
                     <h3>
                         大码男装
                     </h3>
 
+
                     <p>
                         背心 / 衬衫 / 套装 / 运动
                     </p>
 
+
+                    <span class="focus-arrow">
+                        查看类目 →
+                    </span>
+
                 </div>
 
 
-                <!-- 修改：点击孕妇装后显示全部孕妇装类目 -->
+
+                <!-- 孕妇装 -->
 
                 <div
                     class="focus-card"
-                    onclick="showCategoryGroup('孕妇装')">
+                    id="focus-maternity"
+                    onclick="showFocusCategories('孕妇装')">
 
                     <small>
                         重点方向
                     </small>
 
+
                     <h3>
                         孕妇装
                     </h3>
+
 
                     <p>
                         孕妇T恤 / 背心 / 连衣裙
                     </p>
 
+
+                    <span class="focus-arrow">
+                        查看类目 →
+                    </span>
+
                 </div>
 
             </div>
 
+
+
+            <!-- 重点类目提示 -->
+
+            <div
+                id="categoryTip"
+                class="category-tip">
+
+                <div>
+
+                    <div
+                        id="categoryTipTitle"
+                        class="category-tip-title">
+                    </div>
+
+
+                    <div class="category-tip-text">
+
+                        请选择你要开发的具体商品类目
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="clear-focus"
+                    onclick="clearFocus()">
+
+                    查看全部类目
+
+                </button>
+
+            </div>
+
+
+
+            <!-- 商品类目 -->
 
             <div class="category-title">
                 商品类目
@@ -960,9 +1383,12 @@ footer{
 <div id="developmentPage">
 
 
+    <!-- 商品标题 -->
+
     <section class="product-header">
 
         <div class="container">
+
 
             <button
                 class="back"
@@ -972,16 +1398,20 @@ footer{
 
             </button>
 
+
             <h1 id="productTitle">
                 衬衫
             </h1>
+
 
             <p>
                 当前商品的完整开发参考方向
             </p>
 
 
+
             <div class="selected">
+
 
                 <div class="selected-left">
 
@@ -989,15 +1419,21 @@ footer{
                         当前选择
                     </span>
 
+
                     <span
                         id="selectedName"
                         class="selected-name">
+
                         衬衫
+
                     </span>
 
                 </div>
 
-                <!-- 已删除前端显示的“类目ID不会展示给商家” -->
+
+                <div class="selected-right">
+                    商品开发参考
+                </div>
 
             </div>
 
@@ -1007,36 +1443,51 @@ footer{
 
 
 
-    <!-- Development Nav -->
+    <!-- 开发导航 -->
 
     <div class="dev-nav">
 
         <div class="dev-nav-inner">
 
+
             <button
                 class="active"
                 onclick="scrollToDev('style')">
+
                 ① 版型参考
+
             </button>
+
 
             <button
                 onclick="scrollToDev('fabric')">
+
                 ② 面料方向
+
             </button>
+
 
             <button
                 onclick="scrollToDev('color')">
+
                 ③ 颜色趋势
+
             </button>
+
 
             <button
                 onclick="scrollToDev('pattern')">
+
                 ④ 图案趋势
+
             </button>
+
 
             <button
                 onclick="scrollToDev('advice')">
+
                 ⑤ 开发建议
+
             </button>
 
         </div>
@@ -1055,11 +1506,13 @@ footer{
 
         <div class="container">
 
+
             <div class="dev-head">
 
                 <h2>
                     版型参考
                 </h2>
+
 
                 <span>
                     STYLE REFERENCE
@@ -1089,11 +1542,13 @@ footer{
 
         <div class="container">
 
+
             <div class="dev-head">
 
                 <h2>
                     面料方向
                 </h2>
+
 
                 <span>
                     FABRIC DIRECTION
@@ -1123,11 +1578,13 @@ footer{
 
         <div class="container">
 
+
             <div class="dev-head">
 
                 <h2>
                     颜色趋势
                 </h2>
+
 
                 <span>
                     COLOR TREND
@@ -1157,11 +1614,13 @@ footer{
 
         <div class="container">
 
+
             <div class="dev-head">
 
                 <h2>
                     图案趋势
                 </h2>
+
 
                 <span>
                     PATTERN TREND
@@ -1191,11 +1650,13 @@ footer{
 
         <div class="container">
 
+
             <div class="dev-head">
 
                 <h2>
                     开发建议
                 </h2>
+
 
                 <span>
                     DEVELOPMENT GUIDE
@@ -1206,9 +1667,15 @@ footer{
 
             <div class="advice-box">
 
-                <div class="advice-title">
+
+                <div
+                    id="adviceTitle"
+                    class="advice-title">
+
                     开发方向
+
                 </div>
+
 
                 <div
                     id="adviceGrid"
@@ -1220,7 +1687,6 @@ footer{
         </div>
 
     </section>
-
 
 </div>
 
@@ -1238,13 +1704,20 @@ footer{
 
 /* =====================================================
    类目数据
-   ID仅用于后台逻辑
-   页面不会展示
+
+   注意：
+   id 只用于后台逻辑
+   前端不会展示
 ===================================================== */
 
 const categories = [
 
+    /* =============================
+       标码男装
+    ============================= */
+
     {
+        group:"标码男装",
         user:"标码男装 · 重点对接",
         name:"标码背心上衣",
         id:"30479",
@@ -1253,6 +1726,7 @@ const categories = [
     },
 
     {
+        group:"标码男装",
         user:"男士标码球类上衣",
         name:"男士英式橄榄球上衣",
         id:"27741",
@@ -1261,14 +1735,16 @@ const categories = [
     },
 
     {
+        group:"标码男装",
         user:"休闲运动类标码套装",
         name:"男士运动上装和下装套装",
         id:"30444",
-        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士休闲运动服 > 男士休闲运动套装",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士休闲运动服 > 男士休闲运动套装 > 男士运动上装和下装套装",
         type:"套装"
     },
 
     {
+        group:"标码男装",
         user:"篮球运动类标码套装",
         name:"男士篮球服套装",
         id:"27209",
@@ -1277,6 +1753,7 @@ const categories = [
     },
 
     {
+        group:"标码男装",
         user:"足球运动类标码套装",
         name:"男士足球运动服",
         id:"28099",
@@ -1285,6 +1762,7 @@ const categories = [
     },
 
     {
+        group:"标码男装",
         user:"专业运动类短裤",
         name:"男士运动短裤",
         id:"30447",
@@ -1293,6 +1771,7 @@ const categories = [
     },
 
     {
+        group:"标码男装",
         user:"专业运动类上衣",
         name:"男士运动上衣",
         id:"30456",
@@ -1301,6 +1780,7 @@ const categories = [
     },
 
     {
+        group:"标码男装",
         user:"专业运动类套装",
         name:"男士贴身运动套装",
         id:"30438",
@@ -1309,6 +1789,7 @@ const categories = [
     },
 
     {
+        group:"标码男装",
         user:"专业运动类长裤",
         name:"男士运动长裤",
         id:"30446",
@@ -1316,7 +1797,13 @@ const categories = [
         type:"长裤"
     },
 
+
+    /* =============================
+       大码男装
+    ============================= */
+
     {
+        group:"大码男装",
         user:"大码男装 · 重点对接",
         name:"大码背心 - 秋冬",
         id:"40172",
@@ -1325,6 +1812,7 @@ const categories = [
     },
 
     {
+        group:"大码男装",
         user:"大码男装",
         name:"大码背心上衣",
         id:"40271",
@@ -1333,6 +1821,7 @@ const categories = [
     },
 
     {
+        group:"大码男装",
         user:"大码男装",
         name:"大码男士沙滩裤",
         id:"40224",
@@ -1341,6 +1830,7 @@ const categories = [
     },
 
     {
+        group:"大码男装",
         user:"大码男装",
         name:"大码男士泳裤",
         id:"40386",
@@ -1349,6 +1839,7 @@ const categories = [
     },
 
     {
+        group:"大码男装",
         user:"大码男装",
         name:"大码男装单马甲",
         id:"40220",
@@ -1357,6 +1848,7 @@ const categories = [
     },
 
     {
+        group:"大码男装",
         user:"大码男装",
         name:"大码男装休闲衬衫",
         id:"40263",
@@ -1365,6 +1857,7 @@ const categories = [
     },
 
     {
+        group:"大码男装",
         user:"大码男装",
         name:"大码男士亨利衫",
         id:"40265",
@@ -1373,6 +1866,7 @@ const categories = [
     },
 
     {
+        group:"大码男装",
         user:"大码男装",
         name:"大码男士运动服系扣衬衫",
         id:"40233",
@@ -1381,30 +1875,39 @@ const categories = [
     },
 
     {
+        group:"大码男装",
         user:"大码男装",
         name:"大码男士运动上装和下装套装",
         id:"40252",
-        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士休闲运动服 > 大码男士休闲运动套装",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士休闲运动服 > 大码男士休闲运动套装 > 大码男士运动上装和下装套装",
         type:"套装"
     },
 
     {
+        group:"大码男装",
         user:"大码男装",
         name:"大码男士休闲套装",
         id:"40251",
-        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士休闲运动服 > 大码男士休闲运动套装",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士休闲运动服 > 大码男士休闲运动套装 > 大码男士休闲套装",
         type:"套装"
     },
 
     {
+        group:"大码男装",
         user:"大码男装",
         name:"大码男士运动套装",
         id:"40250",
-        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士休闲运动服 > 大码男士休闲运动套装",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士休闲运动服 > 大码男士休闲运动套装 > 大码男士径赛服",
         type:"运动套装"
     },
 
+
+    /* =============================
+       牛仔
+    ============================= */
+
     {
+        group:"牛仔类",
         user:"牛仔类",
         name:"男士牛仔衬衣",
         id:"40415",
@@ -1413,6 +1916,7 @@ const categories = [
     },
 
     {
+        group:"牛仔类",
         user:"牛仔类",
         name:"男装牛仔裤",
         id:"30343",
@@ -1421,6 +1925,7 @@ const categories = [
     },
 
     {
+        group:"牛仔类",
         user:"牛仔类",
         name:"男士牛仔短裤",
         id:"30340",
@@ -1428,7 +1933,13 @@ const categories = [
         type:"牛仔"
     },
 
+
+    /* =============================
+       孕妇装
+    ============================= */
+
     {
+        group:"孕妇装",
         user:"孕妇装 · 重点对接",
         name:"孕妇T恤",
         id:"29426",
@@ -1437,6 +1948,7 @@ const categories = [
     },
 
     {
+        group:"孕妇装",
         user:"孕妇装",
         name:"孕妇连衣裙",
         id:"39131",
@@ -1445,6 +1957,7 @@ const categories = [
     }
 
 ];
+
 
 
 /* =====================================================
@@ -1519,6 +2032,7 @@ const styleData = {
 };
 
 
+
 /* =====================================================
    面料数据
 ===================================================== */
@@ -1591,8 +2105,9 @@ const fabricData = {
 };
 
 
+
 /* =====================================================
-   颜色
+   颜色数据
 ===================================================== */
 
 const colorData = {
@@ -1672,8 +2187,9 @@ const colorData = {
 };
 
 
+
 /* =====================================================
-   图案
+   图案数据
 ===================================================== */
 
 const patternData = {
@@ -1744,6 +2260,7 @@ const patternData = {
 };
 
 
+
 /* =====================================================
    开发建议
 ===================================================== */
@@ -1754,7 +2271,7 @@ const adviceData = {
         ["版型","优先宽松、Oversize、落肩方向","减少过于修身的开发"],
         ["面料","轻薄、舒适、易打理","春夏优先关注轻量化"],
         ["颜色","基础色 + 低饱和趋势色","可增加少量撞色"],
-        ["图案","字母、条纹、几何、小面积印花","避免过度复杂"],
+        ["图案","字母、条纹、几何、小面积印花","避免过度复杂"]
     ],
 
     "背心":[
@@ -1816,12 +2333,141 @@ const adviceData = {
 };
 
 
+
 /* =====================================================
-   当前商品
+   当前状态
 ===================================================== */
 
 let currentProduct = "";
+
 let currentType = "衬衫";
+
+let currentFocus = "";
+
+
+
+/* =====================================================
+   显示重点类目
+===================================================== */
+
+function showFocusCategories(group){
+
+    currentFocus = group;
+
+
+    const result =
+        categories.filter(item =>
+            item.group === group
+        );
+
+
+    document
+    .getElementById("categoryTip")
+    .classList.add("show");
+
+
+    document
+    .getElementById("categoryTipTitle")
+    .innerText =
+        group + " · 可选类目";
+
+
+    renderCategories(result);
+
+
+    /* 高亮当前重点 */
+
+    document
+    .getElementById("focus-standard")
+    .classList.remove("focus-selected");
+
+    document
+    .getElementById("focus-plus")
+    .classList.remove("focus-selected");
+
+    document
+    .getElementById("focus-maternity")
+    .classList.remove("focus-selected");
+
+
+    if(group === "标码男装"){
+
+        document
+        .getElementById("focus-standard")
+        .classList.add("focus-selected");
+
+    }
+
+
+    if(group === "大码男装"){
+
+        document
+        .getElementById("focus-plus")
+        .classList.add("focus-selected");
+
+    }
+
+
+    if(group === "孕妇装"){
+
+        document
+        .getElementById("focus-maternity")
+        .classList.add("focus-selected");
+
+    }
+
+
+    /* 滚动到类目 */
+
+    document
+    .getElementById("categoryList")
+    .scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+
+
+/* =====================================================
+   清除重点筛选
+===================================================== */
+
+function clearFocus(){
+
+    currentFocus = "";
+
+
+    document
+    .getElementById("categoryTip")
+    .classList.remove("show");
+
+
+    document
+    .getElementById("focus-standard")
+    .classList.remove("focus-selected");
+
+
+    document
+    .getElementById("focus-plus")
+    .classList.remove("focus-selected");
+
+
+    document
+    .getElementById("focus-maternity")
+    .classList.remove("focus-selected");
+
+
+    document
+    .getElementById("searchInput")
+    .value = "";
+
+
+    renderCategories(categories);
+
+}
+
 
 
 /* =====================================================
@@ -1831,65 +2477,79 @@ let currentType = "衬衫";
 function renderCategories(list){
 
     const box =
-        document.getElementById("categoryList");
+        document.getElementById(
+            "categoryList"
+        );
+
 
     box.innerHTML = "";
 
-    if(list.length === 0){
+
+    if(!list.length){
 
         box.innerHTML = `
-            <div style="
-                grid-column:1/-1;
-                background:#fff;
-                border:1px solid #eee;
-                border-radius:7px;
-                padding:40px;
-                text-align:center;
-                color:#aaa;
-                font-size:12px;
-            ">
-                暂未找到对应类目
+
+            <div class="no-result">
+
+                没有找到对应的商品类目
+
             </div>
+
         `;
 
         return;
+
     }
 
+
     list.forEach(item=>{
+
 
         const card =
             document.createElement("div");
 
+
         card.className =
             "category-card";
+
 
         card.innerHTML = `
 
             <div class="category-info">
 
                 <div class="category-user">
+
                     ${item.user}
+
                 </div>
+
 
                 <div class="category-name">
+
                     ${item.name}
+
                 </div>
 
+
                 <div class="category-path">
+
                     ${item.path}
+
                 </div>
 
             </div>
 
+
             <button
                 class="view-btn"
-                onclick="openReference('${item.name}','${item.type}')">
+                onclick="openReference('${escapeQuotes(item.name)}','${escapeQuotes(item.type)}')">
 
                 查看开发参考 →
 
             </button>
 
         `;
+
 
         box.appendChild(card);
 
@@ -1898,27 +2558,6 @@ function renderCategories(list){
 }
 
 
-/* =====================================================
-   新增：重点方向类目筛选
-===================================================== */
-
-function showCategoryGroup(keyword){
-
-    const result =
-        categories.filter(item =>
-            item.user.includes(keyword)
-        );
-
-    renderCategories(result);
-
-    document
-        .getElementById("category")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
-
-}
-
 
 /* =====================================================
    搜索
@@ -1926,99 +2565,171 @@ function showCategoryGroup(keyword){
 
 document
 .getElementById("searchInput")
-.addEventListener("input",function(){
+.addEventListener(
+    "input",
+    function(){
 
-    const keyword =
-        this.value.trim().toLowerCase();
+        const keyword =
+            this.value
+            .trim()
+            .toLowerCase();
 
-    if(!keyword){
 
-        renderCategories(categories);
+        if(!keyword){
 
-        return;
+            if(currentFocus){
+
+                renderCategories(
+                    categories.filter(
+                        item =>
+                        item.group === currentFocus
+                    )
+                );
+
+            }else{
+
+                renderCategories(categories);
+
+            }
+
+            return;
+
+        }
+
+
+        const result =
+            categories.filter(item=>{
+
+                return (
+
+                    item.name
+                    .toLowerCase()
+                    .includes(keyword)
+
+                    ||
+
+                    item.user
+                    .toLowerCase()
+                    .includes(keyword)
+
+                    ||
+
+                    item.path
+                    .toLowerCase()
+                    .includes(keyword)
+
+                    ||
+
+                    item.type
+                    .toLowerCase()
+                    .includes(keyword)
+
+                    ||
+
+                    item.group
+                    .toLowerCase()
+                    .includes(keyword)
+
+                );
+
+            });
+
+
+        renderCategories(result);
+
     }
+);
 
-    const result =
-        categories.filter(item=>{
-
-            return (
-
-                item.name.toLowerCase()
-                .includes(keyword)
-
-                ||
-
-                item.user.toLowerCase()
-                .includes(keyword)
-
-                ||
-
-                item.path.toLowerCase()
-                .includes(keyword)
-
-                ||
-
-                item.type.toLowerCase()
-                .includes(keyword)
-
-            );
-
-        });
-
-    renderCategories(result);
-
-});
 
 
 /* =====================================================
-   打开完整开发页面
+   特殊字符处理
+===================================================== */
+
+function escapeQuotes(str){
+
+    return str
+        .replace(/'/g,"&#39;")
+        .replace(/"/g,"&quot;");
+
+}
+
+
+
+/* =====================================================
+   打开具体开发页面
 ===================================================== */
 
 function openReference(product,type){
 
-    currentProduct = product;
+    currentProduct =
+        product;
 
-    currentType = type;
+    currentType =
+        type;
+
 
     document
     .getElementById("homePage")
-    .style.display = "none";
+    .style.display =
+        "none";
+
 
     document
     .getElementById("developmentPage")
-    .style.display = "block";
+    .style.display =
+        "block";
+
 
     document
     .getElementById("productTitle")
-    .innerText = product;
+    .innerText =
+        product;
+
 
     document
     .getElementById("selectedName")
-    .innerText = product;
+    .innerText =
+        product;
+
 
     renderAll();
 
-    window.scrollTo(0,0);
+
+    window.scrollTo(
+        0,
+        0
+    );
+
 }
 
 
+
 /* =====================================================
-   返回
+   返回首页
 ===================================================== */
 
 function backHome(){
 
     document
     .getElementById("developmentPage")
-    .style.display = "none";
+    .style.display =
+        "none";
+
 
     document
     .getElementById("homePage")
-    .style.display = "block";
+    .style.display =
+        "block";
 
-    window.scrollTo(0,0);
+
+    window.scrollTo(
+        0,
+        0
+    );
 
 }
+
 
 
 /* =====================================================
@@ -2028,19 +2739,29 @@ function backHome(){
 function renderStyle(){
 
     const grid =
-        document.getElementById("styleGrid");
+        document.getElementById(
+            "styleGrid"
+        );
+
 
     const data =
-        styleData[currentType] || [];
+        styleData[currentType]
+        || [];
+
 
     grid.innerHTML = "";
 
+
     data.forEach(item=>{
+
 
         const card =
             document.createElement("div");
 
-        card.className = "ref-card";
+
+        card.className =
+            "ref-card";
+
 
         card.innerHTML = `
 
@@ -2049,29 +2770,37 @@ function renderStyle(){
                 <img
                     src="${item[1]}"
                     alt="${item[0]}"
-                    onerror="imgError(this,'${item[0]}')">
+                    onerror="imgError(this,'${escapeQuotes(item[0])}')">
 
             </div>
+
 
             <div class="ref-info">
 
                 <div class="ref-name">
+
                     ${item[0]}
+
                 </div>
 
+
                 <div class="ref-desc">
+
                     ${item[2]}
+
                 </div>
 
             </div>
 
         `;
 
+
         grid.appendChild(card);
 
     });
 
 }
+
 
 
 /* =====================================================
@@ -2081,20 +2810,29 @@ function renderStyle(){
 function renderFabric(){
 
     const grid =
-        document.getElementById("fabricGrid");
+        document.getElementById(
+            "fabricGrid"
+        );
+
 
     const data =
-        fabricData[currentType] || [];
+        fabricData[currentType]
+        || [];
+
 
     grid.innerHTML = "";
 
+
     data.forEach(item=>{
+
 
         const card =
             document.createElement("div");
 
+
         card.className =
             "fabric-card";
+
 
         card.innerHTML = `
 
@@ -2102,21 +2840,27 @@ function renderFabric(){
                 ${item[0]}
             </h3>
 
+
             <p>
                 ${item[1]}
             </p>
 
+
             <span class="fabric-tag">
+
                 ${item[2]}
+
             </span>
 
         `;
+
 
         grid.appendChild(card);
 
     });
 
 }
+
 
 
 /* =====================================================
@@ -2126,20 +2870,29 @@ function renderFabric(){
 function renderColor(){
 
     const grid =
-        document.getElementById("colorGrid");
+        document.getElementById(
+            "colorGrid"
+        );
+
 
     const data =
-        colorData[currentType] || [];
+        colorData[currentType]
+        || [];
+
 
     grid.innerHTML = "";
 
+
     data.forEach(item=>{
+
 
         const card =
             document.createElement("div");
 
+
         card.className =
             "color-card";
+
 
         card.innerHTML = `
 
@@ -2151,25 +2904,33 @@ function renderColor(){
 
             </div>
 
+
             <div class="color-info">
 
                 <div class="color-name">
+
                     ${item[0]}
+
                 </div>
 
+
                 <div class="color-desc">
+
                     ${item[2]}
+
                 </div>
 
             </div>
 
         `;
 
+
         grid.appendChild(card);
 
     });
 
 }
+
 
 
 /* =====================================================
@@ -2179,42 +2940,61 @@ function renderColor(){
 function renderPattern(){
 
     const grid =
-        document.getElementById("patternGrid");
+        document.getElementById(
+            "patternGrid"
+        );
+
 
     const data =
-        patternData[currentType] || [];
+        patternData[currentType]
+        || [];
+
 
     grid.innerHTML = "";
 
+
     data.forEach(item=>{
+
 
         const card =
             document.createElement("div");
 
+
         card.className =
             "pattern-card";
+
 
         card.innerHTML = `
 
             <div class="pattern-icon">
+
                 ${item[1]}
+
             </div>
 
+
             <h3>
+
                 ${item[0]}
+
             </h3>
 
+
             <p>
+
                 ${item[2]}
+
             </p>
 
         `;
+
 
         grid.appendChild(card);
 
     });
 
 }
+
 
 
 /* =====================================================
@@ -2224,49 +3004,72 @@ function renderPattern(){
 function renderAdvice(){
 
     const grid =
-        document.getElementById("adviceGrid");
+        document.getElementById(
+            "adviceGrid"
+        );
+
 
     const title =
-        document.querySelector(".advice-title");
+        document.getElementById(
+            "adviceTitle"
+        );
+
 
     const data =
-        adviceData[currentType] || [];
+        adviceData[currentType]
+        || [];
+
 
     title.innerText =
         currentProduct +
         " · 开发方向";
 
+
     grid.innerHTML = "";
 
+
     data.forEach(item=>{
+
 
         const card =
             document.createElement("div");
 
+
         card.className =
             "advice-item";
+
 
         card.innerHTML = `
 
             <small>
+
                 ${item[0]}
+
             </small>
 
+
             <h3>
+
                 ${item[1]}
+
             </h3>
 
+
             <p>
+
                 ${item[2]}
+
             </p>
 
         `;
+
 
         grid.appendChild(card);
 
     });
 
 }
+
 
 
 /* =====================================================
@@ -2288,6 +3091,7 @@ function renderAll(){
 }
 
 
+
 /* =====================================================
    图片不存在
 ===================================================== */
@@ -2299,11 +3103,16 @@ function imgError(img,name){
         <div class="placeholder">
 
             <strong>
+
                 ${name}
+
             </strong>
 
+
             <span>
+
                 图片待添加
+
             </span>
 
         </div>
@@ -2311,6 +3120,7 @@ function imgError(img,name){
     `;
 
 }
+
 
 
 /* =====================================================
@@ -2321,7 +3131,9 @@ function scrollToDev(id){
 
     if(
         document
-        .getElementById("developmentPage")
+        .getElementById(
+            "developmentPage"
+        )
         .style.display !== "block"
     ){
 
@@ -2329,8 +3141,10 @@ function scrollToDev(id){
 
     }
 
+
     const el =
         document.getElementById(id);
+
 
     if(el){
 
@@ -2343,6 +3157,7 @@ function scrollToDev(id){
 }
 
 
+
 /* =====================================================
    初始化
 ===================================================== */
@@ -2352,4 +3167,5 @@ renderCategories(categories);
 </script>
 
 </body>
+
 </html>
