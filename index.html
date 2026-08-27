@@ -1,487 +1,607 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>男装开发参考站 · 类目对接</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                "Microsoft YaHei",
-                Arial,
-                sans-serif;
-
-            background: #f6f7f9;
-            color: #222;
-        }
-
-        /* =========================
-           顶部导航
-        ========================= */
-
-        .header {
-            height: 68px;
-            background: #ffffff;
-            border-bottom: 1px solid #eeeeee;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 0 6%;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .logo span {
-            font-weight: 400;
-            color: #888;
-            margin-left: 8px;
-        }
+<title>类目对接｜男装开发参考站</title>
 
-        .nav {
-            display: flex;
-            gap: 30px;
-        }
+<style>
 
-        .nav a {
-            text-decoration: none;
-            color: #555;
-            font-size: 14px;
-        }
+/* =========================
+   基础设置
+========================= */
 
-        .nav a.active {
-            color: #111;
-            font-weight: 600;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        /* =========================
-           主体
-        ========================= */
+body{
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Microsoft YaHei",
+        Arial,
+        sans-serif;
 
-        .container {
-            width: 88%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    background:#f5f6f8;
+    color:#222;
+}
 
-        .hero {
-            padding: 70px 0 45px;
-        }
+button,
+input{
+    font-family:inherit;
+}
 
-        .hero-tag {
-            display: inline-block;
 
-            padding: 6px 12px;
+/* =========================
+   顶部导航
+========================= */
 
-            background: #111;
-            color: #fff;
+.header{
+    height:68px;
 
-            font-size: 12px;
+    background:#fff;
 
-            border-radius: 4px;
+    border-bottom:1px solid #eaeaea;
 
-            margin-bottom: 18px;
-        }
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-        .hero h1 {
-            font-size: 40px;
-            line-height: 1.3;
-            margin-bottom: 14px;
-        }
+    padding:0 6%;
 
-        .hero p {
-            color: #777;
-            font-size: 16px;
-            line-height: 1.8;
-        }
+    position:sticky;
+    top:0;
+    z-index:100;
+}
 
-        /* =========================
-           搜索区域
-        ========================= */
+.logo{
+    font-size:19px;
+    font-weight:700;
+}
 
-        .search-box {
-            background: #ffffff;
+.logo span{
+    margin-left:8px;
+    color:#999;
+    font-size:12px;
+    font-weight:400;
+}
 
-            border-radius: 12px;
+.nav{
+    display:flex;
+    gap:28px;
+}
 
-            padding: 28px;
+.nav a{
+    color:#666;
+    text-decoration:none;
+    font-size:14px;
+}
 
-            box-shadow: 0 5px 25px rgba(0,0,0,0.04);
+.nav a.active{
+    color:#111;
+    font-weight:600;
+}
 
-            margin-bottom: 35px;
-        }
 
-        .search-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
+/* =========================
+   页面容器
+========================= */
 
-        .search-wrap {
-            display: flex;
-            gap: 10px;
-        }
+.container{
+    width:88%;
+    max-width:1200px;
+    margin:0 auto;
+}
 
-        #searchInput {
-            flex: 1;
 
-            height: 48px;
+/* =========================
+   页面标题
+========================= */
 
-            border: 1px solid #dddddd;
+.hero{
+    padding:65px 0 38px;
+}
 
-            border-radius: 6px;
+.tag{
+    display:inline-block;
 
-            padding: 0 16px;
+    padding:6px 12px;
 
-            font-size: 14px;
+    background:#111;
 
-            outline: none;
-        }
+    color:#fff;
 
-        #searchInput:focus {
-            border-color: #111;
-        }
+    font-size:11px;
 
-        .search-btn {
-            width: 100px;
+    border-radius:4px;
 
-            border: none;
+    margin-bottom:18px;
+}
 
-            background: #111;
-            color: white;
+.hero h1{
+    font-size:40px;
 
-            border-radius: 6px;
+    line-height:1.3;
 
-            cursor: pointer;
+    margin-bottom:14px;
+}
 
-            font-size: 14px;
-        }
+.hero p{
+    color:#777;
 
-        .search-btn:hover {
-            background: #333;
-        }
+    font-size:15px;
 
-        /* =========================
-           商品分类
-        ========================= */
+    line-height:1.8;
+}
 
-        .section-title {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
 
-            margin-bottom: 18px;
-        }
+/* =========================
+   搜索框
+========================= */
 
-        .section-title h2 {
-            font-size: 22px;
-        }
+.search-box{
+    background:#fff;
 
-        .section-title span {
-            font-size: 13px;
-            color: #999;
-        }
+    padding:25px;
 
-        .category-grid {
-            display: grid;
+    border-radius:10px;
 
-            grid-template-columns:
-                repeat(5, 1fr);
+    margin-bottom:25px;
 
-            gap: 16px;
+    box-shadow:
+        0 4px 20px rgba(0,0,0,.035);
+}
 
-            margin-bottom: 45px;
-        }
+.search-title{
+    font-size:16px;
 
-        .category-card {
-            background: white;
+    font-weight:600;
 
-            border-radius: 10px;
+    margin-bottom:12px;
+}
 
-            padding: 25px 20px;
+.search-row{
+    display:flex;
 
-            cursor: pointer;
+    gap:10px;
+}
 
-            border: 1px solid transparent;
+.search-input{
+    flex:1;
 
-            transition: all 0.25s;
-        }
+    height:46px;
 
-        .category-card:hover {
-            transform: translateY(-3px);
+    border:1px solid #ddd;
 
-            border-color: #111;
+    border-radius:6px;
 
-            box-shadow:
-                0 8px 25px rgba(0,0,0,0.06);
-        }
+    padding:0 14px;
 
-        .category-icon {
-            width: 42px;
-            height: 42px;
+    font-size:14px;
 
-            border-radius: 8px;
+    outline:none;
+}
 
-            background: #f1f1f1;
+.search-input:focus{
+    border-color:#111;
+}
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+.search-btn{
+    width:90px;
 
-            font-size: 18px;
+    border:none;
 
-            margin-bottom: 18px;
-        }
+    background:#111;
 
-        .category-card h3 {
-            font-size: 17px;
-            margin-bottom: 7px;
-        }
+    color:#fff;
 
-        .category-card p {
-            color: #999;
-            font-size: 12px;
-            line-height: 1.6;
-        }
+    border-radius:6px;
 
-        /* =========================
-           结果区域
-        ========================= */
+    cursor:pointer;
 
-        .result-section {
-            display: none;
+    font-size:13px;
+}
 
-            background: #ffffff;
+.search-btn:hover{
+    background:#333;
+}
 
-            border-radius: 12px;
 
-            padding: 30px;
+/* =========================
+   方向筛选
+========================= */
 
-            margin-bottom: 50px;
-        }
+.filter-box{
+    background:#fff;
 
-        .result-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    padding:25px;
 
-            margin-bottom: 25px;
-        }
+    border-radius:10px;
 
-        .result-header h2 {
-            font-size: 22px;
-        }
+    margin-bottom:28px;
+}
 
-        .result-header span {
-            font-size: 13px;
-            color: #999;
-        }
+.filter-title{
+    font-size:16px;
 
-        .result-item {
-            display: flex;
+    font-weight:600;
 
-            justify-content: space-between;
+    margin-bottom:15px;
+}
 
-            align-items: center;
+.filter-group{
+    display:flex;
 
-            padding: 20px 0;
+    flex-wrap:wrap;
 
-            border-bottom: 1px solid #eeeeee;
-        }
+    gap:9px;
+}
 
-        .result-item:last-child {
-            border-bottom: none;
-        }
+.filter-btn{
+    padding:9px 15px;
 
-        .result-left h3 {
-            font-size: 16px;
+    background:#f4f4f4;
 
-            margin-bottom: 7px;
-        }
+    border:1px solid transparent;
 
-        .result-left p {
-            color: #999;
+    border-radius:5px;
 
-            font-size: 13px;
-        }
+    color:#555;
 
-        .result-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+    cursor:pointer;
 
-        .recommend {
-            font-size: 12px;
+    font-size:13px;
 
-            background: #f2f2f2;
+    transition:.2s;
+}
 
-            padding: 5px 10px;
+.filter-btn:hover{
+    background:#eaeaea;
+}
 
-            border-radius: 4px;
+.filter-btn.active{
+    background:#111;
 
-            color: #555;
-        }
+    color:#fff;
+}
 
-        .view-btn {
-            background: #111;
 
-            color: white;
+/* =========================
+   结果标题
+========================= */
 
-            border: none;
+.result-header{
+    display:flex;
 
-            padding: 9px 16px;
+    justify-content:space-between;
 
-            border-radius: 5px;
+    align-items:center;
 
-            cursor: pointer;
+    margin-bottom:15px;
+}
 
-            font-size: 12px;
-        }
+.result-header h2{
+    font-size:22px;
+}
 
-        .view-btn:hover {
-            background: #333;
-        }
+.result-count{
+    color:#999;
 
-        /* =========================
-           后续模块预览
-        ========================= */
+    font-size:13px;
+}
 
-        .next-section {
-            margin-bottom: 70px;
-        }
 
-        .next-grid {
-            display: grid;
+/* =========================
+   类目卡片
+========================= */
 
-            grid-template-columns:
-                repeat(4, 1fr);
+.category-list{
+    display:flex;
 
-            gap: 16px;
-        }
+    flex-direction:column;
 
-        .next-card {
-            background: white;
+    gap:14px;
 
-            padding: 25px;
+    margin-bottom:70px;
+}
 
-            border-radius: 10px;
+.category-card{
+    background:#fff;
 
-            min-height: 130px;
-        }
+    border-radius:10px;
 
-        .next-card .number {
-            font-size: 12px;
+    padding:25px;
 
-            color: #999;
+    border:1px solid #eee;
 
-            margin-bottom: 15px;
-        }
+    transition:.2s;
+}
 
-        .next-card h3 {
-            font-size: 16px;
+.category-card:hover{
+    border-color:#ccc;
 
-            margin-bottom: 8px;
-        }
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.04);
+}
 
-        .next-card p {
-            color: #999;
+.card-top{
+    display:flex;
 
-            font-size: 12px;
+    justify-content:space-between;
 
-            line-height: 1.7;
-        }
+    align-items:flex-start;
 
-        /* =========================
-           底部
-        ========================= */
+    gap:20px;
 
-        footer {
-            background: #111;
+    margin-bottom:18px;
+}
 
-            color: #999;
+.card-name{
+    font-size:18px;
 
-            text-align: center;
+    font-weight:600;
 
-            padding: 30px;
+    margin-bottom:7px;
+}
 
-            font-size: 12px;
-        }
+.card-group{
+    color:#999;
 
-        /* =========================
-           手机适配
-        ========================= */
+    font-size:12px;
+}
 
-        @media (max-width: 900px) {
+.recommend{
+    background:#f2f2f2;
 
-            .category-grid {
-                grid-template-columns:
-                    repeat(3, 1fr);
-            }
+    color:#555;
 
-            .next-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
+    font-size:11px;
 
-            .nav {
-                display: none;
-            }
-        }
+    padding:5px 9px;
 
-        @media (max-width: 600px) {
+    border-radius:4px;
 
-            .hero h1 {
-                font-size: 30px;
-            }
+    white-space:nowrap;
+}
 
-            .category-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
 
-            .next-grid {
-                grid-template-columns: 1fr;
-            }
+/* =========================
+   信息
+========================= */
 
-            .search-wrap {
-                flex-direction: column;
-            }
+.info-row{
+    display:grid;
 
-            .search-btn {
-                width: 100%;
-                height: 45px;
-            }
+    grid-template-columns:100px 1fr;
 
-            .result-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-        }
-    </style>
+    gap:10px;
+
+    padding:11px 0;
+
+    border-top:1px solid #f0f0f0;
+}
+
+.info-label{
+    color:#999;
+
+    font-size:12px;
+}
+
+.info-content{
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+.path{
+    color:#444;
+}
+
+
+/* =========================
+   操作按钮
+========================= */
+
+.actions{
+    margin-top:18px;
+
+    display:flex;
+
+    gap:8px;
+}
+
+.copy-btn{
+    border:1px solid #ddd;
+
+    background:#fff;
+
+    color:#555;
+
+    border-radius:5px;
+
+    padding:8px 13px;
+
+    cursor:pointer;
+
+    font-size:12px;
+}
+
+.copy-btn:hover{
+    border-color:#999;
+
+    background:#f7f7f7;
+}
+
+
+/* =========================
+   无结果
+========================= */
+
+.no-result{
+    display:none;
+
+    background:#fff;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    margin-bottom:70px;
+
+    color:#999;
+}
+
+.no-result h3{
+    color:#555;
+
+    margin-bottom:8px;
+}
+
+
+/* =========================
+   后续模块
+========================= */
+
+.future{
+    margin-bottom:70px;
+}
+
+.future-title{
+    font-size:22px;
+
+    margin-bottom:18px;
+}
+
+.future-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+}
+
+.future-card{
+    background:#fff;
+
+    padding:23px;
+
+    border-radius:9px;
+}
+
+.future-number{
+    font-size:11px;
+
+    color:#aaa;
+
+    margin-bottom:14px;
+}
+
+.future-card h3{
+    font-size:16px;
+
+    margin-bottom:8px;
+}
+
+.future-card p{
+    color:#999;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   Footer
+========================= */
+
+footer{
+    background:#111;
+
+    color:#888;
+
+    text-align:center;
+
+    padding:28px;
+
+    font-size:12px;
+}
+
+
+/* =========================
+   手机适配
+========================= */
+
+@media(max-width:900px){
+
+    .nav{
+        display:none;
+    }
+
+    .future-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .container{
+        width:92%;
+    }
+
+    .hero{
+        padding-top:45px;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .search-row{
+        flex-direction:column;
+    }
+
+    .search-btn{
+        width:100%;
+
+        height:45px;
+    }
+
+    .card-top{
+        flex-direction:column;
+    }
+
+    .info-row{
+        grid-template-columns:1fr;
+
+        gap:5px;
+    }
+
+    .future-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
+
 <!-- =========================
-     顶部
+     顶部导航
 ========================= -->
 
 <header class="header">
@@ -491,321 +611,303 @@
         <span>Product Development</span>
     </div>
 
+
     <nav class="nav">
-        <a href="#" class="active">类目对接</a>
-        <a href="#">版型参考</a>
-        <a href="#">面料方向</a>
-        <a href="#">颜色趋势</a>
-        <a href="#">图案趋势</a>
-        <a href="#">开发建议</a>
+
+        <a
+            href="#"
+            class="active">
+            类目对接
+        </a>
+
+        <a href="#">
+            版型参考
+        </a>
+
+        <a href="#">
+            面料方向
+        </a>
+
+        <a href="#">
+            颜色趋势
+        </a>
+
+        <a href="#">
+            图案趋势
+        </a>
+
+        <a href="#">
+            开发建议
+        </a>
+
     </nav>
 
 </header>
 
 
+
 <main class="container">
 
-    <!-- =========================
-         页面标题
-    ========================= -->
 
-    <section class="hero">
+<!-- =========================
+     页面标题
+========================= -->
 
-        <div class="hero-tag">
-            CATEGORY MATCHING
-        </div>
+<section class="hero">
 
-        <h1>
-            类目对接
-        </h1>
+    <div class="tag">
+        CATEGORY MATCHING
+    </div>
 
-        <p>
-            选择您计划开发的商品，快速匹配适合的上新类目。
-            <br>
-            帮助商家找到更合适的商品归类方向。
-        </p>
+    <h1>
+        类目对接
+    </h1>
 
-    </section>
+    <p>
+        输入您计划开发的商品，
+        快速匹配适合的上新类目。
+        <br>
+        根据商品类型，为您提供对应的类目选择参考。
+    </p>
 
-
-    <!-- =========================
-         搜索
-    ========================= -->
-
-    <section class="search-box">
-
-        <div class="search-title">
-            搜索商品
-        </div>
-
-        <div class="search-wrap">
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="请输入商品名称，例如：衬衫、背心、套装……"
-            >
-
-            <button
-                class="search-btn"
-                onclick="searchCategory()"
-            >
-                搜索
-            </button>
-
-        </div>
-
-    </section>
+</section>
 
 
-    <!-- =========================
-         商品分类
-    ========================= -->
 
-    <section>
+<!-- =========================
+     搜索
+========================= -->
 
-        <div class="section-title">
+<section class="search-box">
 
-            <h2>
-                选择商品
-            </h2>
+    <div class="search-title">
+        我想做什么商品？
+    </div>
 
-            <span>
-                当前支持 5 个商品方向
-            </span>
+    <div class="search-row">
 
-        </div>
+        <input
+            id="searchInput"
+            class="search-input"
+            type="text"
+            placeholder="例如：衬衫、背心、套装、牛仔裤、孕妇T恤……"
+        >
+
+        <button
+            class="search-btn"
+            onclick="searchProduct()">
+            搜索
+        </button>
+
+    </div>
+
+</section>
 
 
-        <div class="category-grid">
 
-            <div
-                class="category-card"
-                onclick="showCategory('背心')"
-            >
+<!-- =========================
+     方向筛选
+========================= -->
 
-                <div class="category-icon">
-                    01
-                </div>
+<section class="filter-box">
 
-                <h3>
-                    背心
-                </h3>
+    <div class="filter-title">
+        选择商品方向
+    </div>
 
-                <p>
-                    男士背心、休闲背心等
-                </p>
 
+    <div class="filter-group">
+
+        <button
+            class="filter-btn active"
+            onclick="filterGroup('标码男装',this)">
+            标码男装
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterGroup('球类运动',this)">
+            球类运动
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterGroup('专业运动',this)">
+            专业运动
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterGroup('大码男装',this)">
+            大码男装
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterGroup('牛仔类',this)">
+            牛仔类
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="filterGroup('孕妇装',this)">
+            孕妇装
+        </button>
+
+
+        <button
+            class="filter-btn"
+            onclick="showAll(this)">
+            全部
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     结果
+========================= -->
+
+<div class="result-header">
+
+    <h2 id="resultTitle">
+        标码男装
+    </h2>
+
+    <span
+        id="resultCount"
+        class="result-count">
+        共 0 个类目
+    </span>
+
+</div>
+
+
+<section
+    id="categoryList"
+    class="category-list">
+</section>
+
+
+<div
+    id="noResult"
+    class="no-result">
+
+    <h3>
+        暂无匹配类目
+    </h3>
+
+    <p>
+        请尝试搜索其他商品名称。
+    </p>
+
+</div>
+
+
+
+<!-- =========================
+     后续内容预览
+========================= -->
+
+<section class="future">
+
+    <h2 class="future-title">
+        开发参考
+    </h2>
+
+
+    <div class="future-grid">
+
+
+        <div class="future-card">
+
+            <div class="future-number">
+                02
             </div>
 
+            <h3>
+                版型参考
+            </h3>
 
-            <div
-                class="category-card"
-                onclick="showCategory('衬衫')"
-            >
-
-                <div class="category-icon">
-                    02
-                </div>
-
-                <h3>
-                    衬衫
-                </h3>
-
-                <p>
-                    短袖衬衫、长袖衬衫等
-                </p>
-
-            </div>
-
-
-            <div
-                class="category-card"
-                onclick="showCategory('套装')"
-            >
-
-                <div class="category-icon">
-                    03
-                </div>
-
-                <h3>
-                    套装
-                </h3>
-
-                <p>
-                    休闲套装、运动套装等
-                </p>
-
-            </div>
-
-
-            <div
-                class="category-card"
-                onclick="showCategory('孕妇装')"
-            >
-
-                <div class="category-icon">
-                    04
-                </div>
-
-                <h3>
-                    孕妇装
-                </h3>
-
-                <p>
-                    孕妇上装、孕妇套装等
-                </p>
-
-            </div>
-
-
-            <div
-                class="category-card"
-                onclick="showCategory('牛仔')"
-            >
-
-                <div class="category-icon">
-                    05
-                </div>
-
-                <h3>
-                    牛仔
-                </h3>
-
-                <p>
-                    牛仔裤、牛仔上装等
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         推荐结果
-    ========================= -->
-
-    <section
-        class="result-section"
-        id="resultSection"
-    >
-
-        <div class="result-header">
-
-            <h2 id="resultTitle">
-                推荐类目
-            </h2>
-
-            <span>
-                根据商品类型匹配
-            </span>
-
-        </div>
-
-        <div id="resultList"></div>
-
-    </section>
-
-
-    <!-- =========================
-         后续功能
-    ========================= -->
-
-    <section class="next-section">
-
-        <div class="section-title">
-
-            <h2>
-                开发参考
-            </h2>
-
-            <span>
-                后续模块
-            </span>
+            <p>
+                提供不同商品类型的版型、
+                廓形及细节设计参考。
+            </p>
 
         </div>
 
 
-        <div class="next-grid">
 
-            <div class="next-card">
+        <div class="future-card">
 
-                <div class="number">
-                    02
-                </div>
-
-                <h3>
-                    版型参考
-                </h3>
-
-                <p>
-                    提供不同商品类型的版型、
-                    廓形及细节设计参考。
-                </p>
-
+            <div class="future-number">
+                03
             </div>
 
+            <h3>
+                面料方向
+            </h3>
 
-            <div class="next-card">
-
-                <div class="number">
-                    03
-                </div>
-
-                <h3>
-                    面料方向
-                </h3>
-
-                <p>
-                    结合市场趋势提供面料成分、
-                    克重及使用方向。
-                </p>
-
-            </div>
-
-
-            <div class="next-card">
-
-                <div class="number">
-                    04
-                </div>
-
-                <h3>
-                    颜色趋势
-                </h3>
-
-                <p>
-                    基础色、流行色、
-                    撞色及高辨识度配色。
-                </p>
-
-            </div>
-
-
-            <div class="next-card">
-
-                <div class="number">
-                    05
-                </div>
-
-                <h3>
-                    图案趋势
-                </h3>
-
-                <p>
-                    字母、印花、图形及
-                    局部视觉元素参考。
-                </p>
-
-            </div>
+            <p>
+                结合市场趋势提供面料成分、
+                克重及使用方向。
+            </p>
 
         </div>
 
-    </section>
+
+
+        <div class="future-card">
+
+            <div class="future-number">
+                04
+            </div>
+
+            <h3>
+                颜色趋势
+            </h3>
+
+            <p>
+                基础色、流行色、
+                撞色及高辨识度配色。
+            </p>
+
+        </div>
+
+
+
+        <div class="future-card">
+
+            <div class="future-number">
+                05
+            </div>
+
+            <h3>
+                图案趋势
+            </h3>
+
+            <p>
+                字母、印花、图形及
+                局部视觉元素参考。
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
 
 </main>
+
 
 
 <footer>
@@ -815,332 +917,578 @@
 </footer>
 
 
+
 <script>
 
-    /*
-     * ============================
-     * 类目数据
-     * ============================
-     *
-     * 后面你只需要修改这里，
-     * 就可以增加或者修改类目。
-     */
+/* =====================================================
+   类目数据
 
-    const categoryData = {
+   注意：
 
-        "背心": [
+   ID 保留在代码内部
+   前台不会显示 ID
+===================================================== */
 
-            {
-                name: "男士背心",
-                description: "适合基础休闲及日常男装",
-                level: "优先推荐"
-            },
+const categoryData = [
 
-            {
-                name: "休闲背心",
-                description: "适合宽松、休闲风格产品",
-                level: "推荐"
-            },
+    /* =========================
+       标码男装
+    ========================= */
 
-            {
-                name: "运动背心",
-                description: "适合运动、户外方向产品",
-                level: "可考虑"
-            }
-
-        ],
+    {
+        group:"标码男装",
+        product:"标码背心上衣",
+        id:"30479",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士 T 恤和背心 > 背心上衣"
+    },
 
 
-        "衬衫": [
-
-            {
-                name: "男士衬衫",
-                description: "衬衫类商品的基础对应类目",
-                level: "优先推荐"
-            },
-
-            {
-                name: "短袖衬衫",
-                description: "适合短袖款式",
-                level: "优先推荐"
-            },
-
-            {
-                name: "长袖衬衫",
-                description: "适合长袖款式",
-                level: "推荐"
-            },
-
-            {
-                name: "休闲衬衫",
-                description: "适合宽松、休闲风格",
-                level: "推荐"
-            }
-
-        ],
+    {
+        group:"标码男装",
+        product:"休闲运动类标码套装",
+        id:"30444",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士休闲运动服 > 男士休闲运动套装 > 男士运动上装和下装套装"
+    },
 
 
-        "套装": [
+    /* =========================
+       球类运动
+    ========================= */
 
-            {
-                name: "男士套装",
-                description: "上下装组合销售",
-                level: "优先推荐"
-            },
-
-            {
-                name: "休闲套装",
-                description: "适合日常休闲风格",
-                level: "推荐"
-            },
-
-            {
-                name: "运动套装",
-                description: "适合运动休闲方向",
-                level: "可考虑"
-            }
-
-        ],
+    {
+        group:"球类运动",
+        product:"男士标码球类上衣",
+        id:"27741",
+        path:"服装、鞋靴和珠宝饰品 > 体育专用服装 > 英式橄榄球服 > 男士英式橄榄球服 > 男士英式橄榄球上衣"
+    },
 
 
-        "孕妇装": [
-
-            {
-                name: "孕妇装",
-                description: "孕妇服装基础类目",
-                level: "优先推荐"
-            },
-
-            {
-                name: "孕妇上衣",
-                description: "适合单件上装产品",
-                level: "推荐"
-            },
-
-            {
-                name: "孕妇套装",
-                description: "适合上下装组合产品",
-                level: "可考虑"
-            }
-
-        ],
+    {
+        group:"球类运动",
+        product:"篮球运动类标码套装",
+        id:"27209",
+        path:"服装、鞋靴和珠宝饰品 > 体育专用服装 > 篮球服 > 男士篮球服 > 套装"
+    },
 
 
-        "牛仔": [
-
-            {
-                name: "牛仔裤",
-                description: "适合牛仔下装产品",
-                level: "优先推荐"
-            },
-
-            {
-                name: "牛仔上衣",
-                description: "适合牛仔夹克、牛仔衬衫等",
-                level: "推荐"
-            },
-
-            {
-                name: "牛仔套装",
-                description: "适合牛仔上下装组合",
-                level: "可考虑"
-            }
-
-        ]
-
-    };
+    {
+        group:"球类运动",
+        product:"足球运动类标码套装",
+        id:"28099",
+        path:"服装、鞋靴和珠宝饰品 > 体育专用服装 > 足球服 > 男士足球服 > 男士足球运动服、外套和裤子"
+    },
 
 
-    /*
-     * ============================
-     * 点击商品
-     * ============================
-     */
+    /* =========================
+       专业运动
+    ========================= */
 
-    function showCategory(category) {
+    {
+        group:"专业运动",
+        product:"专业运动类短裤-氨纶含8%以上",
+        id:"30447",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士休闲运动服 > 男士打底和压缩单品 > 男士运动短裤"
+    },
 
-        const resultSection =
-            document.getElementById("resultSection");
 
-        const resultTitle =
-            document.getElementById("resultTitle");
+    {
+        group:"专业运动",
+        product:"专业运动类上衣-氨纶含8%以上",
+        id:"30456",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士休闲运动服 > 男士打底和压缩单品 > 男士运动上衣"
+    },
 
-        const resultList =
-            document.getElementById("resultList");
 
+    {
+        group:"专业运动",
+        product:"专业运动类套装-氨纶含8%以上",
+        id:"30438",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士贴身运动衣 > 男士贴身套装"
+    },
+
+
+    {
+        group:"专业运动",
+        product:"专业运动类长裤-氨纶含8%以上",
+        id:"30446",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男士打底和压缩单品 > 男士运动长裤"
+    },
+
+
+    /* =========================
+       大码男装
+    ========================= */
+
+    {
+        group:"大码男装",
+        product:"大码背心-秋冬",
+        id:"40172",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士毛衣 > 大码男装针织背心"
+    },
+
+
+    {
+        group:"大码男装",
+        product:"大码背心上衣",
+        id:"40271",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士T恤和背心 > 大码背心上衣"
+    },
+
+
+    {
+        group:"大码男装",
+        product:"大码男士沙滩裤",
+        id:"40224",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士时尚泳衣 > 大码男士沙滩裤"
+    },
+
+
+    {
+        group:"大码男装",
+        product:"大码男士泳裤",
+        id:"40386",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士时尚泳衣 > 大码男士泳裤"
+    },
+
+
+    {
+        group:"大码男装",
+        product:"大码男装单马甲",
+        id:"40220",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士外套 > 大码男装单马甲"
+    },
+
+
+    {
+        group:"大码男装",
+        product:"大码男装休闲衬衫",
+        id:"40263",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男装上衣、T恤、衬衫 > 大码男装休闲衬衫"
+    },
+
+
+    {
+        group:"大码男装",
+        product:"大码男士亨利衫",
+        id:"40265",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男装上衣、T恤、衬衫 > 大码男士亨利衫"
+    },
+
+
+    {
+        group:"大码男装",
+        product:"大码男士运动服系扣衬衫",
+        id:"40233",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士休闲运动服 > 大码男士休闲运动衫、T恤 > 大码男士运动服系扣衬衫"
+    },
+
+
+    {
+        group:"大码男装",
+        product:"大码男士运动上装和下装套装",
+        id:"40252",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士休闲运动服 > 大码男士休闲运动套装 > 大码男士运动上装和下装套装"
+    },
+
+
+    {
+        group:"大码男装",
+        product:"大码男士休闲套装",
+        id:"40251",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士休闲运动服 > 大码男士休闲运动套装 > 大码男士休闲套装"
+    },
+
+
+    {
+        group:"大码男装",
+        product:"大码男士运动套装",
+        id:"40250",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > 大码男士休闲运动服 > 大码男士休闲运动套装 > 大码男士径赛服"
+    },
+
+
+    /* =========================
+       牛仔
+    ========================= */
+
+    {
+        group:"牛仔类",
+        product:"牛仔衬衫",
+        id:"40415",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男装上衣、T恤、衬衫 > 男士牛仔衬衣"
+    },
+
+
+    {
+        group:"牛仔类",
+        product:"牛仔裤",
+        id:"30343",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男装牛仔裤"
+    },
+
+
+    {
+        group:"牛仔类",
+        product:"男士牛仔短裤",
+        id:"30340",
+        path:"服装、鞋靴和珠宝饰品 > 男士时尚 > 男装 > 男装短裤 > 男士牛仔短裤"
+    },
+
+
+    /* =========================
+       孕妇装
+    ========================= */
+
+    {
+        group:"孕妇装",
+        product:"孕妇T恤",
+        id:"29426",
+        path:"服装、鞋靴和珠宝饰品 > 女士时尚 > 女士商店 > 孕妇装 > 孕妇T恤、背心 > 孕妇T恤"
+    },
+
+
+    {
+        group:"孕妇装",
+        product:"孕妇连衣裙",
+        id:"39131",
+        path:"服装、鞋靴和珠宝饰品 > 女士时尚 > 女士商店 > 孕妇装 > 孕妇连衣裙"
+    }
+
+];
+
+
+/* =====================================================
+   当前方向
+===================================================== */
+
+let currentGroup = "标码男装";
+
+
+/* =====================================================
+   页面初始化
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
 
         const data =
-            categoryData[category];
-
-
-        if (!data) {
-            return;
-        }
-
-
-        resultTitle.innerText =
-            category + " · 推荐上新类目";
-
-
-        resultList.innerHTML = "";
-
-
-        data.forEach(item => {
-
-            const div =
-                document.createElement("div");
-
-            div.className =
-                "result-item";
-
-
-            div.innerHTML = `
-
-                <div class="result-left">
-
-                    <h3>
-                        ${item.name}
-                    </h3>
-
-                    <p>
-                        ${item.description}
-                    </p>
-
-                </div>
-
-
-                <div class="result-right">
-
-                    <span class="recommend">
-                        ${item.level}
-                    </span>
-
-                    <button
-                        class="view-btn"
-                        onclick="goToDevelopment('${item.name}')"
-                    >
-                        查看参考
-                    </button>
-
-                </div>
-
-            `;
-
-
-            resultList.appendChild(div);
-
-        });
-
-
-        resultSection.style.display =
-            "block";
-
-
-        resultSection.scrollIntoView({
-            behavior: "smooth"
-        });
-
-    }
-
-
-    /*
-     * ============================
-     * 搜索商品
-     * ============================
-     */
-
-    function searchCategory() {
-
-        const input =
-            document.getElementById("searchInput");
-
-        const keyword =
-            input.value.trim();
-
-
-        if (!keyword) {
-
-            alert("请输入商品名称");
-
-            return;
-
-        }
-
-
-        const categories =
-            Object.keys(categoryData);
-
-
-        const result =
-            categories.find(category =>
-                keyword.includes(category) ||
-                category.includes(keyword)
+            categoryData.filter(
+                item =>
+                    item.group === currentGroup
             );
 
-
-        if (result) {
-
-            showCategory(result);
-
-        } else {
-
-            alert(
-                "暂时没有找到对应商品。\n\n目前支持：背心、衬衫、套装、孕妇装、牛仔"
-            );
-
-        }
+        renderData(data);
 
     }
+);
 
 
-    /*
-     * ============================
-     * 查看开发参考
-     * ============================
-     *
-     * 这里暂时先提示。
-     *
-     * 后面我们会把它真正连接到：
-     *
-     * 版型参考
-     * ↓
-     * 面料方向
-     * ↓
-     * 颜色趋势
-     * ↓
-     * 图案趋势
-     * ↓
-     * 开发建议
-     */
+/* =====================================================
+   筛选方向
+===================================================== */
 
-    function goToDevelopment(category) {
+function filterGroup(group,button){
 
-        alert(
-            "已选择：" +
-            category +
-            "\n\n下一步将进入该类目的开发参考页面。"
-        );
+    currentGroup = group;
 
-    }
+    document
+        .querySelectorAll(".filter-btn")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
 
-
-    /*
-     * ============================
-     * 回车搜索
-     * ============================
-     */
+    button.classList.add("active");
 
     document
         .getElementById("searchInput")
-        .addEventListener("keydown", function(event) {
+        .value = "";
 
-            if (event.key === "Enter") {
+    document
+        .getElementById("resultTitle")
+        .innerText = group;
 
-                searchCategory();
+    const data =
+        categoryData.filter(
+            item =>
+                item.group === group
+        );
+
+    renderData(data);
+
+}
+
+
+/* =====================================================
+   全部
+===================================================== */
+
+function showAll(button){
+
+    document
+        .querySelectorAll(".filter-btn")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+    document
+        .getElementById("searchInput")
+        .value = "";
+
+    document
+        .getElementById("resultTitle")
+        .innerText = "全部类目";
+
+    renderData(categoryData);
+
+}
+
+
+/* =====================================================
+   搜索
+===================================================== */
+
+function searchProduct(){
+
+    const keyword =
+        document
+        .getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    if(!keyword){
+
+        const data =
+            categoryData.filter(
+                item =>
+                    item.group === currentGroup
+            );
+
+        renderData(data);
+
+        return;
+
+    }
+
+
+    const result =
+        categoryData.filter(item=>{
+
+            return (
+
+                item.product
+                    .toLowerCase()
+                    .includes(keyword)
+
+                ||
+
+                item.group
+                    .toLowerCase()
+                    .includes(keyword)
+
+                ||
+
+                item.path
+                    .toLowerCase()
+                    .includes(keyword)
+
+            );
+
+        });
+
+
+    document
+        .getElementById("resultTitle")
+        .innerText = "搜索结果";
+
+
+    renderData(result);
+
+}
+
+
+/* =====================================================
+   回车搜索
+===================================================== */
+
+document
+    .getElementById("searchInput")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Enter"){
+
+                searchProduct();
 
             }
 
+        }
+    );
+
+
+/* =====================================================
+   渲染数据
+===================================================== */
+
+function renderData(data){
+
+    const list =
+        document
+        .getElementById("categoryList");
+
+    const noResult =
+        document
+        .getElementById("noResult");
+
+    const count =
+        document
+        .getElementById("resultCount");
+
+
+    list.innerHTML = "";
+
+
+    count.innerText =
+        "共 " +
+        data.length +
+        " 个类目";
+
+
+    if(data.length === 0){
+
+        noResult.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    noResult.style.display =
+        "none";
+
+
+    data.forEach(item=>{
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "category-card";
+
+
+        card.innerHTML = `
+
+            <div class="card-top">
+
+                <div>
+
+                    <div class="card-name">
+                        ${item.product}
+                    </div>
+
+                    <div class="card-group">
+                        ${item.group}
+                    </div>
+
+                </div>
+
+                <span class="recommend">
+                    推荐类目
+                </span>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <div class="info-label">
+                    商品品类
+                </div>
+
+                <div class="info-content">
+                    ${item.product}
+                </div>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <div class="info-label">
+                    类目路径
+                </div>
+
+                <div class="info-content path">
+                    ${item.path}
+                </div>
+
+            </div>
+
+
+            <div class="actions">
+
+                <button
+                    class="copy-btn"
+                    onclick="copyPath('${escapeText(item.path)}')">
+                    复制类目路径
+                </button>
+
+            </div>
+
+        `;
+
+
+        list.appendChild(card);
+
+    });
+
+}
+
+
+/* =====================================================
+   复制类目路径
+===================================================== */
+
+function copyPath(path){
+
+    navigator.clipboard
+        .writeText(path)
+        .then(()=>{
+
+            alert(
+                "类目路径已复制"
+            );
+
+        })
+        .catch(()=>{
+
+            alert(
+                "复制失败，请手动复制"
+            );
+
         });
+
+}
+
+
+/* =====================================================
+   防止特殊字符影响复制
+===================================================== */
+
+function escapeText(text){
+
+    return text
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'")
+        .replace(/"/g,'\\"');
+
+}
 
 </script>
 
