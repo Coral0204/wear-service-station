@@ -1,16 +1,19 @@
-/* =====================================================
+/* =========================================================
    服装开发参考站
-   分类页面 + 搜索功能
-===================================================== */
+   script.js
+   最终版
+   ========================================================= */
 
 
-/* =====================================================
-   类目数据
-   目前全部使用占位符
-===================================================== */
+/* =========================================================
+   1. 类目数据
+   ========================================================= */
 
 const categoryData = {
 
+    /* -------------------------
+       标码男装
+       ------------------------- */
     standard: {
         title: "标码男装",
         subtitle: "Standard Menswear",
@@ -52,6 +55,9 @@ const categoryData = {
     },
 
 
+    /* -------------------------
+       大码男装
+       ------------------------- */
     plus: {
         title: "大码男装",
         subtitle: "Plus Size Menswear",
@@ -85,6 +91,9 @@ const categoryData = {
     },
 
 
+    /* -------------------------
+       孕妇装
+       ------------------------- */
     maternity: {
         title: "孕妇装",
         subtitle: "Maternity Wear",
@@ -124,38 +133,41 @@ const categoryData = {
             }
         ]
     }
-
 };
 
 
-/* =====================================================
-   当前分类
-===================================================== */
+/* =========================================================
+   2. 当前选中的类目
+   ========================================================= */
 
 let currentCategory = null;
 
 
-/* =====================================================
-   页面加载
-===================================================== */
+/* =========================================================
+   3. 页面加载
+   ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
-
     handleRoute();
-
 });
 
 
-/* =====================================================
-   根据网址判断当前页面
-===================================================== */
+/* =========================================================
+   4. 路由处理
+   ========================================================= */
 
 function handleRoute() {
 
-    const categoryKey =
-        window.location.hash.replace("#", "").trim();
+    const hash = window.location.hash;
 
-    if (categoryKey && categoryData[categoryKey]) {
+    const categoryKey = hash
+        .replace("#", "")
+        .trim();
+
+    if (
+        categoryKey &&
+        Object.prototype.hasOwnProperty.call(categoryData, categoryKey)
+    ) {
 
         showCategory(categoryKey);
 
@@ -164,13 +176,12 @@ function handleRoute() {
         showHome();
 
     }
-
 }
 
 
-/* =====================================================
-   首页
-===================================================== */
+/* =========================================================
+   5. 显示首页
+   ========================================================= */
 
 function showHome() {
 
@@ -182,56 +193,66 @@ function showHome() {
     const categoryView =
         document.getElementById("categoryView");
 
+
     if (homeView) {
         homeView.classList.remove("hidden");
     }
+
 
     if (categoryView) {
         categoryView.classList.add("hidden");
     }
 
-    window.scrollTo(0, 0);
 
+    window.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
 }
 
 
-/* =====================================================
-   点击三大类目
-===================================================== */
+/* =========================================================
+   6. 打开类目
+   ========================================================= */
 
 function openCategory(categoryKey) {
 
-    if (!categoryData[categoryKey]) {
+    if (
+        !categoryKey ||
+        !Object.prototype.hasOwnProperty.call(
+            categoryData,
+            categoryKey
+        )
+    ) {
 
         console.error(
-            "不存在的分类：",
+            "不存在的类目：",
             categoryKey
         );
 
         return;
-
     }
 
-    window.location.hash = categoryKey;
 
+    window.location.hash = categoryKey;
 }
 
 
-/* =====================================================
-   显示分类页面
-===================================================== */
+/* =========================================================
+   7. 显示类目页面
+   ========================================================= */
 
 function showCategory(categoryKey) {
 
     const data =
         categoryData[categoryKey];
 
+
     if (!data) {
 
         showHome();
 
         return;
-
     }
 
 
@@ -256,91 +277,81 @@ function showCategory(categoryKey) {
     const categorySearch =
         document.getElementById("categorySearch");
 
-    const clearSearchButton =
+    const clearSearch =
         document.getElementById("clearSearch");
 
 
-    /* 隐藏首页 */
-
+    /* 首页隐藏 */
     if (homeView) {
         homeView.classList.add("hidden");
     }
 
 
-    /* 显示分类页 */
-
+    /* 类目页显示 */
     if (categoryView) {
         categoryView.classList.remove("hidden");
     }
 
 
     /* 标题 */
-
     if (categoryTitle) {
-
         categoryTitle.textContent =
             data.title;
-
     }
 
 
-    /* 英文 */
-
+    /* 英文副标题 */
     if (categorySubtitle) {
-
         categorySubtitle.textContent =
             data.subtitle;
-
     }
 
 
-    /* 总数量 */
-
+    /* 类目数量 */
     if (categoryCount) {
-
         categoryCount.textContent =
             data.items.length;
-
     }
 
 
     /* 清空搜索 */
-
     if (categorySearch) {
-
         categorySearch.value = "";
-
     }
 
 
-    if (clearSearchButton) {
-
-        clearSearchButton.classList.add("hidden");
-
+    /* 隐藏清除按钮 */
+    if (clearSearch) {
+        clearSearch.classList.add("hidden");
     }
 
 
-    /* 渲染 */
-
+    /* 显示全部类目 */
     renderCategories(
         data.items,
         ""
     );
 
 
-    window.scrollTo(0, 0);
-
+    window.scrollTo({
+        top: 0,
+        behavior: "instant"
+    });
 }
 
 
-/* =====================================================
-   返回首页
-===================================================== */
+/* =========================================================
+   8. 返回首页
+   ========================================================= */
 
 function goHome() {
 
     currentCategory = null;
 
+
+    /*
+     * 去掉 URL 中的 #类目
+     */
     history.pushState(
         null,
         "",
@@ -348,14 +359,14 @@ function goHome() {
         window.location.search
     );
 
-    showHome();
 
+    showHome();
 }
 
 
-/* =====================================================
-   监听网址变化
-===================================================== */
+/* =========================================================
+   9. 浏览器前进 / 后退
+   ========================================================= */
 
 window.addEventListener(
     "hashchange",
@@ -369,9 +380,9 @@ window.addEventListener(
 );
 
 
-/* =====================================================
-   搜索类目
-===================================================== */
+/* =========================================================
+   10. 类目搜索
+   ========================================================= */
 
 function searchCategories() {
 
@@ -382,6 +393,11 @@ function searchCategories() {
 
     const data =
         categoryData[currentCategory];
+
+
+    if (!data) {
+        return;
+    }
 
 
     const input =
@@ -405,7 +421,9 @@ function searchCategories() {
         input.value.trim();
 
 
-    /* 控制清除按钮 */
+    /* -------------------------
+       清除按钮
+       ------------------------- */
 
     if (clearButton) {
 
@@ -420,13 +438,14 @@ function searchCategories() {
             clearButton.classList.add(
                 "hidden"
             );
-
         }
-
     }
 
 
-    /* 没有关键词 */
+    /* -------------------------
+       没有关键词
+       显示全部
+       ------------------------- */
 
     if (!keyword) {
 
@@ -436,28 +455,30 @@ function searchCategories() {
         );
 
         return;
-
     }
 
 
-    const searchKeyword =
+    /* -------------------------
+       模糊搜索
+       ------------------------- */
+
+    const normalizedKeyword =
         normalizeText(keyword);
 
-
-    /* 模糊搜索 */
 
     const results =
         data.items.filter(function (item) {
 
-            const text =
+            const searchText =
                 normalizeText(
                     item.name +
                     " " +
                     item.path
                 );
 
-            return text.includes(
-                searchKeyword
+
+            return searchText.includes(
+                normalizedKeyword
             );
 
         });
@@ -467,13 +488,12 @@ function searchCategories() {
         results,
         keyword
     );
-
 }
 
 
-/* =====================================================
-   清除搜索
-===================================================== */
+/* =========================================================
+   11. 清除搜索
+   ========================================================= */
 
 function clearSearch() {
 
@@ -483,19 +503,18 @@ function clearSearch() {
         );
 
 
+    const clearButton =
+        document.getElementById(
+            "clearSearch"
+        );
+
+
     if (input) {
 
         input.value = "";
 
         input.focus();
-
     }
-
-
-    const clearButton =
-        document.getElementById(
-            "clearSearch"
-        );
 
 
     if (clearButton) {
@@ -503,7 +522,6 @@ function clearSearch() {
         clearButton.classList.add(
             "hidden"
         );
-
     }
 
 
@@ -512,17 +530,25 @@ function clearSearch() {
     }
 
 
+    const data =
+        categoryData[currentCategory];
+
+
+    if (!data) {
+        return;
+    }
+
+
     renderCategories(
-        categoryData[currentCategory].items,
+        data.items,
         ""
     );
-
 }
 
 
-/* =====================================================
-   快速搜索
-===================================================== */
+/* =========================================================
+   12. 快速搜索
+   ========================================================= */
 
 function quickSearch(keyword) {
 
@@ -539,16 +565,17 @@ function quickSearch(keyword) {
 
     input.value = keyword;
 
+
     searchCategories();
 
-    input.focus();
 
+    input.focus();
 }
 
 
-/* =====================================================
-   文本标准化
-===================================================== */
+/* =========================================================
+   13. 搜索文字标准化
+   ========================================================= */
 
 function normalizeText(text) {
 
@@ -556,13 +583,12 @@ function normalizeText(text) {
         .toLowerCase()
         .replace(/\s+/g, "")
         .trim();
-
 }
 
 
-/* =====================================================
-   渲染类目
-===================================================== */
+/* =========================================================
+   14. 渲染类目列表
+   ========================================================= */
 
 function renderCategories(
     items,
@@ -575,7 +601,7 @@ function renderCategories(
         );
 
 
-    const empty =
+    const emptyState =
         document.getElementById(
             "emptyState"
         );
@@ -592,49 +618,67 @@ function renderCategories(
     }
 
 
+    /* 清空旧内容 */
     list.innerHTML = "";
 
 
-    /* 结果数量 */
-
+    /* 搜索结果数量 */
     if (resultText) {
 
         resultText.textContent =
             `共 ${items.length} 个`;
-
     }
 
 
-    /* 没有结果 */
+    /* -------------------------
+       没有搜索结果
+       ------------------------- */
 
     if (items.length === 0) {
 
-        list.classList.add("hidden");
+        list.classList.add(
+            "hidden"
+        );
 
-        if (empty) {
-            empty.classList.remove("hidden");
+
+        if (emptyState) {
+
+            emptyState.classList.remove(
+                "hidden"
+            );
         }
 
+
         return;
-
     }
 
 
-    /* 有结果 */
+    /* -------------------------
+       有结果
+       ------------------------- */
 
-    list.classList.remove("hidden");
+    list.classList.remove(
+        "hidden"
+    );
 
-    if (empty) {
-        empty.classList.add("hidden");
+
+    if (emptyState) {
+
+        emptyState.classList.add(
+            "hidden"
+        );
     }
 
 
-    /* 创建类目 */
+    /* -------------------------
+       生成类目
+       ------------------------- */
 
     items.forEach(function (item) {
 
         const itemElement =
             document.createElement("div");
+
 
         itemElement.className =
             "category-item";
@@ -645,8 +689,10 @@ function renderCategories(
         const nameElement =
             document.createElement("div");
 
+
         nameElement.className =
             "category-name";
+
 
         nameElement.innerHTML =
             highlightText(
@@ -660,8 +706,10 @@ function renderCategories(
         const pathElement =
             document.createElement("div");
 
+
         pathElement.className =
             "category-path";
+
 
         pathElement.innerHTML =
             formatPath(
@@ -670,9 +718,12 @@ function renderCategories(
             );
 
 
+        /* 添加 */
+
         itemElement.appendChild(
             nameElement
         );
+
 
         itemElement.appendChild(
             pathElement
@@ -684,13 +735,12 @@ function renderCategories(
         );
 
     });
-
 }
 
 
-/* =====================================================
-   格式化路径
-===================================================== */
+/* =========================================================
+   15. 格式化类目路径
+   ========================================================= */
 
 function formatPath(
     path,
@@ -710,15 +760,14 @@ function formatPath(
 
         })
         .join(
-            "<span>›</span>"
+            '<span class="path-arrow">›</span>'
         );
-
 }
 
 
-/* =====================================================
-   搜索关键词高亮
-===================================================== */
+/* =========================================================
+   16. 搜索结果高亮
+   ========================================================= */
 
 function highlightText(
     text,
@@ -734,9 +783,16 @@ function highlightText(
         escapeRegExp(keyword);
 
 
+    if (!safeKeyword) {
+        return text;
+    }
+
+
     const regex =
         new RegExp(
-            "(" + safeKeyword + ")",
+            "(" +
+            safeKeyword +
+            ")",
             "gi"
         );
 
@@ -745,36 +801,98 @@ function highlightText(
         regex,
         '<mark class="highlight">$1</mark>'
     );
-
 }
 
 
-/* =====================================================
-   防止 HTML 注入
-===================================================== */
+/* =========================================================
+   17. HTML 转义
+   ========================================================= */
 
 function escapeHtml(text) {
 
     return String(text)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 }
 
 
-/* =====================================================
-   正则特殊字符处理
-===================================================== */
+/* =========================================================
+   18. 正则特殊字符转义
+   ========================================================= */
 
 function escapeRegExp(text) {
 
-    return String(text)
-        .replace(
-            /[.*+?^${}()|[\]\\]/g,
-            "\\$&"
-        );
-
+    return String(text).replace(
+        /[.*+?^${}()|[\]\\]/g,
+        "\\$&"
+    );
 }
+
+
+/* =========================================================
+   19. 防止回车提交 / 刷新
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        const target =
+            event.target;
+
+
+        if (
+            target &&
+            target.id === "categorySearch" &&
+            event.key === "Enter"
+        ) {
+
+            event.preventDefault();
+
+            searchCategories();
+        }
+
+    }
+);
+
+
+/* =========================================================
+   20. 暴露给 HTML onclick 使用
+   ========================================================= */
+
+window.openCategory =
+    openCategory;
+
+
+window.goHome =
+    goHome;
+
+
+window.searchCategories =
+    searchCategories;
+
+
+window.clearSearch =
+    clearSearch;
+
+
+window.quickSearch =
+    quickSearch;
