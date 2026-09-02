@@ -1,1 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>服装开发参考站</title>
+
+    <meta name="description" content="服装开发参考站，为商家提供类目对接及商品开发参考。">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         页面整体
+    ========================== -->
+
+    <div class="page">
+
+        <!-- 顶部导航 -->
+        <header class="header">
+
+            <div class="header-inner">
+
+                <div class="brand" onclick="goHome()">
+                    <div class="brand-title">
+                        服装开发参考站
+                    </div>
+
+                    <div class="brand-subtitle">
+                        Product Development Reference
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <span>商家开发参考</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             首页
+        ========================== -->
+
+        <main id="homeView" class="view">
+
+            <!-- Hero -->
+            <section class="hero">
+
+                <div class="hero-content">
+
+                    <div class="hero-tag">
+                        PRODUCT DEVELOPMENT
+                    </div>
+
+                    <h1>
+                        服装开发参考站
+                    </h1>
+
+                    <p>
+                        从类目对接开始，快速找到对应的商品开发方向
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- 对接类目 -->
+            <section class="category-section">
+
+                <div class="section-header">
+
+                    <div>
+                        <div class="section-eyebrow">
+                            CATEGORY
+                        </div>
+
+                        <h2>
+                            对接类目
+                        </h2>
+                    </div>
+
+                    <p>
+                        选择对应的服装类型，进入类目参考
+                    </p>
+
+                </div>
+
+
+                <div class="category-grid">
+
+                    <!-- 标码男装 -->
+                    <button
+                        class="category-card"
+                        onclick="openCategory('standard')"
+                    >
+
+                        <div class="card-number">
+                            01
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                标码男装
+                            </h3>
+
+                            <p>
+                                Standard Menswear
+                            </p>
+
+                            <span class="card-description">
+                                查看标码男装相关类目
+                            </span>
+
+                        </div>
+
+                        <div class="card-arrow">
+                            →
+                        </div>
+
+                    </button>
+
+
+                    <!-- 大码男装 -->
+                    <button
+                        class="category-card"
+                        onclick="openCategory('plus')"
+                    >
+
+                        <div class="card-number">
+                            02
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                大码男装
+                            </h3>
+
+                            <p>
+                                Plus Size Menswear
+                            </p>
+
+                            <span class="card-description">
+                                查看大码男装相关类目
+                            </span>
+
+                        </div>
+
+                        <div class="card-arrow">
+                            →
+                        </div>
+
+                    </button>
+
+
+                    <!-- 孕妇装 -->
+                    <button
+                        class="category-card"
+                        onclick="openCategory('maternity')"
+                    >
+
+                        <div class="card-number">
+                            03
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                孕妇装
+                            </h3>
+
+                            <p>
+                                Maternity Wear
+                            </p>
+
+                            <span class="card-description">
+                                查看孕妇装相关类目
+                            </span>
+
+                        </div>
+
+                        <div class="card-arrow">
+                            →
+                        </div>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- 使用说明 -->
+            <section class="notice-section">
+
+                <div class="notice">
+
+                    <div class="notice-icon">
+                        i
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            使用说明
+                        </strong>
+
+                        <p>
+                            选择类目后，可通过搜索关键词快速查找对应的商品类目。
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+
+        <!-- =========================
+             类目详情页
+        ========================== -->
+
+        <main id="categoryView" class="view category-view hidden">
+
+            <!-- 返回 -->
+            <div class="back-row">
+
+                <button
+                    class="back-button"
+                    onclick="goHome()"
+                >
+                    <span>←</span>
+                    返回对接类目
+                </button>
+
+            </div>
+
+
+            <!-- 类目标题 -->
+            <section class="category-hero">
+
+                <div class="category-hero-left">
+
+                    <div
+                        id="categoryEyebrow"
+                        class="section-eyebrow"
+                    >
+                        CATEGORY
+                    </div>
+
+                    <h1 id="categoryTitle">
+                        标码男装
+                    </h1>
+
+                    <p id="categorySubtitle">
+                        Standard Menswear
+                    </p>
+
+                </div>
+
+                <div class="category-count">
+
+                    <span id="categoryCount">
+                        0
+                    </span>
+
+                    <small>
+                        个类目
+                    </small>
+
+                </div>
+
+            </section>
+
+
+            <!-- 搜索区域 -->
+            <section class="search-section">
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        ⌕
+                    </span>
+
+                    <input
+                        id="categorySearch"
+                        type="text"
+                        autocomplete="off"
+                        placeholder="搜索类目，例如：背心、衬衫、牛仔、套装..."
+                        oninput="searchCategories()"
+                    >
+
+                    <button
+                        id="clearSearch"
+                        class="clear-search hidden"
+                        onclick="clearSearch()"
+                        aria-label="清空搜索"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <!-- 热门搜索 -->
+                <div class="quick-search">
+
+                    <span>
+                        快速搜索：
+                    </span>
+
+                    <button onclick="quickSearch('背心')">
+                        背心
+                    </button>
+
+                    <button onclick="quickSearch('衬衫')">
+                        衬衫
+                    </button>
+
+                    <button onclick="quickSearch('套装')">
+                        套装
+                    </button>
+
+                    <button onclick="quickSearch('牛仔')">
+                        牛仔
+                    </button>
+
+                    <button onclick="quickSearch('运动')">
+                        运动
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- 搜索结果 -->
+            <section class="results-section">
+
+                <div class="results-header">
+
+                    <div>
+                        <span class="results-label">
+                            类目列表
+                        </span>
+
+                        <span
+                            id="resultText"
+                            class="result-text"
+                        >
+                            共 0 个
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="categoryList"
+                    class="category-list"
+                >
+                </div>
+
+
+                <!-- 无结果 -->
+                <div
+                    id="emptyState"
+                    class="empty-state hidden"
+                >
+
+                    <div class="empty-icon">
+                        ×
+                    </div>
+
+                    <h3>
+                        暂无匹配类目
+                    </h3>
+
+                    <p>
+                        换一个关键词试试看
+                    </p>
+
+                    <button onclick="clearSearch()">
+                        清除搜索
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+
+            <div>
+                服装开发参考站
+            </div>
+
+            <div>
+                Product Development Reference
+            </div>
+
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
