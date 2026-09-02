@@ -1,161 +1,127 @@
 /* =====================================================
    服装开发参考站
-   类目数据 + 页面交互
+   分类页面 + 搜索功能
 ===================================================== */
 
 
 /* =====================================================
-   1. 类目数据
-
-   现在全部使用占位符。
-   后续只需要替换这里的数据，
-   页面结构和搜索功能都不需要修改。
+   类目数据
+   目前全部使用占位符
 ===================================================== */
 
 const categoryData = {
 
     standard: {
-
         title: "标码男装",
-
         subtitle: "Standard Menswear",
 
         items: [
-
             {
                 name: "类目占位符 01",
                 path: "一级类目 > 二级类目 > 类目占位符 01"
             },
-
             {
                 name: "类目占位符 02",
                 path: "一级类目 > 二级类目 > 类目占位符 02"
             },
-
             {
                 name: "类目占位符 03",
                 path: "一级类目 > 二级类目 > 类目占位符 03"
             },
-
             {
                 name: "类目占位符 04",
                 path: "一级类目 > 二级类目 > 类目占位符 04"
             },
-
             {
                 name: "类目占位符 05",
                 path: "一级类目 > 二级类目 > 类目占位符 05"
             },
-
             {
                 name: "类目占位符 06",
                 path: "一级类目 > 二级类目 > 类目占位符 06"
             },
-
             {
                 name: "类目占位符 07",
                 path: "一级类目 > 二级类目 > 类目占位符 07"
             },
-
             {
                 name: "类目占位符 08",
                 path: "一级类目 > 二级类目 > 类目占位符 08"
             }
-
         ]
     },
 
 
     plus: {
-
         title: "大码男装",
-
         subtitle: "Plus Size Menswear",
 
         items: [
-
             {
                 name: "类目占位符 01",
                 path: "一级类目 > 二级类目 > 类目占位符 01"
             },
-
             {
                 name: "类目占位符 02",
                 path: "一级类目 > 二级类目 > 类目占位符 02"
             },
-
             {
                 name: "类目占位符 03",
                 path: "一级类目 > 二级类目 > 类目占位符 03"
             },
-
             {
                 name: "类目占位符 04",
                 path: "一级类目 > 二级类目 > 类目占位符 04"
             },
-
             {
                 name: "类目占位符 05",
                 path: "一级类目 > 二级类目 > 类目占位符 05"
             },
-
             {
                 name: "类目占位符 06",
                 path: "一级类目 > 二级类目 > 类目占位符 06"
             }
-
         ]
     },
 
 
     maternity: {
-
         title: "孕妇装",
-
         subtitle: "Maternity Wear",
 
         items: [
-
             {
                 name: "类目占位符 01",
                 path: "一级类目 > 二级类目 > 类目占位符 01"
             },
-
             {
                 name: "类目占位符 02",
                 path: "一级类目 > 二级类目 > 类目占位符 02"
             },
-
             {
                 name: "类目占位符 03",
                 path: "一级类目 > 二级类目 > 类目占位符 03"
             },
-
             {
                 name: "类目占位符 04",
                 path: "一级类目 > 二级类目 > 类目占位符 04"
             },
-
             {
                 name: "类目占位符 05",
                 path: "一级类目 > 二级类目 > 类目占位符 05"
             },
-
             {
                 name: "类目占位符 06",
                 path: "一级类目 > 二级类目 > 类目占位符 06"
             },
-
             {
                 name: "类目占位符 07",
                 path: "一级类目 > 二级类目 > 类目占位符 07"
             },
-
             {
                 name: "类目占位符 08",
                 path: "一级类目 > 二级类目 > 类目占位符 08"
             }
-
         ]
     }
 
@@ -163,47 +129,14 @@ const categoryData = {
 
 
 /* =====================================================
-   2. 当前页面状态
+   当前分类
 ===================================================== */
 
 let currentCategory = null;
 
 
 /* =====================================================
-   3. DOM
-===================================================== */
-
-const homeView = document.getElementById("homeView");
-
-const categoryView = document.getElementById("categoryView");
-
-const categoryTitle =
-    document.getElementById("categoryTitle");
-
-const categorySubtitle =
-    document.getElementById("categorySubtitle");
-
-const categoryCount =
-    document.getElementById("categoryCount");
-
-const categorySearch =
-    document.getElementById("categorySearch");
-
-const clearSearchButton =
-    document.getElementById("clearSearch");
-
-const categoryList =
-    document.getElementById("categoryList");
-
-const resultText =
-    document.getElementById("resultText");
-
-const emptyState =
-    document.getElementById("emptyState");
-
-
-/* =====================================================
-   4. 初始化
+   页面加载
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -214,30 +147,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* =====================================================
-   5. 页面路由
-
-   使用 URL hash：
-
-   首页：
-   index.html
-
-   标码男装：
-   index.html#standard
-
-   大码男装：
-   index.html#plus
-
-   孕妇装：
-   index.html#maternity
+   根据网址判断当前页面
 ===================================================== */
 
 function handleRoute() {
 
-    const hash = window.location.hash.replace("#", "");
+    const categoryKey =
+        window.location.hash.replace("#", "").trim();
 
-    if (hash && categoryData[hash]) {
+    if (categoryKey && categoryData[categoryKey]) {
 
-        showCategory(hash);
+        showCategory(categoryKey);
 
     } else {
 
@@ -249,33 +169,47 @@ function handleRoute() {
 
 
 /* =====================================================
-   6. 首页
+   首页
 ===================================================== */
 
 function showHome() {
 
     currentCategory = null;
 
-    homeView.classList.remove("hidden");
+    const homeView =
+        document.getElementById("homeView");
 
-    categoryView.classList.add("hidden");
+    const categoryView =
+        document.getElementById("categoryView");
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    if (homeView) {
+        homeView.classList.remove("hidden");
+    }
+
+    if (categoryView) {
+        categoryView.classList.add("hidden");
+    }
+
+    window.scrollTo(0, 0);
 
 }
 
 
 /* =====================================================
-   7. 打开分类
+   点击三大类目
 ===================================================== */
 
 function openCategory(categoryKey) {
 
     if (!categoryData[categoryKey]) {
+
+        console.error(
+            "不存在的分类：",
+            categoryKey
+        );
+
         return;
+
     }
 
     window.location.hash = categoryKey;
@@ -284,78 +218,135 @@ function openCategory(categoryKey) {
 
 
 /* =====================================================
-   8. 显示分类
+   显示分类页面
 ===================================================== */
 
 function showCategory(categoryKey) {
 
-    const data = categoryData[categoryKey];
+    const data =
+        categoryData[categoryKey];
 
     if (!data) {
+
         showHome();
+
         return;
+
     }
+
 
     currentCategory = categoryKey;
 
-    homeView.classList.add("hidden");
 
-    categoryView.classList.remove("hidden");
+    const homeView =
+        document.getElementById("homeView");
+
+    const categoryView =
+        document.getElementById("categoryView");
+
+    const categoryTitle =
+        document.getElementById("categoryTitle");
+
+    const categorySubtitle =
+        document.getElementById("categorySubtitle");
+
+    const categoryCount =
+        document.getElementById("categoryCount");
+
+    const categorySearch =
+        document.getElementById("categorySearch");
+
+    const clearSearchButton =
+        document.getElementById("clearSearch");
+
+
+    /* 隐藏首页 */
+
+    if (homeView) {
+        homeView.classList.add("hidden");
+    }
+
+
+    /* 显示分类页 */
+
+    if (categoryView) {
+        categoryView.classList.remove("hidden");
+    }
 
 
     /* 标题 */
 
-    categoryTitle.textContent =
-        data.title;
+    if (categoryTitle) {
 
-    categorySubtitle.textContent =
-        data.subtitle;
+        categoryTitle.textContent =
+            data.title;
+
+    }
 
 
-    /* 数量 */
+    /* 英文 */
 
-    categoryCount.textContent =
-        data.items.length;
+    if (categorySubtitle) {
+
+        categorySubtitle.textContent =
+            data.subtitle;
+
+    }
+
+
+    /* 总数量 */
+
+    if (categoryCount) {
+
+        categoryCount.textContent =
+            data.items.length;
+
+    }
 
 
     /* 清空搜索 */
 
-    categorySearch.value = "";
+    if (categorySearch) {
 
-    clearSearchButton.classList.add("hidden");
+        categorySearch.value = "";
+
+    }
+
+
+    if (clearSearchButton) {
+
+        clearSearchButton.classList.add("hidden");
+
+    }
 
 
     /* 渲染 */
 
-    renderCategories(data.items, "");
+    renderCategories(
+        data.items,
+        ""
+    );
 
 
-    /* 回到顶部 */
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    window.scrollTo(0, 0);
 
 }
 
 
 /* =====================================================
-   9. 返回首页
+   返回首页
 ===================================================== */
 
 function goHome() {
 
-    if (window.location.hash) {
+    currentCategory = null;
 
-        history.pushState(
-            null,
-            "",
-            window.location.pathname +
-            window.location.search
-        );
-
-    }
+    history.pushState(
+        null,
+        "",
+        window.location.pathname +
+        window.location.search
+    );
 
     showHome();
 
@@ -363,25 +354,23 @@ function goHome() {
 
 
 /* =====================================================
-   10. 浏览器前进 / 后退
+   监听网址变化
 ===================================================== */
 
-window.addEventListener("hashchange", function () {
+window.addEventListener(
+    "hashchange",
+    handleRoute
+);
 
-    handleRoute();
 
-});
-
-
-window.addEventListener("popstate", function () {
-
-    handleRoute();
-
-});
+window.addEventListener(
+    "popstate",
+    handleRoute
+);
 
 
 /* =====================================================
-   11. 搜索
+   搜索类目
 ===================================================== */
 
 function searchCategories() {
@@ -390,27 +379,54 @@ function searchCategories() {
         return;
     }
 
-    const keyword =
-        categorySearch.value.trim();
 
     const data =
         categoryData[currentCategory];
 
 
-    /* 清除按钮 */
+    const input =
+        document.getElementById(
+            "categorySearch"
+        );
 
-    if (keyword) {
 
-        clearSearchButton.classList.remove("hidden");
+    const clearButton =
+        document.getElementById(
+            "clearSearch"
+        );
 
-    } else {
 
-        clearSearchButton.classList.add("hidden");
+    if (!input) {
+        return;
+    }
+
+
+    const keyword =
+        input.value.trim();
+
+
+    /* 控制清除按钮 */
+
+    if (clearButton) {
+
+        if (keyword) {
+
+            clearButton.classList.remove(
+                "hidden"
+            );
+
+        } else {
+
+            clearButton.classList.add(
+                "hidden"
+            );
+
+        }
 
     }
 
 
-    /* 没有搜索词 */
+    /* 没有关键词 */
 
     if (!keyword) {
 
@@ -424,42 +440,24 @@ function searchCategories() {
     }
 
 
-    /* =================================================
-       模糊搜索
-
-       搜索范围：
-
-       1. name
-       2. path
-
-       所以以后输入：
-
-       背心
-       衬衫
-       牛仔
-       套装
-       运动
-       潜水
-
-       都可以匹配。
-    ================================================= */
-
-    const normalizedKeyword =
+    const searchKeyword =
         normalizeText(keyword);
 
+
+    /* 模糊搜索 */
 
     const results =
         data.items.filter(function (item) {
 
-            const fullText =
+            const text =
                 normalizeText(
                     item.name +
                     " " +
                     item.path
                 );
 
-            return fullText.includes(
-                normalizedKeyword
+            return text.includes(
+                searchKeyword
             );
 
         });
@@ -474,56 +472,82 @@ function searchCategories() {
 
 
 /* =====================================================
-   12. 清除搜索
+   清除搜索
 ===================================================== */
 
 function clearSearch() {
 
-    categorySearch.value = "";
+    const input =
+        document.getElementById(
+            "categorySearch"
+        );
 
-    clearSearchButton.classList.add("hidden");
+
+    if (input) {
+
+        input.value = "";
+
+        input.focus();
+
+    }
+
+
+    const clearButton =
+        document.getElementById(
+            "clearSearch"
+        );
+
+
+    if (clearButton) {
+
+        clearButton.classList.add(
+            "hidden"
+        );
+
+    }
+
 
     if (!currentCategory) {
         return;
     }
 
-    const data =
-        categoryData[currentCategory];
 
     renderCategories(
-        data.items,
+        categoryData[currentCategory].items,
         ""
     );
-
-    categorySearch.focus();
 
 }
 
 
 /* =====================================================
-   13. 快速搜索
+   快速搜索
 ===================================================== */
 
 function quickSearch(keyword) {
 
-    categorySearch.value = keyword;
+    const input =
+        document.getElementById(
+            "categorySearch"
+        );
+
+
+    if (!input) {
+        return;
+    }
+
+
+    input.value = keyword;
 
     searchCategories();
 
-    categorySearch.focus();
+    input.focus();
 
 }
 
 
 /* =====================================================
-   14. 文本标准化
-
-   解决：
-
-   大小写
-   全角空格
-   多余空格
-
+   文本标准化
 ===================================================== */
 
 function normalizeText(text) {
@@ -537,7 +561,7 @@ function normalizeText(text) {
 
 
 /* =====================================================
-   15. 渲染类目
+   渲染类目
 ===================================================== */
 
 function renderCategories(
@@ -545,91 +569,119 @@ function renderCategories(
     keyword
 ) {
 
-    categoryList.innerHTML = "";
+    const list =
+        document.getElementById(
+            "categoryList"
+        );
 
 
-    /* 数量 */
+    const empty =
+        document.getElementById(
+            "emptyState"
+        );
 
-    resultText.textContent =
-        `共 ${items.length} 个`;
+
+    const resultText =
+        document.getElementById(
+            "resultText"
+        );
 
 
-    /* 类目总数量同步 */
+    if (!list) {
+        return;
+    }
 
-    if (currentCategory) {
 
-        categoryCount.textContent =
-            categoryData[currentCategory]
-                .items
-                .length;
+    list.innerHTML = "";
+
+
+    /* 结果数量 */
+
+    if (resultText) {
+
+        resultText.textContent =
+            `共 ${items.length} 个`;
 
     }
 
 
-    /* 无结果 */
+    /* 没有结果 */
 
     if (items.length === 0) {
 
-        categoryList.classList.add("hidden");
+        list.classList.add("hidden");
 
-        emptyState.classList.remove("hidden");
+        if (empty) {
+            empty.classList.remove("hidden");
+        }
 
         return;
 
     }
 
 
-    categoryList.classList.remove("hidden");
+    /* 有结果 */
 
-    emptyState.classList.add("hidden");
+    list.classList.remove("hidden");
+
+    if (empty) {
+        empty.classList.add("hidden");
+    }
 
 
-    /* 创建列表 */
+    /* 创建类目 */
 
     items.forEach(function (item) {
 
-        const element =
+        const itemElement =
             document.createElement("div");
 
-        element.className =
+        itemElement.className =
             "category-item";
 
 
-        /* 名称 */
+        /* 类目名称 */
 
-        const name =
+        const nameElement =
             document.createElement("div");
 
-        name.className =
+        nameElement.className =
             "category-name";
 
-        name.innerHTML =
+        nameElement.innerHTML =
             highlightText(
                 escapeHtml(item.name),
                 keyword
             );
 
 
-        /* 路径 */
+        /* 类目路径 */
 
-        const path =
+        const pathElement =
             document.createElement("div");
 
-        path.className =
+        pathElement.className =
             "category-path";
 
-        path.innerHTML =
+        pathElement.innerHTML =
             formatPath(
                 item.path,
                 keyword
             );
 
 
-        element.appendChild(name);
+        itemElement.appendChild(
+            nameElement
+        );
 
-        element.appendChild(path);
+        itemElement.appendChild(
+            pathElement
+        );
 
-        categoryList.appendChild(element);
+
+        list.appendChild(
+            itemElement
+        );
 
     });
 
@@ -637,13 +689,7 @@ function renderCategories(
 
 
 /* =====================================================
-   16. 路径格式化
-
-   将：
-
-   一级类目 > 二级类目 > 三级类目
-
-   视觉上拆开。
+   格式化路径
 ===================================================== */
 
 function formatPath(
@@ -651,32 +697,27 @@ function formatPath(
     keyword
 ) {
 
-    const parts =
-        String(path)
-            .split(">");
-
-
-    return parts
+    return String(path)
+        .split(">")
         .map(function (part) {
 
-            const text =
-                part.trim();
-
             return highlightText(
-                escapeHtml(text),
+                escapeHtml(
+                    part.trim()
+                ),
                 keyword
             );
 
         })
         .join(
-            '<span>›</span>'
+            "<span>›</span>"
         );
 
 }
 
 
 /* =====================================================
-   17. 搜索关键词高亮
+   搜索关键词高亮
 ===================================================== */
 
 function highlightText(
@@ -689,15 +730,13 @@ function highlightText(
     }
 
 
-    const escapedKeyword =
-        escapeRegExp(
-            keyword
-        );
+    const safeKeyword =
+        escapeRegExp(keyword);
 
 
     const regex =
         new RegExp(
-            `(${escapedKeyword})`,
+            "(" + safeKeyword + ")",
             "gi"
         );
 
@@ -711,7 +750,7 @@ function highlightText(
 
 
 /* =====================================================
-   18. HTML 安全处理
+   防止 HTML 注入
 ===================================================== */
 
 function escapeHtml(text) {
@@ -727,7 +766,7 @@ function escapeHtml(text) {
 
 
 /* =====================================================
-   19. 正则安全处理
+   正则特殊字符处理
 ===================================================== */
 
 function escapeRegExp(text) {
