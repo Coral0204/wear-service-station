@@ -1,13 +1,26 @@
-/* =====================================================
-   服装开发参考站
-   style.css
-   与当前 index.html 完全对应
-   ===================================================== */
+```css
+/* =========================================================
+   服装开发参考站 · Editorial / Lookbook Style
+   仅修改视觉，不修改 HTML / JS 逻辑
+   ========================================================= */
 
+:root {
+    --bg: #f4f3ef;
+    --paper: #faf9f6;
+    --white: #ffffff;
+    --ink: #181817;
+    --muted: #777670;
+    --light: #a5a49e;
+    --line: #deddd7;
+    --line-dark: #c8c7c0;
+    --soft: #ebeae5;
+    --radius: 2px;
+    --ease: cubic-bezier(.2,.7,.2,1);
+}
 
-/* =====================================================
-   1. 基础
-   ===================================================== */
+/* =========================================================
+   RESET
+   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -20,7 +33,8 @@ html {
 body {
     margin: 0;
     padding: 0;
-
+    background: var(--bg);
+    color: var(--ink);
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -29,11 +43,8 @@ body {
         "Microsoft YaHei",
         Arial,
         sans-serif;
-
-    color: #222;
-    background: #f7f7f5;
-
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 button,
@@ -53,14 +64,12 @@ input {
     display: none !important;
 }
 
-
-/* =====================================================
-   2. 页面
-   ===================================================== */
+/* =========================================================
+   PAGE
+   ========================================================= */
 
 .page {
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
 }
@@ -69,31 +78,25 @@ input {
     flex: 1;
 }
 
-
-/* =====================================================
-   3. Header
-   ===================================================== */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .header {
-    height: 76px;
-
-    background: rgba(255, 255, 255, 0.96);
-    border-bottom: 1px solid #e9e9e6;
-
+    height: 78px;
     position: sticky;
     top: 0;
-
     z-index: 100;
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(244, 243, 239, .92);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
 .header-inner {
-    width: min(1180px, calc(100% - 48px));
+    width: min(1240px, calc(100% - 64px));
     height: 100%;
-
-    margin: auto;
+    margin: 0 auto;
 
     display: flex;
     align-items: center;
@@ -102,180 +105,214 @@ input {
 
 .brand {
     cursor: pointer;
+    user-select: none;
 }
 
 .brand-title {
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 700;
-
-    letter-spacing: 0.02em;
+    letter-spacing: .02em;
+    line-height: 1;
 }
 
 .brand-subtitle {
-    margin-top: 3px;
-
-    font-size: 9px;
-    letter-spacing: 0.2em;
-
-    color: #999;
-
+    margin-top: 7px;
+    font-size: 8px;
+    color: var(--light);
+    letter-spacing: .28em;
     text-transform: uppercase;
 }
 
 .header-right {
-    font-size: 13px;
-    color: #888;
+    font-size: 10px;
+    color: var(--light);
+    letter-spacing: .16em;
+    text-transform: uppercase;
 }
 
-
-/* =====================================================
-   4. 页面统一宽度
-   ===================================================== */
+/* =========================================================
+   HOME · HERO
+   ========================================================= */
 
 .hero,
 .category-section,
 .notice-section,
 .category-view {
-    width: min(1180px, calc(100% - 48px));
-
+    width: min(1240px, calc(100% - 64px));
     margin-left: auto;
     margin-right: auto;
 }
 
-
-/* =====================================================
-   5. 首页 Hero
-   ===================================================== */
-
 .hero {
-    padding-top: 88px;
-    padding-bottom: 72px;
+    position: relative;
+    padding-top: 118px;
+    padding-bottom: 112px;
+}
+
+.hero::before {
+    content: "01";
+    position: absolute;
+    top: 38px;
+    right: 0;
+
+    font-size: 10px;
+    color: var(--light);
+    letter-spacing: .2em;
 }
 
 .hero-content {
-    max-width: 760px;
+    max-width: 900px;
 }
 
 .hero-tag,
 .section-eyebrow {
-    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 10px;
     font-weight: 700;
-
-    letter-spacing: 0.2em;
-
-    color: #999;
-
+    color: var(--muted);
+    letter-spacing: .22em;
     text-transform: uppercase;
 }
 
+.hero-tag::before,
+.section-eyebrow::before {
+    content: "";
+    width: 30px;
+    height: 1px;
+    background: var(--ink);
+}
+
 .hero h1 {
-    margin: 18px 0 18px;
+    margin: 27px 0 25px;
 
-    font-size: clamp(42px, 6vw, 72px);
+    max-width: 850px;
 
-    line-height: 1.05;
-
+    font-size: clamp(52px, 7vw, 94px);
+    line-height: .98;
     font-weight: 750;
-
-    letter-spacing: -0.04em;
+    letter-spacing: -.065em;
 }
 
 .hero p {
+    max-width: 610px;
+
     margin: 0;
 
-    font-size: 17px;
-    line-height: 1.8;
-
-    color: #777;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
 }
 
+/* =========================================================
+   HOME · CATEGORY SECTION
+   ========================================================= */
 
-/* =====================================================
-   6. Section Header
-   ===================================================== */
+.category-section {
+    padding-bottom: 105px;
+}
 
 .section-header {
     display: flex;
-
-    justify-content: space-between;
     align-items: flex-end;
+    justify-content: space-between;
 
-    margin-bottom: 28px;
+    padding-bottom: 22px;
+    margin-bottom: 0;
+
+    border-bottom: 1px solid var(--ink);
 }
 
 .section-header h2 {
-    margin: 9px 0 0;
+    margin: 11px 0 0;
 
-    font-size: 30px;
-    line-height: 1.2;
+    font-size: 29px;
+    font-weight: 650;
+    line-height: 1.15;
+    letter-spacing: -.035em;
 }
 
 .section-header > p {
     margin: 0;
 
-    color: #999;
-
-    font-size: 13px;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: .05em;
 }
 
-
-/* =====================================================
-   7. 首页类目卡片
-   ===================================================== */
+/* =========================================================
+   CATEGORY CARDS
+   ========================================================= */
 
 .category-grid {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
 
-    gap: 16px;
+    border-left: 1px solid var(--line);
 }
 
 .category-card {
     position: relative;
 
     width: 100%;
-    min-height: 250px;
+    min-height: 340px;
 
     padding: 28px;
 
     text-align: left;
 
-    border: 1px solid #e4e4df;
-    border-radius: 16px;
+    border: 0;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 
-    background: #fff;
+    border-radius: 0;
 
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+    background: var(--paper);
+    color: var(--ink);
 
     overflow: hidden;
 
-    color: #222;
+    transition:
+        background .45s var(--ease),
+        transform .45s var(--ease);
+}
+
+.category-card::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 3px;
+
+    background: var(--ink);
+
+    transition: width .45s var(--ease);
 }
 
 .category-card:hover {
-    transform: translateY(-5px);
+    background: var(--white);
+}
 
-    border-color: #cfcfc8;
-
-    box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.07);
+.category-card:hover::before {
+    width: 100%;
 }
 
 .category-card:focus-visible {
-    outline: 2px solid #222;
-    outline-offset: 3px;
+    outline: 2px solid var(--ink);
+    outline-offset: -3px;
 }
 
 .card-number {
-    font-size: 11px;
+    position: relative;
 
-    color: #aaa;
-
-    letter-spacing: 0.12em;
+    font-size: 10px;
+    color: var(--light);
+    letter-spacing: .16em;
 }
 
 .card-content {
@@ -283,89 +320,93 @@ input {
 
     left: 28px;
     right: 28px;
-    bottom: 28px;
+    bottom: 30px;
 }
 
 .card-content h3 {
-    margin: 0 0 6px;
+    margin: 0 0 8px;
 
-    font-size: 28px;
+    font-size: 31px;
+    font-weight: 650;
+    line-height: 1.1;
+    letter-spacing: -.045em;
 
-    letter-spacing: -0.02em;
+    transition: transform .45s var(--ease);
+}
+
+.category-card:hover .card-content h3 {
+    transform: translateX(5px);
 }
 
 .card-content p {
-    margin: 0 0 16px;
+    margin: 0 0 19px;
 
-    font-size: 11px;
-
-    color: #aaa;
-
-    letter-spacing: 0.08em;
-
+    color: var(--light);
+    font-size: 9px;
+    letter-spacing: .18em;
     text-transform: uppercase;
 }
 
 .card-description {
-    font-size: 13px;
+    max-width: 220px;
 
-    color: #888;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
 }
 
 .card-arrow {
     position: absolute;
 
-    top: 25px;
-    right: 28px;
+    top: 27px;
+    right: 27px;
 
-    width: 34px;
-    height: 34px;
+    width: 38px;
+    height: 38px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    border: 1px solid var(--line);
     border-radius: 50%;
 
-    background: #f4f4f1;
+    background: transparent;
+    color: var(--ink);
 
-    font-size: 18px;
+    font-size: 17px;
 
     transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
+        background .35s var(--ease),
+        color .35s var(--ease),
+        transform .35s var(--ease);
 }
 
 .category-card:hover .card-arrow {
-    background: #222;
-
-    color: #fff;
-
-    transform: translateX(3px);
+    background: var(--ink);
+    color: var(--white);
+    transform: translate(3px, -3px);
 }
 
-
-/* =====================================================
-   8. 使用说明
-   ===================================================== */
+/* =========================================================
+   NOTICE
+   ========================================================= */
 
 .notice-section {
-    padding-top: 48px;
-    padding-bottom: 72px;
+    padding-bottom: 100px;
 }
 
 .notice {
     display: flex;
+    align-items: flex-start;
+    gap: 16px;
 
-    gap: 14px;
+    padding: 22px 0;
 
-    padding: 20px 22px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 
-    border: 1px solid #e7e7e2;
-    border-radius: 12px;
-
-    background: #fff;
+    background: transparent;
 }
 
 .notice-icon {
@@ -380,48 +421,41 @@ input {
 
     border-radius: 50%;
 
-    background: #222;
-    color: #fff;
+    background: var(--ink);
+    color: var(--white);
 
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
 }
 
 .notice strong {
     display: block;
 
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 
-    font-size: 13px;
+    font-size: 12px;
+    font-weight: 650;
 }
 
 .notice p {
     margin: 0;
 
-    font-size: 12px;
-
-    color: #888;
-
-    line-height: 1.6;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.7;
 }
 
-
-/* =====================================================
-   9. 类目详情页
-   ===================================================== */
+/* =========================================================
+   CATEGORY PAGE
+   ========================================================= */
 
 .category-view {
-    padding-top: 36px;
-    padding-bottom: 80px;
+    padding-top: 35px;
+    padding-bottom: 100px;
 }
 
-
-/* =====================================================
-   10. 返回按钮
-   ===================================================== */
-
 .back-row {
-    margin-bottom: 42px;
+    margin-bottom: 58px;
 }
 
 .back-button {
@@ -430,109 +464,102 @@ input {
     border: 0;
 
     background: transparent;
+    color: var(--muted);
 
-    color: #777;
+    font-size: 11px;
+    letter-spacing: .04em;
 
-    font-size: 13px;
-
-    transition: color 0.2s ease;
+    transition: color .25s ease;
 }
 
 .back-button:hover {
-    color: #222;
+    color: var(--ink);
 }
 
 .back-button span {
-    margin-right: 7px;
+    margin-right: 9px;
 
-    font-size: 16px;
+    font-size: 15px;
 }
 
-
-/* =====================================================
-   11. 类目标题
-   ===================================================== */
+/* =========================================================
+   CATEGORY HERO
+   ========================================================= */
 
 .category-hero {
     display: flex;
-
-    justify-content: space-between;
     align-items: flex-end;
+    justify-content: space-between;
 
-    padding-bottom: 38px;
+    padding-bottom: 34px;
 
-    border-bottom: 1px solid #e5e5e0;
+    border-bottom: 1px solid var(--ink);
 }
 
 .category-hero h1 {
-    margin: 12px 0 7px;
+    margin: 16px 0 8px;
 
-    font-size: clamp(36px, 5vw, 58px);
-
-    line-height: 1.1;
-
-    letter-spacing: -0.04em;
+    font-size: clamp(43px, 6vw, 72px);
+    font-weight: 700;
+    line-height: .98;
+    letter-spacing: -.06em;
 }
 
 .category-hero-left > p {
     margin: 0;
 
-    color: #888;
-
-    font-size: 13px;
+    color: var(--muted);
+    font-size: 12px;
 }
 
 .category-count {
     display: flex;
     align-items: baseline;
+    gap: 8px;
 
-    gap: 6px;
-
-    padding-bottom: 4px;
+    padding-bottom: 3px;
 }
 
 .category-count span {
-    font-size: 36px;
-
+    font-size: 46px;
     font-weight: 600;
-
     line-height: 1;
+    letter-spacing: -.05em;
 }
 
 .category-count small {
-    color: #999;
-
-    font-size: 12px;
+    color: var(--light);
+    font-size: 10px;
+    letter-spacing: .08em;
 }
 
-
-/* =====================================================
-   12. 搜索区域
-   ===================================================== */
+/* =========================================================
+   SEARCH
+   ========================================================= */
 
 .search-section {
-    padding-top: 30px;
-    padding-bottom: 36px;
+    padding-top: 36px;
+    padding-bottom: 42px;
 }
 
 .search-box {
     position: relative;
 
     width: 100%;
-    height: 58px;
+    height: 62px;
 }
 
 .search-icon {
     position: absolute;
 
-    left: 19px;
+    left: 21px;
     top: 50%;
 
     transform: translateY(-50%);
 
-    color: #999;
+    color: var(--muted);
 
-    font-size: 21px;
+    font-size: 18px;
 
     pointer-events: none;
 }
@@ -541,32 +568,28 @@ input {
     width: 100%;
     height: 100%;
 
-    padding:
-        0 55px 0 48px;
+    padding: 0 60px 0 51px;
 
-    border: 1px solid #dddcd7;
-    border-radius: 12px;
+    border: 1px solid var(--line-dark);
+    border-radius: 0;
 
-    background: #fff;
+    background: var(--paper);
+    color: var(--ink);
 
-    color: #222;
-
-    font-size: 14px;
+    font-size: 13px;
 
     transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+        background .25s ease,
+        border-color .25s ease;
 }
 
 .search-box input::placeholder {
-    color: #aaa;
+    color: #aaa9a3;
 }
 
 .search-box input:focus {
-    border-color: #bbb;
-
-    box-shadow:
-        0 0 0 3px rgba(0, 0, 0, 0.03);
+    background: var(--white);
+    border-color: var(--ink);
 }
 
 .clear-search {
@@ -585,196 +608,200 @@ input {
     border: 0;
     border-radius: 50%;
 
-    background: #f0f0ed;
+    background: var(--soft);
+    color: var(--muted);
 
-    color: #777;
-
-    font-size: 19px;
-
-    line-height: 1;
+    font-size: 17px;
 
     transition:
-        background 0.2s ease,
-        color 0.2s ease;
+        background .25s ease,
+        color .25s ease;
 }
 
 .clear-search:hover {
-    background: #e5e5e1;
-
-    color: #222;
+    background: var(--ink);
+    color: var(--white);
 }
 
-
-/* =====================================================
-   13. 快速搜索
-   ===================================================== */
+/* =========================================================
+   QUICK SEARCH
+   ========================================================= */
 
 .quick-search {
     display: flex;
-
     align-items: center;
-
     flex-wrap: wrap;
-
     gap: 7px;
 
-    margin-top: 13px;
+    margin-top: 15px;
 
-    color: #999;
-
-    font-size: 12px;
+    color: var(--light);
+    font-size: 10px;
 }
 
 .quick-search button {
-    padding: 5px 10px;
+    padding: 6px 12px;
 
-    border: 1px solid #e2e2dd;
-    border-radius: 20px;
+    border: 1px solid var(--line);
+    border-radius: 0;
 
-    background: #fff;
+    background: transparent;
+    color: var(--muted);
 
-    color: #777;
-
-    font-size: 12px;
+    font-size: 10px;
 
     transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        color 0.2s ease;
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease;
 }
 
 .quick-search button:hover {
-    background: #f2f2ef;
-
-    border-color: #d3d3ce;
-
-    color: #222;
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--white);
 }
 
-
-/* =====================================================
-   14. 搜索结果
-   ===================================================== */
+/* =========================================================
+   RESULTS
+   ========================================================= */
 
 .results-section {
-    padding-bottom: 40px;
+    padding-bottom: 50px;
 }
 
 .results-header {
     display: flex;
-
-    align-items: center;
+    align-items: baseline;
     justify-content: space-between;
 
-    margin-bottom: 14px;
+    margin-bottom: 13px;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid var(--line);
 }
 
 .results-label {
-    font-size: 13px;
-
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 650;
+    letter-spacing: .05em;
 }
 
 .result-text {
     margin-left: 10px;
 
-    color: #aaa;
-
-    font-size: 11px;
+    color: var(--light);
+    font-size: 10px;
 }
 
-
-/* =====================================================
-   15. 类目列表
-   ===================================================== */
+/* =========================================================
+   CATEGORY LIST
+   ========================================================= */
 
 .category-list {
     display: flex;
-
     flex-direction: column;
 
-    gap: 8px;
+    gap: 0;
+
+    border-left: 1px solid var(--line);
 }
 
 .category-item {
-    padding: 18px 20px;
+    position: relative;
 
-    border: 1px solid #e5e5e0;
-    border-radius: 10px;
+    padding: 21px 23px;
 
-    background: #fff;
+    border: 0;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    background: var(--paper);
 
     transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease,
-        transform 0.2s ease;
+        background .3s ease,
+        padding-left .3s var(--ease);
+}
+
+.category-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 2px;
+
+    background: var(--ink);
+
+    transform: scaleY(0);
+    transform-origin: center;
+
+    transition: transform .3s var(--ease);
 }
 
 .category-item:hover {
-    border-color: #d2d2cc;
+    padding-left: 29px;
+    background: var(--white);
+}
 
-    box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.04);
-
-    transform: translateY(-1px);
+.category-item:hover::before {
+    transform: scaleY(1);
 }
 
 .category-name {
     margin-bottom: 7px;
 
-    font-size: 14px;
+    color: var(--ink);
 
-    font-weight: 600;
-
-    color: #333;
+    font-size: 13px;
+    font-weight: 650;
 }
 
 .category-path {
     display: flex;
-
     align-items: center;
-
     flex-wrap: wrap;
-
     gap: 5px;
 
-    color: #999;
+    color: var(--light);
 
-    font-size: 11px;
-
+    font-size: 10px;
     line-height: 1.7;
 }
 
 .path-arrow {
-    color: #ccc;
-
-    font-size: 13px;
+    color: #c8c7c0;
+    font-size: 12px;
 }
 
 .highlight {
     padding: 1px 3px;
 
-    border-radius: 3px;
+    border-radius: 1px;
 
-    background: #fff0b3;
-
-    color: #222;
+    background: #e6e2d6;
+    color: var(--ink);
 }
 
-
-/* =====================================================
-   16. 无结果
-   ===================================================== */
+/* =========================================================
+   EMPTY
+   ========================================================= */
 
 .empty-state {
-    padding: 80px 20px;
+    padding: 100px 20px;
 
     text-align: center;
+
+    border-top: 1px solid var(--line);
 }
 
 .empty-icon {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
 
     margin: 0 auto 18px;
 
@@ -782,97 +809,114 @@ input {
     align-items: center;
     justify-content: center;
 
+    border: 1px solid var(--line);
     border-radius: 50%;
 
-    background: #eee;
+    background: transparent;
+    color: var(--light);
 
-    color: #999;
-
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .empty-state h3 {
     margin: 0 0 8px;
 
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 650;
 }
 
 .empty-state p {
     margin: 0 0 20px;
 
-    color: #999;
-
-    font-size: 12px;
+    color: var(--light);
+    font-size: 11px;
 }
 
 .empty-state button {
-    padding: 8px 16px;
+    padding: 8px 17px;
 
-    border: 1px solid #ddd;
+    border: 1px solid var(--line-dark);
+    border-radius: 0;
 
-    border-radius: 20px;
-
-    background: #fff;
-
-    color: #555;
-
-    font-size: 12px;
-
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.empty-state button:hover {
-    background: #f5f5f2;
-
-    border-color: #ccc;
-}
-
-
-/* =====================================================
-   17. Footer
-   ===================================================== */
-
-.footer {
-    width: min(1180px, calc(100% - 48px));
-
-    margin: auto;
-
-    padding: 28px 0 35px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    border-top: 1px solid #e6e6e1;
-
-    color: #aaa;
+    background: transparent;
+    color: var(--muted);
 
     font-size: 10px;
 
-    letter-spacing: 0.04em;
+    transition:
+        background .25s ease,
+        color .25s ease;
 }
 
+.empty-state button:hover {
+    background: var(--ink);
+    color: var(--white);
+}
 
-/* =====================================================
-   18. Tablet
-   ===================================================== */
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    width: min(1240px, calc(100% - 64px));
+
+    margin: auto;
+
+    padding: 28px 0 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid var(--line);
+
+    color: var(--light);
+
+    font-size: 9px;
+    letter-spacing: .08em;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 900px) {
 
-    .category-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .hero,
+    .category-section,
+    .notice-section,
+    .category-view,
+    .footer {
+        width: calc(100% - 48px);
     }
 
+    .header-inner {
+        width: calc(100% - 48px);
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card {
+        min-height: 260px;
+    }
+
+    .hero {
+        padding-top: 90px;
+        padding-bottom: 80px;
+    }
+
+    .hero h1 {
+        font-size: clamp(50px, 10vw, 76px);
+    }
 }
 
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
-/* =====================================================
-   19. Mobile
-   ===================================================== */
-
-@media (max-width: 760px) {
+@media (max-width: 600px) {
 
     .header {
         height: 68px;
@@ -886,137 +930,152 @@ input {
         display: none;
     }
 
-
     .hero,
     .category-section,
     .notice-section,
-    .category-view {
+    .category-view,
+    .footer {
         width: calc(100% - 32px);
     }
 
-
     .hero {
-        padding-top: 58px;
-        padding-bottom: 55px;
+        padding-top: 68px;
+        padding-bottom: 70px;
+    }
+
+    .hero::before {
+        top: 27px;
     }
 
     .hero h1 {
-        font-size: 43px;
+        margin-top: 22px;
+
+        font-size: 48px;
+        line-height: 1;
     }
 
     .hero p {
-        font-size: 14px;
+        font-size: 13px;
+        line-height: 1.85;
     }
-
 
     .section-header {
         display: block;
+    }
+
+    .section-header h2 {
+        font-size: 26px;
     }
 
     .section-header > p {
         margin-top: 12px;
     }
 
-
     .category-grid {
         grid-template-columns: 1fr;
-
-        gap: 12px;
     }
 
     .category-card {
-        min-height: 210px;
+        min-height: 240px;
     }
 
-
-    .category-view {
-        padding-top: 25px;
-    }
-
-
-    .category-hero {
-        align-items: flex-start;
-    }
-
-    .category-count {
-        padding-top: 8px;
-    }
-
-    .category-count span {
+    .card-content h3 {
         font-size: 28px;
     }
 
+    .category-view {
+        padding-top: 25px;
+        padding-bottom: 70px;
+    }
+
+    .back-row {
+        margin-bottom: 42px;
+    }
+
+    .category-hero {
+        display: block;
+    }
+
+    .category-hero h1 {
+        font-size: 45px;
+    }
+
+    .category-count {
+        margin-top: 25px;
+        padding-bottom: 0;
+    }
+
+    .category-count span {
+        font-size: 35px;
+    }
+
+    .search-section {
+        padding-top: 27px;
+        padding-bottom: 32px;
+    }
 
     .search-box {
-        height: 54px;
+        height: 55px;
     }
-
-    .search-box input {
-        font-size: 13px;
-    }
-
 
     .quick-search {
-        align-items: flex-start;
+        gap: 6px;
     }
 
+    .quick-search button {
+        padding: 6px 10px;
+    }
+
+    .category-item {
+        padding: 18px;
+    }
+
+    .category-item:hover {
+        padding-left: 22px;
+    }
 
     .footer {
-        width: calc(100% - 32px);
-
         display: block;
-
         line-height: 1.8;
     }
 
     .footer div:last-child {
-        margin-top: 4px;
+        margin-top: 5px;
     }
-
 }
 
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
 
-/* =====================================================
-   20. Very Small Mobile
-   ===================================================== */
-
-@media (max-width: 420px) {
-
-    .brand-title {
-        font-size: 17px;
-    }
+@media (max-width: 390px) {
 
     .hero h1 {
-        font-size: 36px;
+        font-size: 42px;
     }
 
     .category-card {
-        min-height: 195px;
-
-        padding: 22px;
+        min-height: 220px;
+        padding: 23px;
     }
 
     .card-content {
-        left: 22px;
-        right: 22px;
-        bottom: 22px;
+        left: 23px;
+        right: 23px;
+        bottom: 24px;
     }
 
     .card-content h3 {
-        font-size: 24px;
+        font-size: 25px;
     }
 
     .card-arrow {
-        top: 20px;
-        right: 20px;
+        top: 21px;
+        right: 21px;
     }
 
     .category-hero h1 {
-        font-size: 36px;
+        font-size: 40px;
     }
-
-    .category-path {
-        line-height: 1.9;
-    }
-
 }
+```
