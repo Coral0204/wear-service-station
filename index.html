@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="服装开发参考站：按类目快速获取版型参考、新品方向与趋势汇总。"
+    />
+    <title>服装开发参考站</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#category">跳到类目搜索</a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="服装开发参考站首页">
+        <span class="brand-mark">F</span>
+        <span>服装开发参考站</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+        <span class="sr-only">打开菜单</span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="主要导航">
+        <a class="is-active" href="#category">类目对接</a>
+        <a href="references.html">版型参考</a>
+        <a href="#new-direction">新品方向</a>
+        <a href="trends.html">趋势汇总</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">MEN’S & MATERNITY · DEVELOPMENT DESK</p>
+          <h1 id="hero-title">先找类目，<em>再做开发。</em></h1>
+          <p class="hero-text">
+            为男装、孕妇装商家快速匹配版型、图案与面料方向。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#category">查找对接类目 <span>↓</span></a>
+            <a class="text-link" href="references.html">进入版型参考页 <span>→</span></a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-label visual-label-top">DEVELOPMENT<br />REFERENCE</div>
+          <div class="garment garment-shirt">
+            <i></i><b></b><span></span>
+          </div>
+          <div class="garment garment-vest"><i></i><b></b><span></span></div>
+          <div class="garment garment-pants"><i></i><b></b><span></span></div>
+          <div class="swatch-stack"><span></span><span></span><span></span></div>
+          <div class="visual-label visual-label-bottom">CURATED<br />FOR YOU</div>
+        </div>
+      </section>
+
+      <section class="category-section section" id="category" aria-labelledby="category-title">
+        <div class="section-heading heading-split">
+          <div>
+            <p class="eyebrow">01 · CATEGORY MATCH</p>
+            <h2 id="category-title">对接类目</h2>
+          </div>
+          <p>按商品名称或路径关键词快速查找对应类目。</p>
+        </div>
+
+        <div class="search-shell">
+          <label class="search-box" for="category-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"></circle><path d="m16 16 4.2 4.2"></path></svg>
+            <input id="category-search" type="search" autocomplete="off" placeholder="搜索商品名称或类目路径：衬衫、背心、套装、牛仔、孕妇装、运动…" />
+            <button id="clear-search" type="button" aria-label="清除搜索">×</button>
+          </label>
+          <p class="search-hint" id="search-status" aria-live="polite">共 30 个对接类目</p>
+        </div>
+
+        <div class="category-table-wrap">
+          <table class="category-table">
+            <thead>
+              <tr><th scope="col">商品品类</th><th scope="col">类目路径</th></tr>
+            </thead>
+            <tbody id="category-list"></tbody>
+          </table>
+          <div class="empty-state" id="empty-state" hidden>
+            <p>没有找到相符类目</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="new-direction-section section" id="new-direction" aria-labelledby="new-direction-title">
+        <div class="section-heading heading-split">
+          <div>
+            <p class="eyebrow">02 · NEW PRODUCT DIRECTION</p>
+            <h2 id="new-direction-title">新品方向</h2>
+          </div>
+          <p>后续资料可按卡片补充，集中查看图片、类目路径和开发重点。</p>
+        </div>
+
+        <article class="material-placeholder-card" aria-label="新品资料卡片预留位">
+          <div class="material-card-heading">
+            <div>
+              <span class="material-status">等待资料</span>
+              <h3>待补充新品资料</h3>
+              <p>上传后将在这里展示一组完整的新品参考。</p>
+            </div>
+            <span class="material-priority">新品方向</span>
+          </div>
+
+          <div class="material-image-grid" aria-label="新品图片预留位">
+            <div class="material-image-slot">主图</div>
+            <div class="material-image-slot">背面</div>
+            <div class="material-image-slot">细节 01</div>
+            <div class="material-image-slot">细节 02</div>
+          </div>
+
+          <div class="material-card-footer">
+            <p class="material-path"><span>完整品类路径</span>上传资料后显示</p>
+            <div class="material-tags" aria-label="资料标签预留位"><span>版型</span><span>图案</span><span>面料</span></div>
+            <p class="material-note"><strong>开发提示</strong> 可在资料补充时记录主推卖点、开发重点或风险说明。</p>
+          </div>
+        </article>
+      </section>
+
+    </main>
+
+    <footer>
+      <a class="brand" href="#top"><span class="brand-mark">F</span><span>服装开发参考站</span></a>
+      <p>为商家提供可执行的开发参考。</p>
+      <a class="text-link" href="#category">返回类目对接 <span>↑</span></a>
+    </footer>
+
+    <template id="category-template">
+      <tr class="category-row"><td class="category-name"></td><td class="category-path"></td></tr>
+    </template>
+    <script src="app.js"></script>
+  </body>
+</html>
