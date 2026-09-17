@@ -1,12 +1,11 @@
-```css
 /* =========================================================
    服装开发参考站
    EDITORIAL / FASHION DEVELOPMENT STYLE
    ========================================================= */
 
 :root {
-    --bg: #f3f2ee;
-    --surface: #f9f8f5;
+    --bg: #f5f5f3;
+    --surface: #ffffff;
     --white: #ffffff;
     --black: #171716;
     --text: #292927;
@@ -15,7 +14,8 @@
     --line: #dcdad3;
     --line-dark: #bbb9b1;
     --soft: #e8e6df;
-    --accent: #d8d2c4;
+    --accent: #ff6a00;
+    --accent-dark: #df5600;
 
     --max-width: 1240px;
     --side: 64px;
@@ -97,8 +97,8 @@ input {
 
     height: 78px;
 
-    background: rgba(243, 242, 238, .9);
-    border-bottom: 1px solid var(--line);
+    background: #181818;
+    border-bottom: 3px solid var(--accent);
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -116,8 +116,23 @@ input {
 }
 
 .brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
     cursor: pointer;
     user-select: none;
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 37px;
+    height: 37px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .04em;
 }
 
 .brand-title {
@@ -125,12 +140,13 @@ input {
     font-weight: 700;
     letter-spacing: .02em;
     line-height: 1;
+    color: #fff;
 }
 
 .brand-subtitle {
     margin-top: 7px;
 
-    color: var(--light);
+    color: #999;
 
     font-size: 8px;
     letter-spacing: .28em;
@@ -140,7 +156,7 @@ input {
 }
 
 .header-right {
-    color: var(--light);
+    color: #aaa;
 
     font-size: 10px;
     letter-spacing: .16em;
@@ -169,18 +185,19 @@ input {
 .hero {
     position: relative;
 
-    padding-top: 120px;
-    padding-bottom: 115px;
+    padding-top: 132px;
+    padding-bottom: 104px;
+    border-bottom: 1px solid var(--line);
 }
 
 .hero::after {
-    content: "PRODUCT DEVELOPMENT REFERENCE";
+    content: "CATEGORY SERVICE STATION";
 
     position: absolute;
     right: 0;
     bottom: 35px;
 
-    color: var(--light);
+    color: var(--accent);
 
     font-size: 8px;
     letter-spacing: .25em;
@@ -198,7 +215,7 @@ input {
     align-items: center;
     gap: 12px;
 
-    color: var(--gray);
+    color: var(--accent-dark);
 
     font-size: 10px;
     font-weight: 700;
@@ -214,7 +231,7 @@ input {
     width: 32px;
     height: 1px;
 
-    background: var(--black);
+    background: var(--accent);
 }
 
 .hero h1 {
@@ -246,7 +263,8 @@ input {
    ========================================================= */
 
 .category-section {
-    padding-bottom: 110px;
+    padding-top: 76px;
+    padding-bottom: 76px;
 }
 
 .section-header {
@@ -257,7 +275,7 @@ input {
     margin-bottom: 0;
     padding-bottom: 21px;
 
-    border-bottom: 1px solid var(--black);
+    border-bottom: 2px solid var(--black);
 }
 
 .section-header h2 {
@@ -328,13 +346,13 @@ input {
     width: 0;
     height: 3px;
 
-    background: var(--black);
+    background: var(--accent);
 
     transition: width .5s var(--ease);
 }
 
 .category-card:hover {
-    background: var(--white);
+    background: #fff8f3;
 }
 
 .category-card:hover::after {
@@ -347,7 +365,8 @@ input {
 }
 
 .card-number {
-    color: var(--light);
+    color: var(--accent);
+    font-weight: 800;
 
     font-size: 10px;
     letter-spacing: .18em;
@@ -364,7 +383,7 @@ input {
 .card-content h3 {
     margin: 0 0 8px;
 
-    color: var(--black);
+    color: var(--accent);
 
     font-size: 32px;
     font-weight: 650;
@@ -416,7 +435,7 @@ input {
     border-radius: 50%;
 
     background: transparent;
-    color: var(--black);
+    color: var(--accent);
 
     font-size: 17px;
 
@@ -427,7 +446,7 @@ input {
 }
 
 .category-card:hover .card-arrow {
-    background: var(--black);
+    background: var(--accent);
     color: var(--white);
 
     transform: translate(3px, -3px);
@@ -438,39 +457,27 @@ input {
    ========================================================= */
 
 .notice-section {
-    padding-bottom: 100px;
+    padding-bottom: 90px;
 }
 
 .notice {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
+    gap: 20px;
 
-    padding: 22px 0;
+    padding: 25px 27px;
 
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-
-    background: transparent;
-}
-
-.notice-icon {
-    flex: 0 0 auto;
-
-    width: 22px;
-    height: 22px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
+    border: 1px solid var(--black);
 
     background: var(--black);
-    color: var(--white);
+}
 
+.notice-index {
+    flex: 0 0 140px;
+    color: var(--accent);
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 800;
+    letter-spacing: .16em;
 }
 
 .notice strong {
@@ -478,7 +485,7 @@ input {
 
     margin-bottom: 6px;
 
-    color: var(--black);
+    color: var(--white);
 
     font-size: 12px;
     font-weight: 650;
@@ -487,7 +494,7 @@ input {
 .notice p {
     margin: 0;
 
-    color: var(--gray);
+    color: #b5b5b5;
 
     font-size: 11px;
     line-height: 1.7;
