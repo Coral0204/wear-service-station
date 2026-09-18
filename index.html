@@ -97,10 +97,33 @@
             <p class="eyebrow">02 · NEW PRODUCT DIRECTION</p>
             <h2 id="new-direction-title">新品方向</h2>
           </div>
-          <p>后续资料可按卡片补充，集中查看图片、类目路径和开发重点。</p>
+          <div class="new-direction-actions">
+            <p>录入后可集中查看图片、类目路径和开发重点。</p>
+            <button class="text-link new-direction-open" id="new-direction-open" type="button">录入新品资料 <span>→</span></button>
+          </div>
         </div>
 
-        <article class="material-placeholder-card" aria-label="新品资料卡片预留位">
+        <section class="new-direction-entry" id="new-direction-entry" aria-labelledby="new-direction-entry-title" hidden>
+          <div class="new-direction-entry-top">
+            <div>
+              <p class="eyebrow">LOCAL ENTRY</p>
+              <h3 id="new-direction-entry-title">录入新品资料</h3>
+            </div>
+            <button class="entry-cancel" id="new-direction-cancel" type="button">收起</button>
+          </div>
+          <form class="new-direction-form" id="new-direction-form">
+            <label class="entry-field entry-field-wide"><span>款号 / 标题 <b>*</b></span><input id="new-direction-title-input" name="title" type="text" maxlength="80" required placeholder="例如：大码男士时尚卫衣" /></label>
+            <label class="entry-field entry-field-wide"><span>完整品类路径</span><textarea id="new-direction-path-input" name="path" rows="2" maxlength="260" placeholder="例如：服装、鞋靴和珠宝饰品 > 男士时尚 > 大码男装 > …"></textarea></label>
+            <label class="entry-field"><span>标签</span><input id="new-direction-tags-input" name="tags" type="text" maxlength="120" placeholder="版型、图案、面料、季节" /></label>
+            <label class="entry-field"><span>开发提示</span><input id="new-direction-note-input" name="note" type="text" maxlength="180" placeholder="主推卖点、开发重点或风险说明" /></label>
+            <label class="entry-field entry-field-wide entry-upload"><span>图片（最多 4 张）</span><input id="new-direction-images-input" name="images" type="file" accept="image/*" multiple /><small id="new-direction-image-help">图片会压缩后保存在当前浏览器。</small></label>
+            <div class="entry-submit-row"><p>仅保存在当前浏览器，不会同步给其他访问者。</p><button class="button button-primary" type="submit">保存新品资料 <span>↓</span></button></div>
+          </form>
+        </section>
+
+        <section class="new-direction-records" id="new-direction-records" aria-live="polite" hidden></section>
+
+        <article class="material-placeholder-card" id="new-direction-placeholder" aria-label="新品资料卡片预留位">
           <div class="material-card-heading">
             <div>
               <span class="material-status">等待资料</span>
@@ -137,5 +160,6 @@
       <tr class="category-row"><td class="category-name"></td><td class="category-path"></td></tr>
     </template>
     <script src="app.js"></script>
+    <script src="new-direction.js"></script>
   </body>
 </html>
