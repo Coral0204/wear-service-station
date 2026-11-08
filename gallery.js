@@ -1,5 +1,5 @@
 const params=new URLSearchParams(location.search),f=festivals.find(x=>x.id===params.get('festival'))||festivals[0],type=['elements','products'].includes(params.get('type'))?params.get('type'):'backgrounds';
-const host=document.querySelector('#gallery');host.className=type;document.querySelector('#back').href='index.html#'+f.id;const pageLabel=f.name+' · '+(type==='elements'?'元素图片':type==='products'?'商品图示意':'背景图片');document.querySelector('#page-name').textContent=pageLabel;document.title=pageLabel;
+const host=document.querySelector('#gallery');host.className=type;document.querySelector('#back').href='festivals.html#'+f.id;const pageLabel=f.name+' · '+(type==='elements'?'元素图片':type==='products'?'商品图示意':'背景图片');document.querySelector('#page-name').textContent=pageLabel;document.title=pageLabel;
 const blank=()=>({image:'',country:'',scene:'',category:'',alt:'预留图片'});
 const defaultInitial=type==='products'?(f.productExamples?.map(e=>({...e}))||[{image:''+f.hero,country:'',scene:'',alt:f.name+'商品图示意'}]):type==='elements'?f.elements.map((e,i)=>({image:''+e[2],country:f.elementCountries[i]||'',scene:'',category:e[0],alt:e[0]})):f.scenes.map((s,i)=>({image:`scene-${f.sceneRow*3+i+1}.jpg`,country:f.backgroundCountries[i]||'',scene:s,alt:s}));
 
